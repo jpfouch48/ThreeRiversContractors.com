@@ -15,7 +15,7 @@ define( 'PRIMER_CHILD_VERSION', '1.1.4' );
  * @action template_redirect
  * @since  1.0.0
  */
-function stout_move_elements() {
+function trc_move_elements() {
 
 	remove_action( 'primer_header',                'primer_add_hero',               7 );
 	remove_action( 'primer_after_header',          'primer_add_primary_navigation', 11 );
@@ -33,7 +33,7 @@ function stout_move_elements() {
 	}
 
 }
-add_action( 'template_redirect', 'stout_move_elements' );
+add_action( 'template_redirect', 'trc_move_elements' );
 
 /**
  * Set hero image target element.
@@ -43,12 +43,12 @@ add_action( 'template_redirect', 'stout_move_elements' );
  *
  * @return string
  */
-function stout_hero_image_selector() {
+function trc_hero_image_selector() {
 
 	return '.hero';
 
 }
-add_filter( 'primer_hero_image_selector', 'stout_hero_image_selector' );
+add_filter( 'primer_hero_image_selector', 'trc_hero_image_selector' );
 
 /**
  * Set custom logo args.
@@ -60,18 +60,14 @@ add_filter( 'primer_hero_image_selector', 'stout_hero_image_selector' );
  *
  * @return array
  */
-function stout_custom_logo_args( $args ) {
-/* JPF - EDIT
-	$args['width']  = 248;
-	$args['height'] = 100;
-*/
+function trc_custom_logo_args( $args ) {
 	$args['width']  = 1727;
 	$args['height'] = 977;
 	
 	return $args;
 
 }
-add_filter( 'primer_custom_logo_args', 'stout_custom_logo_args' );
+add_filter( 'primer_custom_logo_args', 'trc_custom_logo_args' );
 
 /**
  * Set fonts.
@@ -83,7 +79,7 @@ add_filter( 'primer_custom_logo_args', 'stout_custom_logo_args' );
  *
  * @return array
  */
-function stout_fonts( $fonts ) {
+function trc_fonts( $fonts ) {
 
 	$fonts[] = 'Lato';
 	$fonts[] = 'Oswald';
@@ -91,7 +87,7 @@ function stout_fonts( $fonts ) {
 	return $fonts;
 
 }
-add_filter( 'primer_fonts', 'stout_fonts' );
+add_filter( 'primer_fonts', 'trc_fonts' );
 
 /**
  * Set font types.
@@ -103,7 +99,7 @@ add_filter( 'primer_fonts', 'stout_fonts' );
  *
  * @return array
  */
-function stout_font_types( $font_types ) {
+function trc_font_types( $font_types ) {
 
 	$overrides = array(
 		'site_title_font' => array(
@@ -126,7 +122,7 @@ function stout_font_types( $font_types ) {
 	return primer_array_replace_recursive( $font_types, $overrides );
 
 }
-add_filter( 'primer_font_types', 'stout_font_types' );
+add_filter( 'primer_font_types', 'trc_font_types' );
 
 /**
  * Set colors.
@@ -138,7 +134,7 @@ add_filter( 'primer_font_types', 'stout_font_types' );
  *
  * @return array
  */
-function stout_colors( $colors ) {
+function trc_colors( $colors ) {
 
 	unset(
 		$colors['content_background_color'],
@@ -238,7 +234,7 @@ function stout_colors( $colors ) {
 	return primer_array_replace_recursive( $colors, $overrides );
 
 }
-add_filter( 'primer_colors', 'stout_colors' );
+add_filter( 'primer_colors', 'trc_colors' );
 
 /**
  * Set color schemes.
@@ -250,7 +246,7 @@ add_filter( 'primer_colors', 'stout_colors' );
  *
  * @return array
  */
-function stout_color_schemes( $color_schemes ) {
+function trc_color_schemes( $color_schemes ) {
 
 	unset( $color_schemes['canary'] );
 
@@ -451,19 +447,19 @@ function stout_color_schemes( $color_schemes ) {
 	return primer_array_replace_recursive( $color_schemes, $overrides );
 
 }
-add_filter( 'primer_color_schemes', 'stout_color_schemes' );
+add_filter( 'primer_color_schemes', 'trc_color_schemes' );
 
 /**
- * Enqueue stout hero scripts.
+ * Enqueue TRC hero scripts.
  *
  * @link  https://codex.wordpress.org/Function_Reference/wp_enqueue_script
  * @since 1.1.0
  */
-function stout_hero_scripts() {
+function trc_hero_scripts() {
 
 	$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-	wp_enqueue_script( 'stout-hero', get_stylesheet_directory_uri() . "/assets/js/stout-hero{$suffix}.js", array( 'jquery' ), PRIMER_VERSION, true );
+	wp_enqueue_script( 'trc-hero', get_stylesheet_directory_uri() . "/assets/js/trc-hero{$suffix}.js", array( 'jquery' ), PRIMER_VERSION, true );
 
 }
-add_action( 'wp_enqueue_scripts', 'stout_hero_scripts' );
+add_action( 'wp_enqueue_scripts', 'trc_hero_scripts' );
