@@ -1524,7 +1524,7 @@ blockquote {
   left: 0;
   right: 0; }
   body.admin-bar .site-header {
-    top: 32px; }
+    top: 00px; }
     @media only screen and (max-width: 782px) {
       body.admin-bar .site-header {
         top: 46px; } }
@@ -1533,6 +1533,7 @@ blockquote {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 210px;
   font-size: 1.125em;
   position: relative;
   z-index: 10; }
@@ -1553,15 +1554,14 @@ blockquote {
     margin-right: 1.38889%; } }
 
 .custom-logo {
+  position: absolute;
+  top: -175px;
   margin: 0;
   height: 300px;
   width: auto;
   max-width: none;
-  padding: 20px 0 20px 15px;
+  padding: 0;
   display: block; }
-  @media only screen and (min-width: 61.063em) {
-    .custom-logo {
-      padding: 10px 0 10px 15px; } }
 
 .site-title {
   font-size: 1.333em;
@@ -1599,7 +1599,7 @@ blockquote {
     margin-left: auto;
     margin-right: auto;
     margin: 0 auto;
-    padding: 121px 2em; }
+    padding: 21px 2em; }
     .hero .hero-inner:after {
       content: " ";
       display: block;
@@ -1607,8 +1607,7 @@ blockquote {
     @media screen and (max-width: 900px) {
       .hero .hero-inner {
         max-width: none; } }
-  .hero .page-title {
-    margin-bottom: 0; }
+  .hero .page-title { display: none; }
   .hero .widget {
     margin-bottom: 1em;
     padding-right: 30%;
