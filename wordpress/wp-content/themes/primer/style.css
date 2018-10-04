@@ -1666,12 +1666,24 @@ body.no-max-width .site-header-wrapper {
   margin-right: 1.38889%;
   position: relative;
   z-index: 10;
-  padding: 6% 1rem; }
+  /*padding: 6% 1rem;*/ }
   @media only screen and (max-width: 40.063em) {
     .site-title-wrapper {
       max-width: 87.22222%;
       padding-left: 0.75rem;
       padding-right: 0.75rem; } }
+
+.custom-logo {
+/*  position: absolute; */
+/*  top: -175px; */
+/*  margin: 0; */
+  height: 300px;
+  width: auto;
+/*  max-width: none; */
+/*  padding: 0; */
+/*  display: block;*/
+}
+      
 
 .site-title {
   margin-bottom: 0.25rem;
@@ -1689,6 +1701,8 @@ body.no-max-width .site-header-wrapper {
 .header-image img {
   display: block; }
 
+.page-title-container { display: none; }
+  /*
 .page-title-container {
   background-color: #ffffff; }
   .page-title-container .page-header {
@@ -1710,6 +1724,7 @@ body.no-max-width .site-header-wrapper {
       padding: 3% 1rem;
       margin-bottom: 0;
       font-weight: 300; }
+*/
 
 body.no-max-width .page-title-container .page-header {
   max-width: none; }

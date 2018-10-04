@@ -1536,7 +1536,8 @@ blockquote {
   margin-top: 210px;
   font-size: 1.125em;
   position: relative;
-  z-index: 10; }
+  z-index: 10; 
+  opacity: .75;}
   .site-header-wrapper:after {
     content: " ";
     display: block;
@@ -1561,7 +1562,8 @@ blockquote {
   width: auto;
   max-width: none;
   padding: 0;
-  display: block; }
+  display: block; 
+  opacity: 100;}
 
 .site-title {
   font-size: 1.333em;
