@@ -5,7 +5,7 @@
  */
 ( function( $ ) {
 
-	var PrimerFonts = function( element, options ) {
+	var TRCFonts = function( element, options ) {
 
 		this.element          = element;
 		this.customSelectLink = null;
@@ -17,46 +17,46 @@
 
 	};
 
-	PrimerFonts.prototype = {
+	TRCFonts.prototype = {
 
 		/**
 		 * Render the dropdown.
 		 */
 		createDropdown: function() {
 
-			var primerFilterOptionsHTML  = '',
+			var trcFilterOptionsHTML  = '',
 			    self                     = this,
 			    $selectedOption          = this.element.find( ':selected' ),
 			    $dropdownSelectedOption;
 
-			this.element.hide().addClass( 'primer-font-select' );
+			this.element.hide().addClass( 'trc-font-select' );
 
 			this.element.find( 'option' ).each( function() {
 
-				var selected = $( this ).is( ':selected' ) ? ' class="primer-font-active"' : '';
+				var selected = $( this ).is( ':selected' ) ? ' class="trc-font-active"' : '';
 
-				primerFilterOptionsHTML += '<li class="' + self.fontNameToClass( $( this ).text() ) + '" data-value="' + $( this ).attr( 'value' ) + '"' + selected +'>' + $( this ).text() + '</li>';
+				trcFilterOptionsHTML += '<li class="' + self.fontNameToClass( $( this ).text() ) + '" data-value="' + $( this ).attr( 'value' ) + '"' + selected +'>' + $( this ).text() + '</li>';
 
 			} );
 
-			this.element.after( '<a href="#" class="primer-font-select">' + '<span class="primer-filter-text"></span>' + '</a>' + '<ul class="primer-font-options">' + primerFilterOptionsHTML + '</ul>' );
+			this.element.after( '<a href="#" class="trc-font-select">' + '<span class="trc-filter-text"></span>' + '</a>' + '<ul class="trc-font-options">' + trcFilterOptionsHTML + '</ul>' );
 
-			this.customSelectLink = this.element.next( '.primer-font-select' );
+			this.customSelectLink = this.element.next( '.trc-font-select' );
 
-			this.customDropdown = this.customSelectLink.next( '.primer-font-options' );
+			this.customDropdown = this.customSelectLink.next( '.trc-font-options' );
 
 			// Populate the fields with correct values on load.
 			if ( $selectedOption.length ) {
 
 				var selectedValue = $selectedOption.text().replace( / *\([^)]*\) */g, '' );
 
-				this.customSelectLink.find( '.primer-filter-text' ).text( selectedValue );
+				this.customSelectLink.find( '.trc-filter-text' ).text( selectedValue );
 
 				$dropdownSelectedOption = this.customDropdown.find( 'li[data-value="' + selectedValue + '"]' );
 
-				this.customSelectLink.find( '.primer-filter-text' ).addClass( $dropdownSelectedOption.attr( 'class' ) ).data( 'gf-class', $dropdownSelectedOption.attr( 'class' ) );
+				this.customSelectLink.find( '.trc-filter-text' ).addClass( $dropdownSelectedOption.attr( 'class' ) ).data( 'gf-class', $dropdownSelectedOption.attr( 'class' ) );
 
-				$dropdownSelectedOption.addClass( 'primer-font-active' );
+				$dropdownSelectedOption.addClass( 'trc-font-active' );
 
 			}
 
@@ -73,13 +73,13 @@
 		 */
 		openDropdown: function( event ) {
 
-			if ( this.customDropdown.hasClass( 'primer-font-open' ) ) {
+			if ( this.customDropdown.hasClass( 'trc-font-open' ) ) {
 
 				return;
 
 			}
 
-			this.customDropdown.show().addClass( 'primer-font-open' );
+			this.customDropdown.show().addClass( 'trc-font-open' );
 
 			$( event.target ).hide();
 
@@ -93,15 +93,15 @@
 		selectFont: function( event ) {
 
 			var optionText    = $( event.target ).text().replace( / *\([^)]*\) */g, '' ),
-			    $mainText     = this.customSelectLink.find( '.primer-filter-text' ),
+			    $mainText     = this.customSelectLink.find( '.trc-filter-text' ),
 			    $activeSelect = this.element.find( 'option[value="' + optionText + '"]' ),
 			    mainTextClass = $mainText.data( 'gf-class' );
 
-			$( event.target ).siblings().removeClass( 'primer-font-active' );
+			$( event.target ).siblings().removeClass( 'trc-font-active' );
 
 			$mainText.removeClass( mainTextClass ).addClass( $( event.target ).attr( 'class' ) ).data( 'gf-class', $( event.target ).attr( 'class' ) );
 
-			$( event.target ).addClass( 'primer-font-active' );
+			$( event.target ).addClass( 'trc-font-active' );
 
 			this.closeDropdown();
 
@@ -122,9 +122,9 @@
 		 */
 		closeDropdown: function() {
 
-			this.customSelectLink.find( '.primer-filter-text' ).show();
+			this.customSelectLink.find( '.trc-filter-text' ).show();
 
-			this.customDropdown.hide().removeClass( 'primer-font-open' );
+			this.customDropdown.hide().removeClass( 'trc-font-open' );
 
 		},
 
@@ -133,13 +133,13 @@
 		 *
 		 * @param  string text The text to convert.
 		 *
-		 * @return string      Font name slugified and prefixed with 'primer-font-'
+		 * @return string      Font name slugified and prefixed with 'trc-font-'
 		 */
 		fontNameToClass: function( text ) {
 
 			text = text.replace( / *\([^)]*\) */g, '' );
 
-			return 'primer-font-' + text.replace( / /g,'-' ).toLowerCase();
+			return 'trc-font-' + text.replace( / /g,'-' ).toLowerCase();
 
 		}
 
@@ -152,9 +152,9 @@
 	 *
 	 * @return object
 	 */
-	$.fn.primerFonts = function( options ) {
+	$.fn.trcFonts = function( options ) {
 
-		new PrimerFonts( this, options );
+		new TRCFonts( this, options );
 
 		return this;
 
@@ -172,7 +172,7 @@
 
 		for ( var i = 0, l = customFontSections.length; i < l; i++ ) {
 
-			$( 'select[data-customize-setting-link="' + customFontSections[i] + '"]' ).primerFonts( {} );
+			$( 'select[data-customize-setting-link="' + customFontSections[i] + '"]' ).trcFonts( {} );
 
 		}
 

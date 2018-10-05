@@ -1,8 +1,8 @@
 # Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Primer 1.8.0\n"
-"Report-Msgid-Bugs-To: https://github.com/godaddy/wp-primer-theme/issues\n"
+"Project-Id-Version: TRC 1.8.0\n"
+"Report-Msgid-Bugs-To: https://github.com/godaddy/wp-trc-theme/issues\n"
 "POT-Creation-Date: 2017-09-19 16:40:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -169,7 +169,7 @@ msgid ""
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "Primer"
+msgid "TRC"
 msgstr ""
 
 #: inc/compat/deprecated.php:190
@@ -204,10 +204,10 @@ msgid "New In Store"
 msgstr ""
 
 #: inc/compat/wordpress.php:56
-#. translators: 1. Primer minimum WordPress version. 2. Current WordPress
+#. translators: 1. TRC minimum WordPress version. 2. Current WordPress
 #. version.
 msgid ""
-"Primer requires at least WordPress version %1$s. You are running version "
+"TRC requires at least WordPress version %1$s. You are running version "
 "%2$s. Please upgrade and try again."
 msgstr ""
 
@@ -676,12 +676,12 @@ msgid "%s navigation"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://github.com/godaddy/wp-primer-theme"
+msgid "https://github.com/godaddy/wp-trc-theme"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Primer is a powerful theme that brings clarity to your content in a fresh "
+"TRC is a powerful theme that brings clarity to your content in a fresh "
 "design."
 msgstr ""
 

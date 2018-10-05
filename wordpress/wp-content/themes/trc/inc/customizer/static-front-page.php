@@ -2,13 +2,13 @@
 /**
  * Additional static front page customizer options.
  *
- * @class    Primer_Static_Front_Page_Options
+ * @class    TRC_Static_Front_Page_Options
  * @package  Classes/Customizer
  * @category Class
  * @author   GoDaddy
  * @since    1.5.0
  */
-class Primer_Static_Front_Page_Options {
+class TRC_Static_Front_Page_Options {
 
 	/**
 	 * Class constructor.
@@ -43,7 +43,7 @@ class Primer_Static_Front_Page_Options {
 		$wp_customize->add_control(
 			'front_page_title',
 			array(
-				'label'           => esc_html__( 'Front page title', 'primer' ),
+				'label'           => esc_html__( 'Front page title', 'trc' ),
 				'section'         => 'static_front_page',
 				'settings'        => 'front_page_title',
 				'type'            => 'text',
@@ -68,4 +68,4 @@ class Primer_Static_Front_Page_Options {
 
 }
 
-$GLOBALS['primer_static_front_page_options'] = new Primer_Static_Front_Page_Options;
+$GLOBALS['trc_static_front_page_options'] = new TRC_Static_Front_Page_Options;

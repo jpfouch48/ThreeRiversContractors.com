@@ -13,7 +13,7 @@
  *
  * @since 1.0.0
  */
-function primer_the_custom_logo() {
+function trc_the_custom_logo() {
 
 	/**
 	 * For backwards compatibility prior to WordPress 4.5.
@@ -44,7 +44,7 @@ function primer_the_custom_logo() {
 	 *
 	 * @var array
 	 */
-	$args = (array) apply_filters( 'primer_the_custom_logo_args', array(
+	$args = (array) apply_filters( 'trc_the_custom_logo_args', array(
 		'class'    => 'custom-logo',
 		'itemprop' => 'logo',
 	) );
@@ -63,7 +63,7 @@ function primer_the_custom_logo() {
  *
  * @since 1.0.0
  */
-function primer_the_site_title() {
+function trc_the_site_title() {
 
 	/**
 	 * Filter the site title display args.
@@ -72,7 +72,7 @@ function primer_the_site_title() {
 	 *
 	 * @var array
 	 */
-	$args = (array) apply_filters( 'primer_the_site_title_args', array(
+	$args = (array) apply_filters( 'trc_the_site_title_args', array(
 		'wrapper'   => 'div',
 		'atts'      => array( 'class' => 'site-title' ),
 		'url'       => home_url( '/' ),
@@ -127,7 +127,7 @@ function primer_the_site_title() {
 	 *
 	 * @var string
 	 */
-	echo (string) apply_filters( 'primer_the_site_title', $html ); // xss ok.
+	echo (string) apply_filters( 'trc_the_site_title', $html ); // xss ok.
 
 }
 
@@ -136,7 +136,7 @@ function primer_the_site_title() {
  *
  * @since 1.0.0
  */
-function primer_the_site_description() {
+function trc_the_site_description() {
 
 	/**
 	 * Filter the site description display args.
@@ -145,7 +145,7 @@ function primer_the_site_description() {
 	 *
 	 * @var array
 	 */
-	$args = (array) apply_filters( 'primer_the_site_description_args', array(
+	$args = (array) apply_filters( 'trc_the_site_description_args', array(
 		'wrapper'     => 'div',
 		'atts'        => array( 'class' => 'site-description' ),
 		'description' => get_bloginfo( 'description' ),
@@ -185,7 +185,7 @@ function primer_the_site_description() {
 	 *
 	 * @var string
 	 */
-	echo (string) apply_filters( 'primer_the_site_description', $html ); // xss ok.
+	echo (string) apply_filters( 'trc_the_site_description', $html ); // xss ok.
 
 }
 
@@ -194,7 +194,7 @@ function primer_the_site_description() {
  *
  * @since 1.0.0
  */
-function primer_the_page_title() {
+function trc_the_page_title() {
 
 	/**
 	 * Filter the page title display args.
@@ -203,10 +203,10 @@ function primer_the_page_title() {
 	 *
 	 * @var array
 	 */
-	$args = (array) apply_filters( 'primer_the_page_title_args', array(
+	$args = (array) apply_filters( 'trc_the_page_title_args', array(
 		'wrapper' => 'h1',
 		'atts'    => array( 'class' => 'page-title' ),
-		'title'   => primer_get_the_page_title(),
+		'title'   => trc_get_the_page_title(),
 	) );
 
 	if ( empty( $args['title'] ) ) {
@@ -249,7 +249,7 @@ function primer_the_page_title() {
  *
  * @param array $args (optional) Post pagination arguments.
  */
-function primer_pagination( $args = array() ) {
+function trc_pagination( $args = array() ) {
 
 	global $wp_query;
 
@@ -274,10 +274,10 @@ function primer_pagination( $args = array() ) {
 	 *
 	 * @var array
 	 */
-	$defaults = (array) apply_filters( 'primer_pagination_default_args', array(
-		'prev_text'          => __( '&larr; Previous', 'primer' ),
-		'next_text'          => __( 'Next &rarr;', 'primer' ),
-		'screen_reader_text' => sprintf( /* translators: post type singular label */ esc_html__( '%1$s navigation', 'primer' ), esc_html( $post_type_label ) ),
+	$defaults = (array) apply_filters( 'trc_pagination_default_args', array(
+		'prev_text'          => __( '&larr; Previous', 'trc' ),
+		'next_text'          => __( 'Next &rarr;', 'trc' ),
+		'screen_reader_text' => sprintf( /* translators: post type singular label */ esc_html__( '%1$s navigation', 'trc' ), esc_html( $post_type_label ) ),
 	), max( 1, get_query_var( 'paged' ) ), absint( $wp_query->max_num_pages ) );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -294,7 +294,7 @@ function primer_pagination( $args = array() ) {
  *
  * @param array $args (optional) Post navigation arguments.
  */
-function primer_post_nav( $args = array() ) {
+function trc_post_nav( $args = array() ) {
 
 	/**
 	 * Filter the default post navigation args.
@@ -303,7 +303,7 @@ function primer_post_nav( $args = array() ) {
 	 *
 	 * @var array
 	 */
-	$defaults = (array) apply_filters( 'primer_post_nav_default_args', array(
+	$defaults = (array) apply_filters( 'trc_post_nav_default_args', array(
 		'prev_text' => '&larr; %title',
 		'next_text' => '%title &rarr;',
 	) );
@@ -319,7 +319,7 @@ function primer_post_nav( $args = array() ) {
  *
  * @since 1.0.0
  */
-function primer_posted_on() {
+function trc_posted_on() {
 
 	$time = sprintf(
 		'<time class="entry-date published" datetime="%s">%s</time>',
@@ -350,7 +350,7 @@ function primer_posted_on() {
  *
  * @since 1.0.0
  */
-function primer_post_format() {
+function trc_post_format() {
 
 	$format = get_post_format();
 	$format = empty( $format ) ? 'standard' : $format;
@@ -368,7 +368,7 @@ function primer_post_format() {
  * @link   https://wordpress.org/plugins/really-simple-breadcrumb/
  * @since  1.0.0
  */
-function primer_breadcrumbs() {
+function trc_breadcrumbs() {
 
 	global $post;
 
@@ -389,8 +389,8 @@ function primer_breadcrumbs() {
 
 			printf( // xss ok.
 				'<a href="%s">%s</a>%s',
-				esc_url( primer_get_posts_url() ),
-				esc_html__( 'Blog', 'primer' ),
+				esc_url( trc_get_posts_url() ),
+				esc_html__( 'Blog', 'trc' ),
 				$separator
 			);
 
