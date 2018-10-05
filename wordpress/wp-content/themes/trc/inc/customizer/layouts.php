@@ -207,7 +207,7 @@ class TRC_Customizer_Layouts {
 			'trc-layouts',
 			get_template_directory_uri() . "/assets/js/admin/layouts{$suffix}.js",
 			array( 'jquery' ),
-			PRIMER_VERSION
+			TRC_VERSION
 		);
 
 		if ( isset( $post->ID ) ) {
@@ -222,7 +222,7 @@ class TRC_Customizer_Layouts {
 			'trc-layouts',
 			get_template_directory_uri() . "/assets/css/admin/layouts{$rtl}{$suffix}.css",
 			array(),
-			PRIMER_VERSION
+			TRC_VERSION
 		);
 
 	}

@@ -23,7 +23,7 @@
  *
  * @var string
  */
-define( 'PRIMER_VERSION', '1.8.6' );
+define( 'TRC_VERSION', '1.0.0' );
 
 /**
  * Minimum WordPress version required for TRC.
@@ -32,9 +32,9 @@ define( 'PRIMER_VERSION', '1.8.6' );
  *
  * @var string
  */
-if ( ! defined( 'PRIMER_MIN_WP_VERSION' ) ) {
+if ( ! defined( 'TRC_MIN_WP_VERSION' ) ) {
 
-	define( 'PRIMER_MIN_WP_VERSION', '4.4' );
+	define( 'TRC_MIN_WP_VERSION', '4.4' );
 
 }
 
@@ -45,9 +45,9 @@ if ( ! defined( 'PRIMER_MIN_WP_VERSION' ) ) {
  *
  * @var string
  */
-if ( ! defined( 'PRIMER_CHILD_VERSION' ) ) {
+if ( ! defined( 'TRC_CHILD_VERSION' ) ) {
 
-	define( 'PRIMER_CHILD_VERSION', '' );
+	define( 'TRC_CHILD_VERSION', '' );
 
 }
 
@@ -68,7 +68,7 @@ load_theme_textdomain( 'trc', get_template_directory() . '/languages' );
  *
  * @since 1.0.0
  */
-if ( version_compare( get_bloginfo( 'version' ), PRIMER_MIN_WP_VERSION, '<' ) ) {
+if ( version_compare( get_bloginfo( 'version' ), TRC_MIN_WP_VERSION, '<' ) ) {
 
 	require_once get_template_directory() . '/inc/compat/wordpress.php';
 
@@ -485,14 +485,14 @@ function trc_scripts() {
 	$stylesheet = get_stylesheet();
 	$suffix     = SCRIPT_DEBUG ? '' : '.min';
 
-	wp_enqueue_style( $stylesheet, get_stylesheet_uri(), false, defined( 'PRIMER_CHILD_VERSION' ) ? PRIMER_CHILD_VERSION : PRIMER_VERSION );
+	wp_enqueue_style( $stylesheet, get_stylesheet_uri(), false, defined( 'TRC_CHILD_VERSION' ) ? TRC_CHILD_VERSION : TRC_VERSION );
 
 	wp_style_add_data( $stylesheet, 'rtl', 'replace' );
 
 	$nav_dependencies = ( is_front_page() && function_exists( 'has_header_video' ) && has_header_video() ) ? array( 'jquery', 'wp-custom-header' ) : array( 'jquery' );
 
-	wp_enqueue_script( 'trc-navigation', get_template_directory_uri() . "/assets/js/navigation{$suffix}.js", $nav_dependencies, PRIMER_VERSION, true );
-	wp_enqueue_script( 'trc-skip-link-focus-fix', get_template_directory_uri() . "/assets/js/skip-link-focus-fix{$suffix}.js", array(), PRIMER_VERSION, true );
+	wp_enqueue_script( 'trc-navigation', get_template_directory_uri() . "/assets/js/navigation{$suffix}.js", $nav_dependencies, TRC_VERSION, true );
+	wp_enqueue_script( 'trc-skip-link-focus-fix', get_template_directory_uri() . "/assets/js/skip-link-focus-fix{$suffix}.js", array(), TRC_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 

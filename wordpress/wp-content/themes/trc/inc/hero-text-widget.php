@@ -209,7 +209,7 @@ class TRC_Hero_Text_Widget extends WP_Widget {
 			'trc-admin-hero-text-widget',
 			get_template_directory_uri() . "/assets/js/admin/hero-text-widget{$suffix}.js",
 			array( 'jquery', 'jquery-ui-autocomplete' ),
-			PRIMER_VERSION,
+			TRC_VERSION,
 			true
 		);
 

@@ -408,8 +408,8 @@ class TRC_Customizer_Fonts {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( 'trc-customizer-fonts', get_template_directory_uri() . "/assets/css/admin/customizer-fonts{$suffix}.css", array(), PRIMER_VERSION, 'all' );
-		wp_enqueue_script( 'trc-customizer-fonts', get_template_directory_uri() . "/assets/js/admin/customizer-fonts{$suffix}.js", array( 'jquery' ), PRIMER_VERSION, true );
+		wp_enqueue_style( 'trc-customizer-fonts', get_template_directory_uri() . "/assets/css/admin/customizer-fonts{$suffix}.css", array(), TRC_VERSION, 'all' );
+		wp_enqueue_script( 'trc-customizer-fonts', get_template_directory_uri() . "/assets/js/admin/customizer-fonts{$suffix}.js", array( 'jquery' ), TRC_VERSION, true );
 
 	}
 

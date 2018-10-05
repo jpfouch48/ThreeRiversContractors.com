@@ -14,7 +14,7 @@
  *
  * This function accepts the same `$version` and `$operator` formats as
  * the native `version_compare()` function in PHP and will always return
- * `false` if the `PRIMER_CHILD_VERSION` constant is empty.
+ * `false` if the `TRC_CHILD_VERSION` constant is empty.
  *
  * @link  https://secure.php.net/manual/en/function.version-compare.php
  * @since 1.5.0
@@ -26,7 +26,7 @@
  */
 function trc_child_version_compare( $version, $operator ) {
 
-	return ( is_child_theme() && PRIMER_CHILD_VERSION && version_compare( PRIMER_CHILD_VERSION, $version, $operator ) );
+	return ( is_child_theme() && TRC_CHILD_VERSION && version_compare( TRC_CHILD_VERSION, $version, $operator ) );
 
 }
 
@@ -62,7 +62,7 @@ function trc_child_version_compare( $version, $operator ) {
  */
 function trc_child_compat( $key, $value ) {
 
-	if ( ! is_child_theme() || ! PRIMER_CHILD_VERSION ) {
+	if ( ! is_child_theme() || ! TRC_CHILD_VERSION ) {
 
 		return $value;
 

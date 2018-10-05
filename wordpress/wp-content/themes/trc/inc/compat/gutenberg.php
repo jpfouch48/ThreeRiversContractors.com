@@ -33,7 +33,7 @@ function trc_gutenberg_editor_assets() {
 
 	$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-	wp_enqueue_style( 'trc-gutenberg-editor', get_template_directory_uri() . "/assets/css/admin/gutenberg-editor{$suffix}.css", true, defined( 'PRIMER_CHILD_VERSION' ) ? PRIMER_CHILD_VERSION : PRIMER_VERSION, 'all' );
+	wp_enqueue_style( 'trc-gutenberg-editor', get_template_directory_uri() . "/assets/css/admin/gutenberg-editor{$suffix}.css", true, defined( 'TRC_CHILD_VERSION' ) ? TRC_CHILD_VERSION : TRC_VERSION, 'all' );
 
 }
 add_action( 'enqueue_block_editor_assets', 'trc_gutenberg_editor_assets' );

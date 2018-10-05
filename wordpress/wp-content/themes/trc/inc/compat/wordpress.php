@@ -54,7 +54,7 @@ function trc_get_wp_upgrade_message() {
 		sprintf(
 			/* translators: 1. TRC minimum WordPress version. 2. Current WordPress version. */
 			esc_html__( 'TRC requires at least WordPress version %1$s. You are running version %2$s. Please upgrade and try again.', 'trc' ),
-			PRIMER_MIN_WP_VERSION,
+			TRC_MIN_WP_VERSION,
 			get_bloginfo( 'version' )
 		)
 	);

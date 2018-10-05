@@ -211,7 +211,7 @@ class TRC_Customizer {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'trc-customize-preview', get_template_directory_uri() . "/assets/js/admin/customizer{$suffix}.js", array( 'customize-preview' ), PRIMER_VERSION, true );
+		wp_enqueue_script( 'trc-customize-preview', get_template_directory_uri() . "/assets/js/admin/customizer{$suffix}.js", array( 'customize-preview' ), TRC_VERSION, true );
 
 		wp_localize_script( 'trc-customize-preview', 'colorsSettings', array( 'hero_background_selector' => trc_get_hero_image_selector() ) );
 
