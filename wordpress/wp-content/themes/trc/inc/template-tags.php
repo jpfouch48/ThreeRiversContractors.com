@@ -2,16 +2,14 @@
 /**
  * Custom template tags for this theme.
  *
- * @package  Functions
- * @category Core
- * @author   GoDaddy
- * @since    1.0.0
+ * @package  TRC
+ * @since    0.0.0
  */
 
 /**
  * Display a custom logo.
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 function trc_the_custom_logo() {
 
@@ -51,7 +49,7 @@ function trc_the_custom_logo() {
 
 	printf( // xss ok.
 		'<a href="%1$s" class="custom-logo-link" %2$s>%3$s</a>',
-		esc_url( home_url( '/' ) ),
+		home_url( '/' ),
 		$custom_logo_id ? 'rel="home" itemprop="url"' : 'style="display:none;"',
 		$custom_logo_id ? wp_get_attachment_image( $custom_logo_id, 'full', false, $args ) : '<img class="custom-logo"/>'
 	);
@@ -90,7 +88,7 @@ function trc_the_site_title() {
 
 	foreach ( $args['atts'] as $key => &$value ) {
 
-		$value = sprintf( '%s="%s"', sanitize_key( $key ), esc_attr( $value ) );
+		$value = sprintf( '%s="%s"', sanitize_key( $key ), $value );
 
 	}
 
@@ -98,13 +96,13 @@ function trc_the_site_title() {
 
 	foreach ( $args['link_atts'] as $key => &$value ) {
 
-		$value = sprintf( '%s="%s"', sanitize_key( $key ), esc_attr( $value ) );
+		$value = sprintf( '%s="%s"', sanitize_key( $key ), $value );
 
 	}
 
 	$html = sprintf(
 		'<a href="%s" %s>%s</a>',
-		esc_url( $args['url'] ),
+		$args['url'],
 		implode( ' ', $args['link_atts'] ),
 		$args['title']
 	);
@@ -161,7 +159,7 @@ function trc_the_site_description() {
 
 	foreach ( $args['atts'] as $key => &$value ) {
 
-		$value = sprintf( '%s="%s"', sanitize_key( $key ), esc_attr( $value ) );
+		$value = sprintf( '%s="%s"', sanitize_key( $key ), $value );
 
 	}
 
@@ -219,11 +217,11 @@ function trc_the_page_title() {
 
 	foreach ( $args['atts'] as $key => &$value ) {
 
-		$value = sprintf( '%s="%s"', sanitize_key( $key ), esc_attr( $value ) );
+		$value = sprintf( '%s="%s"', sanitize_key( $key ), $value );
 
 	}
 
-	$html = esc_html( $args['title'] );
+	$html = $args['title'];
 
 	if ( ! empty( $args['wrapper'] ) ) {
 
@@ -275,9 +273,9 @@ function trc_pagination( $args = array() ) {
 	 * @var array
 	 */
 	$defaults = (array) apply_filters( 'trc_pagination_default_args', array(
-		'prev_text'          => __( '&larr; Previous', 'trc' ),
-		'next_text'          => __( 'Next &rarr;', 'trc' ),
-		'screen_reader_text' => sprintf( /* translators: post type singular label */ esc_html__( '%1$s navigation', 'trc' ), esc_html( $post_type_label ) ),
+		'prev_text'          => '&larr; Previous',
+		'next_text'          => 'Next &rarr;',
+		'screen_reader_text' => sprintf( '%1$s navigation', $post_type_label ),
 	), max( 1, get_query_var( 'paged' ) ), absint( $wp_query->max_num_pages ) );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -323,16 +321,16 @@ function trc_posted_on() {
 
 	$time = sprintf(
 		'<time class="entry-date published" datetime="%s">%s</time>',
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
+		get_the_date( 'c' ),
+		get_the_date()
 	);
 
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 
 		$time = sprintf(
 			'<time class="updated" datetime="%s">%s</time>',
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
+			get_the_modified_date( 'c' ),
+			get_the_modified_date()
 		);
 
 	}
@@ -355,7 +353,7 @@ function trc_post_format() {
 	$format = get_post_format();
 	$format = empty( $format ) ? 'standard' : $format;
 
-	printf( '<span class="post-format">%s</span>', esc_html( $format ) );
+	printf( '<span class="post-format">%s</span>', $format );
 
 }
 
@@ -380,8 +378,8 @@ function trc_breadcrumbs() {
 
 		printf( // xss ok.
 			'<a href="%s">%s</a>%s',
-			esc_url( home_url( '/' ) ),
-			esc_html( get_bloginfo( 'name' ) ),
+			home_url( '/' ),
+			get_bloginfo( 'name' ),
 			$separator
 		);
 
@@ -389,8 +387,8 @@ function trc_breadcrumbs() {
 
 			printf( // xss ok.
 				'<a href="%s">%s</a>%s',
-				esc_url( trc_get_posts_url() ),
-				esc_html__( 'Blog', 'trc' ),
+				trc_get_posts_url(),
+				'Blog',
 				$separator
 			);
 
@@ -418,8 +416,8 @@ function trc_breadcrumbs() {
 
 					printf( // xss ok.
 						'<a href="%s">%s</a>%s',
-						esc_url( get_permalink( $post->ancestors[ $i ] ) ),
-						esc_html( get_the_title( $post->ancestors[ $i ] ) ),
+						get_permalink( $post->ancestors[ $i ] ),
+						get_the_title( $post->ancestors[ $i ] ),
 						$separator
 					);
 

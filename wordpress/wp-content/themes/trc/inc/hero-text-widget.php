@@ -3,11 +3,8 @@
  * Hero Text Widget.
  *
  * @class      trc_Hero_Text_Widget
- * @package    Classes
- * @subpackage Widgets
- * @category   Class
- * @author     GoDaddy
- * @since      1.6.0
+ * @package    TRC
+ * @since      0.0.0
  * @extends    WP_Widget
  */
 class trc_Hero_Text_Widget extends WP_Widget {
@@ -21,13 +18,12 @@ class trc_Hero_Text_Widget extends WP_Widget {
 			'customize_selective_refresh' => true,
 			'classname'                   => 'widget_text trc-widgets trc-hero-text-widget',
 			'description'                 => sprintf(
-				/* translators: theme name */
-				esc_html__( "A %s theme widget designed for the Hero area on your site's front page.", 'trc' ),
-				esc_html( $this->get_current_theme_name() )
+				"A %s theme widget designed for the Hero area on your site's front page.",
+				$this->get_current_theme_name()
 			),
 		);
 
-		parent::__construct( 'trc-hero-text', /* translators: the widget title */ esc_html__( 'Hero Text', 'trc' ), $widget_options );
+		parent::__construct( 'trc-hero-text', 'Hero Text', $widget_options );
 
 		add_action( 'admin_init', array( $this, 'register_scripts' ) );
 
@@ -86,7 +82,7 @@ class trc_Hero_Text_Widget extends WP_Widget {
 
 			<?php if ( $title ) : ?>
 
-				<?php echo $args['before_title'] . esc_html( $title ) . $args['after_title']; // xss ok. ?>
+				<?php echo $args['before_title'] . $title . $args['after_title']; // xss ok. ?>
 
 			<?php endif; ?>
 
@@ -98,7 +94,7 @@ class trc_Hero_Text_Widget extends WP_Widget {
 
 			<?php if ( $button_text ) : ?>
 
-				<p><a href="<?php echo esc_url( $button_link ); ?>" class="button"><?php echo esc_html( $button_text ); ?></a></p>
+				<p><a href="<?php echo $button_link; ?>" class="button"><?php echo $button_text; ?></a></p>
 
 			<?php endif; ?>
 

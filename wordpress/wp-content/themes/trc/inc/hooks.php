@@ -2,10 +2,8 @@
 /**
  * Custom actions for this theme.
  *
- * @package  Hooks
- * @category Core
- * @author   GoDaddy
- * @since    1.0.0
+ * @package  TRC
+ * @since    0.0.0
  */
 
 /**
@@ -440,8 +438,7 @@ function trc_wp_title( $title, $sep ) {
 			' %s %s',
 			$sep,
 			sprintf(
-				/* translators: page number */
-				esc_html__( 'Page %d', 'trc' ),
+				'Page %d',
 				max( $paged, $page )
 			)
 		);
@@ -524,8 +521,7 @@ function trc_pagination_template( $template, $class ) {
 	$replace = sprintf(
 		'<div class="paging-nav-text">%s</div>%s',
 		sprintf(
-			/* translators: 1. current page number, 2. total number of pages */
-			esc_html__( 'Page %1$d of %2$d', 'trc' ),
+			'Page %1$d of %2$d',
 			max( 1, get_query_var( 'paged' ) ),
 			absint( $wp_query->max_num_pages )
 		),

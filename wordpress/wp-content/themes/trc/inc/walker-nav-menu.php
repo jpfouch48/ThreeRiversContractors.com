@@ -3,11 +3,8 @@
  * Custom class that adds some markup before the nav menu.
  *
  * @class      trc_Walker_Nav_Menu
- * @package    Classes
- * @subpackage Navigation
- * @category   Class
- * @author     GoDaddy
- * @since      1.0.0
+ * @package    TRC
+ * @since      0.0.0
  * @extends    Walker_Nav_Menu
  * @see        trc_add_primary_menu()
  */
@@ -16,7 +13,7 @@ class trc_Walker_Nav_Menu extends Walker_Nav_Menu {
 	/**
 	 * Starts the list before the elements are added.
 	 *
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param int    $depth  Depth of menu item. Used for padding.
