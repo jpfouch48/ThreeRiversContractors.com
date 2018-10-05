@@ -2,8 +2,8 @@
 /**
  * Displays the primary navigation.
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 ?>
@@ -17,7 +17,7 @@
 	 *
 	 * @hooked trc_add_mobile_menu - 10
 	 *
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	do_action( 'trc_before_site_navigation' );
 
@@ -32,7 +32,7 @@
 		 *
 		 * @hooked trc_add_primary_menu - 10
 		 *
-		 * @since 1.0.0
+		 * @since 0.0.0
 		 */
 		do_action( 'trc_site_navigation' );
 
@@ -45,7 +45,7 @@
 	/**
 	 * Fires after the `<nav id="site-navigation" class="main-navigation">` element.
 	 *
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	do_action( 'trc_after_site_navigation' );
 

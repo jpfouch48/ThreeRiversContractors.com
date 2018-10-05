@@ -5,8 +5,8 @@
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  * @link https://developer.wordpress.org/themes/template-files-section/partial-and-miscellaneous-template-files/#404-php
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 get_header(); ?>
@@ -19,29 +19,29 @@ get_header(); ?>
 
 			<header class="page-header">
 
-				<h1 class="page-title"><?php esc_html_e( "Oops! That page can't be found.", 'trc' ); ?></h1>
+				<h1 class="page-title">Oops! That page can't be found.</h1>
 
 			</header><!-- .page-header -->
 
 			<div class="page-content">
 
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Please try searching below:', 'trc' ); ?></p>
+				<p>It looks like nothing was found at this location. Please try searching below:</p>
 
-				<section aria-label="<?php esc_html__( 'Search', 'trc' ); ?>">
+				<section aria-label="Search">
 
 					<?php the_widget( 'WC_Widget_Product_Search' ); ?>
 
 				</section>
 
-				<section aria-label="<?php esc_html__( 'Promoted Products', 'trc' ); ?>">
+				<section aria-label="Promoted Products">
 
 					<?php trc_wc_promoted_products(); ?>
 
 				</section>
 
-				<section aria-label="<?php esc_html__( 'Popular Products', 'trc' ); ?>">
+				<section aria-label="Popular Products">
 
-					<h2><?php esc_html_e( 'Popular Products', 'trc' ); ?></h2>
+					<h2>Popular Products</h2>
 
 					<?php trc_wc_best_selling_products(); ?>
 

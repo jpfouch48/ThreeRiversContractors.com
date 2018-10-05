@@ -2,8 +2,8 @@
 /**
  * Template part for displaying the post footer on search results inside The Loop.
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 ?>
@@ -12,25 +12,25 @@
 
 	<?php if ( 'post' === get_post_type() ) : ?>
 
-		<?php $category_list = get_the_category_list( /* translators: separator for items in a list */ esc_html__( ', ', 'trc' ) ); ?>
+		<?php $category_list = get_the_category_list( ', ' ); ?>
 
 		<?php if ( $category_list && trc_has_active_categories() ) : ?>
 
 			<span class="cat-links">
 
-				<?php printf( /* translators: category list */ esc_html__( 'Posted in: %s', 'trc' ), $category_list ); // xss ok. ?>
+				<?php printf( 'Posted in: %s' ), $category_list ); // xss ok. ?>
 
 			</span>
 
 		<?php endif; ?>
 
-		<?php $tag_list = get_the_tag_list( '', /* translators: separator for items in a list */ esc_html__( ', ', 'trc' ) ); ?>
+		<?php $tag_list = get_the_tag_list( '',  ', ' ); ?>
 
 		<?php if ( $tag_list ) : ?>
 
 			<span class="tags-links">
 
-				<?php printf( /* translators: tag list */ esc_html__( 'Filed under: %s', 'trc' ), $tag_list ); // xss ok. ?>
+				<?php printf( 'Filed under: %s', $tag_list ); // xss ok. ?>
 
 			</span>
 
@@ -40,10 +40,10 @@
 
 	<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
 
-		<span class="comments-link"><?php comments_popup_link( esc_html__( 'Leave a comment', 'trc' ), esc_html__( '1 Comment', 'trc' ), /* translators: number of comments */ esc_html__( '%d Comments', 'trc' ) ); ?></span>
+		<span class="comments-link"><?php comments_popup_link( 'Leave a comment',  '1 Comment', '%d Comments' ); ?></span>
 
 	<?php endif; ?>
 
-	<?php edit_post_link( esc_html__( 'Edit', 'trc' ), '<span class="edit-link">', '</span>' ); ?>
+	<?php edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?>
 
 </footer><!-- .entry-footer -->

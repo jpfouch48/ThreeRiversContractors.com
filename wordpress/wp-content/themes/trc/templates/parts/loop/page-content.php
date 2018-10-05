@@ -2,8 +2,8 @@
 /**
  * Template part for displaying the page content inside The Loop.
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 ?>
@@ -17,7 +17,7 @@
 	 *
 	 * @hooked trc_wc_shop_messages - 10
 	 *
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	do_action( 'trc_before_page_content' );
 
@@ -25,7 +25,7 @@
 
 	wp_link_pages(
 		array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'trc' ),
+			'before' => '<div class="page-links">' . 'Pages:',
 			'after'  => '</div>',
 		)
 	);
@@ -33,7 +33,7 @@
 	/**
 	* Fires inside the `.page-content` element, after the content.
 	 *
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	do_action( 'trc_after_page_content' );
 

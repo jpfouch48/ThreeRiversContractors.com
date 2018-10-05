@@ -2,8 +2,8 @@
 /**
  * Display the mobile menu
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 ?>

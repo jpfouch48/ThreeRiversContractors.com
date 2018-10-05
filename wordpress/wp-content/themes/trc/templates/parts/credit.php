@@ -2,8 +2,8 @@
 /**
  * Displays site credit.
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 ?>
@@ -20,8 +20,7 @@
 	 * @var string
 	 */
 	$copyright_text = (string) apply_filters( 'trc_copyright_text', get_theme_mod( 'copyright_text', sprintf(
-		/* translators: 1. copyright symbol, 2. year, 3. site title */
-		esc_html__( 'Copyright %1$s %2$d %3$s', 'trc' ),
+		'Copyright %1$s %2$d %3$s',
 		'&copy;',
 		date( 'Y' ),
 		get_bloginfo( 'blogname' )
@@ -47,13 +46,12 @@
 		$theme = wp_get_theme();
 
 		printf(
-			/* translators: 1. theme name link, 2. theme author link */
-			esc_html__( '%1$s WordPress theme by %2$s', 'trc' ),
-			esc_html( $theme->get( 'Name' ) ),
+			'%1$s WordPress theme by %2$s',
+			$theme->get( 'Name' ),
 			sprintf(
 				'<a href="%s" rel="author nofollow">%s</a>',
-				esc_url( $theme->get( 'AuthorURI' ) ),
-				esc_html( $theme->get( 'Author' ) )
+				$theme->get( 'AuthorURI' ),
+				$theme->get( 'Author' )
 			)
 		);
 

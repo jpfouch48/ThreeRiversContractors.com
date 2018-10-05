@@ -2,8 +2,8 @@
 /**
  * Template part for displaying the post title inside The Loop.
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 ?>
