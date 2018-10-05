@@ -4,8 +4,8 @@
  *
  * Displays all of the head element and everything up until the "site-content" div.
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 ?><!DOCTYPE html>
@@ -33,7 +33,7 @@
 	/**
 	 * Fires inside the `<body>` element.
 	 *
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	do_action( 'trc_body' );
 
@@ -41,14 +41,14 @@
 
 	<div id="page" class="hfeed site">
 
-		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'trc' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
 		<?php
 
 		/**
 		 * Fires before the `<header>` element.
 		 *
-		 * @since 1.0.0
+		 * @since 0.0.0
 		 */
 		do_action( 'trc_before_header' );
 
@@ -63,7 +63,7 @@
 			 *
 			 * @hooked trc_video_header - 5
 			 *
-			 * @since 1.7.0
+			 * @since 0.7.0
 			 */
 			do_action( 'trc_before_header_wrapper' );
 
@@ -79,7 +79,7 @@
 				 * @hooked trc_add_site_title - 5
 				 * @hooked trc_add_hero - 7
 				 *
-				 * @since 1.0.0
+				 * @since 0.0.0
 				 */
 				do_action( 'trc_header' );
 
@@ -92,7 +92,7 @@
 			/**
 			 * Fires inside the `<div class="site-header-wrapper">` element.
 			 *
-			 * @since 1.0.0
+			 * @since 0.0.0
 			 */
 			do_action( 'trc_after_site_header_wrapper' );
 
@@ -108,7 +108,7 @@
 		 * @hooked trc_add_primary_navigation - 11
 		 * @hooked trc_add_page_title - 12
 		 *
-		 * @since 1.0.0
+		 * @since 0.0.0
 		 */
 		do_action( 'trc_after_header' );
 

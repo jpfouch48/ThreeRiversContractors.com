@@ -4,8 +4,8 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 get_header(); ?>

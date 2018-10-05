@@ -11,8 +11,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 get_header(); ?>

@@ -6,8 +6,8 @@
  *
  * @link https://developer.wordpress.org/themes/template-files-section/partial-and-miscellaneous-template-files/#footer-php
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 ?>

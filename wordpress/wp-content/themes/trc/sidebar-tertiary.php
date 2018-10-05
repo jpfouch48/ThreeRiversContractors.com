@@ -4,8 +4,8 @@
  *
  * @link https://developer.wordpress.org/themes/template-files-section/partial-and-miscellaneous-template-files/#sidebar-php
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 if ( ! trc_layout_has_sidebar() || ! is_active_sidebar( 'sidebar-2' ) || 0 !== strpos( trc_get_layout(), 'three-column' ) ) {

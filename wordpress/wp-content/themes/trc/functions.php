@@ -1,6 +1,6 @@
 <?php
 /**
- * trc functions and definitions.
+ * TRC functions and definitions.
  *
  * Set up the theme and provide some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
@@ -12,23 +12,23 @@
  * For more information on hooks, actions, and filters,
  * {@link https://codex.wordpress.org/Plugin_API}
  *
- * @package Functions
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 /**
  * trc theme version.
  *
- * @since 1.0.0
+ * @since 0.0.0
  *
  * @var string
  */
-define( 'trc_VERSION', '1.8.6' );
+define( 'trc_VERSION', '0.0.0' );
 
 /**
  * Minimum WordPress version required for trc.
  *
- * @since 1.0.0
+ * @since 0.0.0
  *
  * @var string
  */
@@ -41,7 +41,7 @@ if ( ! defined( 'trc_MIN_WP_VERSION' ) ) {
 /**
  * Define the trc child theme version if undefined.
  *
- * @since 1.5.0
+ * @since 0.0.0
  *
  * @var string
  */
@@ -59,14 +59,16 @@ if ( ! defined( 'trc_CHILD_VERSION' ) ) {
  * 'trc' to the name of your theme in all the template files.
  *
  * @link  https://codex.wordpress.org/Function_Reference/load_theme_textdomain
- * @since 1.0.0
+ * @since 0.0.0
+ * 
+ * @todo remove once all translations have been taken out
  */
 load_theme_textdomain( 'trc', get_template_directory() . '/languages' );
 
 /**
  * Enforce the minimum WordPress version requirement.
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 if ( version_compare( get_bloginfo( 'version' ), trc_MIN_WP_VERSION, '<' ) ) {
 
@@ -77,49 +79,49 @@ if ( version_compare( get_bloginfo( 'version' ), trc_MIN_WP_VERSION, '<' ) ) {
 /**
  * Load deprecated hooks and functions for this theme.
  *
- * @since 1.6.0
+ * @since 0.0.0
  */
 require_once get_template_directory() . '/inc/compat/deprecated.php';
 
 /**
  * Load functions for handling special child theme compatibility conditions.
  *
- * @since 1.6.0
+ * @since 0.0.0
  */
 require_once get_template_directory() . '/inc/compat/child-themes.php';
 
 /**
  * Load custom helper functions for this theme.
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 require_once get_template_directory() . '/inc/helpers.php';
 
 /**
  * Load custom template tags for this theme.
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 require_once get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Load custom primary nav menu walker.
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 require_once get_template_directory() . '/inc/walker-nav-menu.php';
 
 /**
  * Load template parts and override some WordPress defaults.
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 require_once get_template_directory() . '/inc/hooks.php';
 
 /**
  * Load Beaver Builder compatibility file.
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 if ( class_exists( 'FLBuilder' ) ) {
 
@@ -130,7 +132,7 @@ if ( class_exists( 'FLBuilder' ) ) {
 /**
  * Load Gutenberg compatiblity.
  *
- * @since 1.8.5
+ * @since 0.0.0
  */
 require_once get_template_directory() . '/inc/compat/gutenberg.php';
 
@@ -138,7 +140,7 @@ require_once get_template_directory() . '/inc/compat/gutenberg.php';
 /**
  * Load Jetpack compatibility file.
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 if ( class_exists( 'Jetpack' ) ) {
 
@@ -149,7 +151,7 @@ if ( class_exists( 'Jetpack' ) ) {
 /**
  * Load WooCommerce compatibility file.
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 if ( class_exists( 'WooCommerce' ) ) {
 
@@ -160,7 +162,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 /**
  * Load Customizer class (must be required last).
  *
- * @since 1.0.0
+ * @since 0.0.0
  */
 require_once get_template_directory() . '/inc/customizer.php';
 
@@ -172,7 +174,7 @@ require_once get_template_directory() . '/inc/customizer.php';
  * as indicating support for post thumbnails.
  *
  * @global array $trc_image_sizes
- * @since  1.0.0
+ * @since  0.0.0
  */
 function trc_setup() {
 
@@ -181,7 +183,7 @@ function trc_setup() {
 	/**
 	 * Filter registered image sizes.
 	 *
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 *
 	 * @var array
 	 */
@@ -191,13 +193,13 @@ function trc_setup() {
 				'width'  => 1600,
 				'height' => 9999,
 				'crop'   => false,
-				'label'  => esc_html__( 'Featured', 'trc' ),
+				'label'  => 'Featured',
 			),
 			'trc-hero' => array(
 				'width'  => 2400,
 				'height' => 1300,
 				'crop'   => array( 'center', 'center' ),
-				'label'  => esc_html__( 'Hero', 'trc' ),
+				'label'  => 'Hero',
 			),
 		)
 	);
@@ -234,7 +236,7 @@ function trc_setup() {
 	 * Enable support for Automatic Feed Links.
 	 *
 	 * @link  https://developer.wordpress.org/reference/functions/add_theme_support/#feed-links
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	add_theme_support( 'automatic-feed-links' );
 
@@ -242,7 +244,7 @@ function trc_setup() {
 	 * Enable support for plugins and themes to manage the document title tag.
 	 *
 	 * @link  https://developer.wordpress.org/reference/functions/add_theme_support/#title-tag
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	add_theme_support( 'title-tag' );
 
@@ -250,7 +252,7 @@ function trc_setup() {
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
 	 * @link  https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	add_theme_support( 'post-thumbnails' );
 
@@ -258,7 +260,7 @@ function trc_setup() {
 	 * Enable support for customizer selective refresh.
 	 *
 	 * @link  https://developer.wordpress.org/reference/functions/add_theme_support/#customize-selective-refresh-widgets
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -266,21 +268,21 @@ function trc_setup() {
 	 * Register custom Custom Navigation Menus.
 	 *
 	 * @link  https://developer.wordpress.org/reference/functions/register_nav_menus/
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	register_nav_menus(
 		/**
 		 * Filter registered nav menus.
 		 *
-		 * @since 1.0.0
+		 * @since 0.0.0
 		 *
 		 * @var array
 		 */
 		(array) apply_filters( 'trc_nav_menus',
 			array(
-				'primary' => esc_html__( 'Primary Menu', 'trc' ),
-				'social'  => esc_html__( 'Social Menu', 'trc' ),
-				'footer'  => esc_html__( 'Footer Menu', 'trc' ),
+				'primary' => 'Primary Menu',
+				'social'  => 'Social Menu',
+				'footer'  => 'Footer Menu',
 			)
 		)
 	);
@@ -289,7 +291,7 @@ function trc_setup() {
 	 * Enable support for HTML5 markup.
 	 *
 	 * @link  https://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	add_theme_support(
 		'html5',
@@ -306,7 +308,7 @@ function trc_setup() {
 	 * Enable support for Post Formats.
 	 *
 	 * @link  https://codex.wordpress.org/Function_Reference/add_theme_support#Post_Formats
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 */
 	add_theme_support(
 		'post-formats',
@@ -326,7 +328,7 @@ add_action( 'after_setup_theme', 'trc_setup' );
  * Register image size labels.
  *
  * @filter image_size_names_choose
- * @since  1.0.0
+ * @since  0.0.0
  *
  * @param  array $size_names Array of image sizes and their names.
  *
@@ -352,7 +354,7 @@ function trc_image_size_names_choose( $size_names ) {
  *
  * @action after_setup_theme
  * @global int $content_width
- * @since  1.0.0
+ * @since  0.0.0
  */
 function trc_content_width() {
 
@@ -362,7 +364,7 @@ function trc_content_width() {
 	/**
 	 * Filter the content width in pixels.
 	 *
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 *
 	 * @param string $layout
 	 *
@@ -377,7 +379,7 @@ add_action( 'after_setup_theme', 'trc_content_width', 0 );
  * Enable support for custom editor style.
  *
  * @link  https://developer.wordpress.org/reference/functions/add_editor_style/
- * @since 1.0.0
+ * @since 0.0.0
  */
 add_action( 'admin_init', 'add_editor_style', 10, 0 );
 
@@ -385,62 +387,62 @@ add_action( 'admin_init', 'add_editor_style', 10, 0 );
  * Register sidebar areas.
  *
  * @link  http://codex.wordpress.org/Function_Reference/register_sidebar
- * @since 1.0.0
+ * @since 0.0.0
  */
 function trc_register_sidebars() {
 
 	/**
 	 * Filter registered sidebars areas.
 	 *
-	 * @since 1.0.0
+	 * @since 0.0.0
 	 *
 	 * @var array
 	 */
 	$sidebars = (array) apply_filters( 'trc_sidebars',
 		array(
 			'sidebar-1' => array(
-				'name'          => esc_html__( 'Sidebar', 'trc' ),
-				'description'   => esc_html__( 'The primary sidebar appears alongside the content of every page, post, archive, and search template.', 'trc' ),
+				'name'          => 'Sidebar',
+				'description'   => 'The primary sidebar appears alongside the content of every page, post, archive, and search template.',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title">',
 				'after_title'   => '</h4>',
 			),
 			'sidebar-2' => array(
-				'name'          => esc_html__( 'Secondary Sidebar', 'trc' ),
-				'description'   => esc_html__( 'The secondary sidebar will only appear when you have selected a three-column layout.', 'trc' ),
+				'name'          => 'Secondary Sidebar',
+				'description'   => 'The secondary sidebar will only appear when you have selected a three-column layout.',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title">',
 				'after_title'   => '</h4>',
 			),
 			'footer-1' => array(
-				'name'          => esc_html__( 'Footer 1', 'trc' ),
-				'description'   => esc_html__( 'This sidebar is the first column of the footer widget area.', 'trc' ),
+				'name'          => 'Footer 1',
+				'description'   => 'This sidebar is the first column of the footer widget area.',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title">',
 				'after_title'   => '</h4>',
 			),
 			'footer-2' => array(
-				'name'          => esc_html__( 'Footer 2', 'trc' ),
-				'description'   => esc_html__( 'This sidebar is the second column of the footer widget area.', 'trc' ),
+				'name'          => 'Footer 2',
+				'description'   => 'This sidebar is the second column of the footer widget area.',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title">',
 				'after_title'   => '</h4>',
 			),
 			'footer-3' => array(
-				'name'          => esc_html__( 'Footer 3', 'trc' ),
-				'description'   => esc_html__( 'This sidebar is the third column of the footer widget area.', 'trc' ),
+				'name'          => 'Footer 3',
+				'description'   => 'This sidebar is the third column of the footer widget area.',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title">',
 				'after_title'   => '</h4>',
 			),
 			'hero' => array(
-				'name'          => esc_html__( 'Hero', 'trc' ),
-				'description'   => esc_html__( 'Hero widgets appear over the header image on the front page.', 'trc' ),
+				'name'          => 'Hero',
+				'description'   => 'Hero widgets appear over the header image on the front page.',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -459,10 +461,10 @@ function trc_register_sidebars() {
 add_action( 'widgets_init', 'trc_register_sidebars' );
 
 /**
- * Register trc widgets.
+ * Register TRC widgets.
  *
  * @link  http://codex.wordpress.org/Function_Reference/register_widget
- * @since 1.6.0
+ * @since 0.0.0
  */
 function trc_register_widgets() {
 
@@ -478,7 +480,7 @@ add_action( 'widgets_init', 'trc_register_widgets' );
  *
  * @link  https://codex.wordpress.org/Function_Reference/wp_enqueue_style
  * @link  https://codex.wordpress.org/Function_Reference/wp_enqueue_script
- * @since 1.0.0
+ * @since 0.0.0
  */
 function trc_scripts() {
 
@@ -505,7 +507,7 @@ function trc_scripts() {
 		$css = sprintf(
 			SCRIPT_DEBUG ? '%s { background-image: url(%s); }' : '%s{background-image:url(%s);}',
 			trc_get_hero_image_selector(),
-			esc_url( trc_get_hero_image() )
+			trc_get_hero_image()
 		);
 
 		wp_add_inline_style( $stylesheet, $css );
@@ -527,7 +529,7 @@ add_action( 'wp_enqueue_scripts', 'trc_scripts' );
  * @action wp
  * @global WP_Query $wp_query
  * @global WP_User  $authordata
- * @since  1.0.0
+ * @since  0.0.0
  */
 function trc_setup_author() {
 
@@ -550,7 +552,7 @@ add_action( 'wp', 'trc_setup_author' );
  * @action delete_category
  * @action save_post
  * @see    trc_has_active_categories()
- * @since  1.0.0
+ * @since  0.0.0
  */
 function trc_has_active_categories_reset() {
 

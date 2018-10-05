@@ -7,8 +7,8 @@
  *
  * @link https://developer.wordpress.org/themes/template-files-section/partial-and-miscellaneous-template-files/#comments-php
  *
- * @package trc
- * @since   1.0.0
+ * @package TRC
+ * @since   0.0.0
  */
 
 /*
@@ -32,14 +32,13 @@ if ( post_password_required() ) {
 		<?php
 
 		printf( // xss ok.
-			/* translators: 1. number of comments, 2. post title */
+
 			_n(
 				'%1$d thought on %2$s',
 				'%1$d thoughts on %2$s',
-				get_comments_number(),
-				'trc'
+				get_comments_number()
 			),
-			number_format_i18n( get_comments_number() ),
+			get_comments_number(),
 			sprintf(
 				'<span>&ldquo;%s&rdquo;</span>',
 				get_the_title()
@@ -53,11 +52,11 @@ if ( post_password_required() ) {
 
 			<nav id="comment-nav-above" class="comment-navigation">
 
-				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'trc' ); ?></h1>
+				<h1 class="screen-reader-text">Comment navigation</h1>
 
-				<div class="nav-previous"><?php previous_comments_link( sprintf( /* translators: left arrow (LTR) / right arrow (RTL) */ esc_html__( '%s Older Comments', 'trc' ), is_rtl() ? '&rarr;' : '&larr;' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( sprintf( '%s Older Comments', is_rtl() ? '&rarr;' : '&larr;' ) ); ?></div>
 
-				<div class="nav-next"><?php next_comments_link( sprintf( /* translators: right arrow (LTR) / left arrow (RTL) */ esc_html__( 'Newer Comments %s', 'trc' ), is_rtl() ? '&larr;' : '&rarr;' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( sprintf( 'Newer Comments %s', is_rtl() ? '&larr;' : '&rarr;' ) ); ?></div>
 
 			</nav><!-- #comment-nav-above -->
 
@@ -80,11 +79,11 @@ if ( post_password_required() ) {
 
 			<nav id="comment-nav-below" class="comment-navigation">
 
-				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'trc' ); ?></h1>
+				<h1 class="screen-reader-text">Comment navigation</h1>
 
-				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'trc' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( '&larr; Older Comments' ); ?></div>
 
-				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'trc' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( 'Newer Comments &rarr;' ); ?></div>
 
 			</nav><!-- #comment-nav-below -->
 
@@ -94,7 +93,7 @@ if ( post_password_required() ) {
 
 	<?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'trc' ); ?></p>
+		<p class="no-comments">Comments are closed.</p>
 
 	<?php endif; ?>
 
