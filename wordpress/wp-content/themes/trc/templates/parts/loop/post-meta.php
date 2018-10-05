@@ -2,8 +2,8 @@
 /**
  * Template part for displaying the post meta inside The Loop.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>
@@ -22,7 +22,7 @@
 
 		<span class="comments-number">
 
-			<?php comments_popup_link( 'Leave a comment', '1 Comment', '% Comments', 'comments-link' ); ?>
+			<?php comments_popup_link( esc_html__( 'Leave a comment', 'primer' ), esc_html__( '1 Comment', 'primer' ), /* translators: number of comments */ esc_html__( '% Comments', 'primer' ), 'comments-link' ); ?>
 
 		</span>
 

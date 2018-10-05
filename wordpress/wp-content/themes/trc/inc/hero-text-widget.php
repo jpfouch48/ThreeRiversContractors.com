@@ -2,12 +2,15 @@
 /**
  * Hero Text Widget.
  *
- * @class      trc_Hero_Text_Widget
- * @package    TRC
- * @since      0.0.0
+ * @class      Primer_Hero_Text_Widget
+ * @package    Classes
+ * @subpackage Widgets
+ * @category   Class
+ * @author     GoDaddy
+ * @since      1.6.0
  * @extends    WP_Widget
  */
-class trc_Hero_Text_Widget extends WP_Widget {
+class Primer_Hero_Text_Widget extends WP_Widget {
 
 	/**
 	 * Widget constructor.
@@ -16,14 +19,15 @@ class trc_Hero_Text_Widget extends WP_Widget {
 
 		$widget_options = array(
 			'customize_selective_refresh' => true,
-			'classname'                   => 'widget_text trc-widgets trc-hero-text-widget',
+			'classname'                   => 'widget_text primer-widgets primer-hero-text-widget',
 			'description'                 => sprintf(
-				"A %s theme widget designed for the Hero area on your site's front page.",
-				$this->get_current_theme_name()
+				/* translators: theme name */
+				esc_html__( "A %s theme widget designed for the Hero area on your site's front page.", 'primer' ),
+				esc_html( $this->get_current_theme_name() )
 			),
 		);
 
-		parent::__construct( 'trc-hero-text', 'Hero Text', $widget_options );
+		parent::__construct( 'primer-hero-text', /* translators: the widget title */ esc_html__( 'Hero Text', 'primer' ), $widget_options );
 
 		add_action( 'admin_init', array( $this, 'register_scripts' ) );
 
@@ -59,7 +63,7 @@ class trc_Hero_Text_Widget extends WP_Widget {
 		 * @since 1.6.0
 		 *
 		 * @param array                   $instance    Array of settings for the current widget.
-		 * @param trc_Hero_Text_Widget $this        Current Hero Text widget instance.
+		 * @param Primer_Hero_Text_Widget $this        Current Hero Text widget instance.
 		 *
 		 * @var string
 		 */
@@ -78,11 +82,11 @@ class trc_Hero_Text_Widget extends WP_Widget {
 		echo $args['before_widget']; // xss ok.
 
 		?>
-		<div class="textwidget trc-widgets trc-hero-text-widget">
+		<div class="textwidget primer-widgets primer-hero-text-widget">
 
 			<?php if ( $title ) : ?>
 
-				<?php echo $args['before_title'] . $title . $args['after_title']; // xss ok. ?>
+				<?php echo $args['before_title'] . esc_html( $title ) . $args['after_title']; // xss ok. ?>
 
 			<?php endif; ?>
 
@@ -94,7 +98,7 @@ class trc_Hero_Text_Widget extends WP_Widget {
 
 			<?php if ( $button_text ) : ?>
 
-				<p><a href="<?php echo $button_link; ?>" class="button"><?php echo $button_text; ?></a></p>
+				<p><a href="<?php echo esc_url( $button_link ); ?>" class="button"><?php echo esc_html( $button_text ); ?></a></p>
 
 			<?php endif; ?>
 
@@ -127,7 +131,7 @@ class trc_Hero_Text_Widget extends WP_Widget {
 		( function ( $ ) {
 
 			// Let our script know a widget has been added to make its URL search input work.
-			$( document ).trigger( 'trc.widgets.change' );
+			$( document ).trigger( 'primer.widgets.change' );
 
 		} )( jQuery );
 		</script>
@@ -138,26 +142,26 @@ class trc_Hero_Text_Widget extends WP_Widget {
 		}
 		</style>
 
-		<div class="trc-widgets trc-hero-text-widget">
+		<div class="primer-widgets primer-hero-text-widget">
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" title="<?php esc_attr_e( 'The title of widget. Leave empty for no title.', 'trc' ); ?>"><?php esc_html_e( 'Title:', 'trc' ); ?></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" title="<?php esc_attr_e( 'The title of widget. Leave empty for no title.', 'primer' ); ?>"><?php esc_html_e( 'Title:', 'primer' ); ?></label>
 				<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $title ); ?>" autocomplete="off">
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php esc_html_e( 'Text:', 'trc' ); ?></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php esc_html_e( 'Text:', 'primer' ); ?></label>
 				<textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" rows="6" cols="20"><?php echo esc_textarea( $text ); ?></textarea>
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'button_text' ) ); ?>"><?php esc_html_e( 'Button Text:', 'trc' ); ?></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'button_text' ) ); ?>"><?php esc_html_e( 'Button Text:', 'primer' ); ?></label>
 				<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'button_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_text' ) ); ?>" value="<?php echo esc_attr( $button_text ); ?>" autocomplete="off">
 			</p>
 
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'button_link' ) ); ?>"><?php esc_html_e( 'Button Link URL:', 'trc' ); ?></label>
-				<input type="text" class="widefat link" id="<?php echo esc_attr( $this->get_field_id( 'button_link' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_link' ) ); ?>" value="<?php echo esc_attr( $button_link ); ?>" placeholder="<?php esc_attr_e( 'Paste URL or type to search', 'trc' ); ?>" autocomplete="off">
+				<label for="<?php echo esc_attr( $this->get_field_id( 'button_link' ) ); ?>"><?php esc_html_e( 'Button Link URL:', 'primer' ); ?></label>
+				<input type="text" class="widefat link" id="<?php echo esc_attr( $this->get_field_id( 'button_link' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_link' ) ); ?>" value="<?php echo esc_attr( $button_link ); ?>" placeholder="<?php esc_attr_e( 'Paste URL or type to search', 'primer' ); ?>" autocomplete="off">
 			</p>
 
 		</div>
@@ -202,17 +206,17 @@ class trc_Hero_Text_Widget extends WP_Widget {
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
 		wp_register_script(
-			'trc-admin-hero-text-widget',
+			'primer-admin-hero-text-widget',
 			get_template_directory_uri() . "/assets/js/admin/hero-text-widget{$suffix}.js",
 			array( 'jquery', 'jquery-ui-autocomplete' ),
-			trc_VERSION,
+			PRIMER_VERSION,
 			true
 		);
 
 		// We need the internal linking token.
 		wp_localize_script(
-			'trc-admin-hero-text-widget',
-			'trc_hero_text_widget',
+			'primer-admin-hero-text-widget',
+			'primer_hero_text_widget',
 			array(
 				'_ajax_linking_nonce' => wp_create_nonce( 'internal-linking' ),
 			)
@@ -229,7 +233,7 @@ class trc_Hero_Text_Widget extends WP_Widget {
 	 */
 	public function print_scripts() {
 
-		wp_print_scripts( 'trc-admin-hero-text-widget' );
+		wp_print_scripts( 'primer-admin-hero-text-widget' );
 
 	}
 

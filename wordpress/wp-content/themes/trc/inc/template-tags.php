@@ -2,16 +2,18 @@
 /**
  * Custom template tags for this theme.
  *
- * @package  TRC
- * @since    0.0.0
+ * @package  Functions
+ * @category Core
+ * @author   GoDaddy
+ * @since    1.0.0
  */
 
 /**
  * Display a custom logo.
  *
- * @since 0.0.0
+ * @since 1.0.0
  */
-function trc_the_custom_logo() {
+function primer_the_custom_logo() {
 
 	/**
 	 * For backwards compatibility prior to WordPress 4.5.
@@ -42,14 +44,14 @@ function trc_the_custom_logo() {
 	 *
 	 * @var array
 	 */
-	$args = (array) apply_filters( 'trc_the_custom_logo_args', array(
+	$args = (array) apply_filters( 'primer_the_custom_logo_args', array(
 		'class'    => 'custom-logo',
 		'itemprop' => 'logo',
 	) );
 
 	printf( // xss ok.
 		'<a href="%1$s" class="custom-logo-link" %2$s>%3$s</a>',
-		home_url( '/' ),
+		esc_url( home_url( '/' ) ),
 		$custom_logo_id ? 'rel="home" itemprop="url"' : 'style="display:none;"',
 		$custom_logo_id ? wp_get_attachment_image( $custom_logo_id, 'full', false, $args ) : '<img class="custom-logo"/>'
 	);
@@ -61,7 +63,7 @@ function trc_the_custom_logo() {
  *
  * @since 1.0.0
  */
-function trc_the_site_title() {
+function primer_the_site_title() {
 
 	/**
 	 * Filter the site title display args.
@@ -70,7 +72,7 @@ function trc_the_site_title() {
 	 *
 	 * @var array
 	 */
-	$args = (array) apply_filters( 'trc_the_site_title_args', array(
+	$args = (array) apply_filters( 'primer_the_site_title_args', array(
 		'wrapper'   => 'div',
 		'atts'      => array( 'class' => 'site-title' ),
 		'url'       => home_url( '/' ),
@@ -88,7 +90,7 @@ function trc_the_site_title() {
 
 	foreach ( $args['atts'] as $key => &$value ) {
 
-		$value = sprintf( '%s="%s"', sanitize_key( $key ), $value );
+		$value = sprintf( '%s="%s"', sanitize_key( $key ), esc_attr( $value ) );
 
 	}
 
@@ -96,13 +98,13 @@ function trc_the_site_title() {
 
 	foreach ( $args['link_atts'] as $key => &$value ) {
 
-		$value = sprintf( '%s="%s"', sanitize_key( $key ), $value );
+		$value = sprintf( '%s="%s"', sanitize_key( $key ), esc_attr( $value ) );
 
 	}
 
 	$html = sprintf(
 		'<a href="%s" %s>%s</a>',
-		$args['url'],
+		esc_url( $args['url'] ),
 		implode( ' ', $args['link_atts'] ),
 		$args['title']
 	);
@@ -125,7 +127,7 @@ function trc_the_site_title() {
 	 *
 	 * @var string
 	 */
-	echo (string) apply_filters( 'trc_the_site_title', $html ); // xss ok.
+	echo (string) apply_filters( 'primer_the_site_title', $html ); // xss ok.
 
 }
 
@@ -134,7 +136,7 @@ function trc_the_site_title() {
  *
  * @since 1.0.0
  */
-function trc_the_site_description() {
+function primer_the_site_description() {
 
 	/**
 	 * Filter the site description display args.
@@ -143,7 +145,7 @@ function trc_the_site_description() {
 	 *
 	 * @var array
 	 */
-	$args = (array) apply_filters( 'trc_the_site_description_args', array(
+	$args = (array) apply_filters( 'primer_the_site_description_args', array(
 		'wrapper'     => 'div',
 		'atts'        => array( 'class' => 'site-description' ),
 		'description' => get_bloginfo( 'description' ),
@@ -159,7 +161,7 @@ function trc_the_site_description() {
 
 	foreach ( $args['atts'] as $key => &$value ) {
 
-		$value = sprintf( '%s="%s"', sanitize_key( $key ), $value );
+		$value = sprintf( '%s="%s"', sanitize_key( $key ), esc_attr( $value ) );
 
 	}
 
@@ -183,7 +185,7 @@ function trc_the_site_description() {
 	 *
 	 * @var string
 	 */
-	echo (string) apply_filters( 'trc_the_site_description', $html ); // xss ok.
+	echo (string) apply_filters( 'primer_the_site_description', $html ); // xss ok.
 
 }
 
@@ -192,7 +194,7 @@ function trc_the_site_description() {
  *
  * @since 1.0.0
  */
-function trc_the_page_title() {
+function primer_the_page_title() {
 
 	/**
 	 * Filter the page title display args.
@@ -201,10 +203,10 @@ function trc_the_page_title() {
 	 *
 	 * @var array
 	 */
-	$args = (array) apply_filters( 'trc_the_page_title_args', array(
+	$args = (array) apply_filters( 'primer_the_page_title_args', array(
 		'wrapper' => 'h1',
 		'atts'    => array( 'class' => 'page-title' ),
-		'title'   => trc_get_the_page_title(),
+		'title'   => primer_get_the_page_title(),
 	) );
 
 	if ( empty( $args['title'] ) ) {
@@ -217,11 +219,11 @@ function trc_the_page_title() {
 
 	foreach ( $args['atts'] as $key => &$value ) {
 
-		$value = sprintf( '%s="%s"', sanitize_key( $key ), $value );
+		$value = sprintf( '%s="%s"', sanitize_key( $key ), esc_attr( $value ) );
 
 	}
 
-	$html = $args['title'];
+	$html = esc_html( $args['title'] );
 
 	if ( ! empty( $args['wrapper'] ) ) {
 
@@ -247,7 +249,7 @@ function trc_the_page_title() {
  *
  * @param array $args (optional) Post pagination arguments.
  */
-function trc_pagination( $args = array() ) {
+function primer_pagination( $args = array() ) {
 
 	global $wp_query;
 
@@ -272,10 +274,10 @@ function trc_pagination( $args = array() ) {
 	 *
 	 * @var array
 	 */
-	$defaults = (array) apply_filters( 'trc_pagination_default_args', array(
-		'prev_text'          => '&larr; Previous',
-		'next_text'          => 'Next &rarr;',
-		'screen_reader_text' => sprintf( '%1$s navigation', $post_type_label ),
+	$defaults = (array) apply_filters( 'primer_pagination_default_args', array(
+		'prev_text'          => __( '&larr; Previous', 'primer' ),
+		'next_text'          => __( 'Next &rarr;', 'primer' ),
+		'screen_reader_text' => sprintf( /* translators: post type singular label */ esc_html__( '%1$s navigation', 'primer' ), esc_html( $post_type_label ) ),
 	), max( 1, get_query_var( 'paged' ) ), absint( $wp_query->max_num_pages ) );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -292,7 +294,7 @@ function trc_pagination( $args = array() ) {
  *
  * @param array $args (optional) Post navigation arguments.
  */
-function trc_post_nav( $args = array() ) {
+function primer_post_nav( $args = array() ) {
 
 	/**
 	 * Filter the default post navigation args.
@@ -301,7 +303,7 @@ function trc_post_nav( $args = array() ) {
 	 *
 	 * @var array
 	 */
-	$defaults = (array) apply_filters( 'trc_post_nav_default_args', array(
+	$defaults = (array) apply_filters( 'primer_post_nav_default_args', array(
 		'prev_text' => '&larr; %title',
 		'next_text' => '%title &rarr;',
 	) );
@@ -317,20 +319,20 @@ function trc_post_nav( $args = array() ) {
  *
  * @since 1.0.0
  */
-function trc_posted_on() {
+function primer_posted_on() {
 
 	$time = sprintf(
 		'<time class="entry-date published" datetime="%s">%s</time>',
-		get_the_date( 'c' ),
-		get_the_date()
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
 	);
 
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 
 		$time = sprintf(
 			'<time class="updated" datetime="%s">%s</time>',
-			get_the_modified_date( 'c' ),
-			get_the_modified_date()
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
 		);
 
 	}
@@ -348,12 +350,12 @@ function trc_posted_on() {
  *
  * @since 1.0.0
  */
-function trc_post_format() {
+function primer_post_format() {
 
 	$format = get_post_format();
 	$format = empty( $format ) ? 'standard' : $format;
 
-	printf( '<span class="post-format">%s</span>', $format );
+	printf( '<span class="post-format">%s</span>', esc_html( $format ) );
 
 }
 
@@ -366,7 +368,7 @@ function trc_post_format() {
  * @link   https://wordpress.org/plugins/really-simple-breadcrumb/
  * @since  1.0.0
  */
-function trc_breadcrumbs() {
+function primer_breadcrumbs() {
 
 	global $post;
 
@@ -378,8 +380,8 @@ function trc_breadcrumbs() {
 
 		printf( // xss ok.
 			'<a href="%s">%s</a>%s',
-			home_url( '/' ),
-			get_bloginfo( 'name' ),
+			esc_url( home_url( '/' ) ),
+			esc_html( get_bloginfo( 'name' ) ),
 			$separator
 		);
 
@@ -387,8 +389,8 @@ function trc_breadcrumbs() {
 
 			printf( // xss ok.
 				'<a href="%s">%s</a>%s',
-				trc_get_posts_url(),
-				'Blog',
+				esc_url( primer_get_posts_url() ),
+				esc_html__( 'Blog', 'primer' ),
 				$separator
 			);
 
@@ -416,8 +418,8 @@ function trc_breadcrumbs() {
 
 					printf( // xss ok.
 						'<a href="%s">%s</a>%s',
-						get_permalink( $post->ancestors[ $i ] ),
-						get_the_title( $post->ancestors[ $i ] ),
+						esc_url( get_permalink( $post->ancestors[ $i ] ) ),
+						esc_html( get_the_title( $post->ancestors[ $i ] ) ),
 						$separator
 					);
 

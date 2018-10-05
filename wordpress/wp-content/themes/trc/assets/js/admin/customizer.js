@@ -7,19 +7,19 @@
 
 ( function( $, api ) {
 
-	var $style     = $( '#trc-colors-css' ),
-	    $rgbaStyle = $( '#trc-colors-css-rgba' ),
+	var $style     = $( '#primer-colors-css' ),
+	    $rgbaStyle = $( '#primer-colors-css-rgba' ),
 	    $body      = $( 'body' );
 
 	if ( ! $style.length ) {
 
-		$style = $( 'head' ).append( '<style type="text/css" id="trc-colors-css" />' ).find( '#trc-colors-css' );
+		$style = $( 'head' ).append( '<style type="text/css" id="primer-colors-css" />' ).find( '#primer-colors-css' );
 
 	}
 
 	if ( ! $rgbaStyle.length ) {
 
-		$rgbaStyle = $( 'head' ).append( '<style type="text/css" id="trc-colors-css-rgba" />' ).find( '#trc-colors-css-rgba' );
+		$rgbaStyle = $( 'head' ).append( '<style type="text/css" id="primer-colors-css-rgba" />' ).find( '#primer-colors-css-rgba' );
 
 	}
 
@@ -59,13 +59,13 @@
 	// Color scheme.
 	api.bind( 'preview-ready', function() {
 
-		api.preview.bind( 'trc-update-colors-css', function( css ) {
+		api.preview.bind( 'primer-update-colors-css', function( css ) {
 
 			$style.html( css );
 
 		} );
 
-		api.preview.bind( 'trc-update-colors-css-rgba', function( rgbaCSS ) {
+		api.preview.bind( 'primer-update-colors-css-rgba', function( rgbaCSS ) {
 
 			$rgbaStyle.html( rgbaCSS );
 

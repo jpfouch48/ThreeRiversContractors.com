@@ -5,11 +5,11 @@ window.wp = window.wp || {};
 
 	$( document ).ready( function() {
 
-		$( 'input[name="trc-layout-override"]' ).change( function() {
+		$( 'input[name="primer-layout-override"]' ).change( function() {
 
 			if ( '1' === $( this ).val() ) {
 
-				$( '.trc-layout ul li' )
+				$( '.primer-layout ul li' )
 					.removeClass( 'disabled' )
 					.addClass( 'active' )
 					.find( 'input' )
@@ -19,7 +19,7 @@ window.wp = window.wp || {};
 
 			}
 
-			$( '.trc-layout ul li' )
+			$( '.primer-layout ul li' )
 				.addClass('disabled')
 				.find(':not(.global)')
 				.removeClass( 'active' )
@@ -27,20 +27,20 @@ window.wp = window.wp || {};
 				.find( 'input' )
 				.prop( 'disabled', true );
 
-			$( '.trc-layout ul li.global input' )
+			$( '.primer-layout ul li.global input' )
 				.prop( 'checked', true )
 				.trigger( 'change' );
 
 		} );
 
-		$( 'input[name="trc-layout"]' ).change( function() {
+		$( 'input[name="primer-layout"]' ).change( function() {
 			toggleEditorWidth( $( this ).val() );
 		} );
 
 	} );
 
 	$( document ).on( 'ready', function() {
-		toggleEditorWidth( trcLayouts.selected );
+		toggleEditorWidth( primerLayouts.selected );
 	} );
 
 } )( jQuery );
@@ -50,7 +50,7 @@ function toggleEditorWidth( pageWidth ) {
 	pageWidth = pageWidth.indexOf( 'wide' ) >= 0 ? 'wide' : ( pageWidth.indexOf( 'narrow' ) >= 0 || pageWidth.indexOf( 'three-column' ) >= 0 ? 'narrow' : 'default' );
 
 	$( 'body.gutenberg-editor-page' )
-		.removeClass( 'trc-gutenberg-default trc-gutenberg-wide trc-gutenberg-narrow' )
-		.addClass( 'trc-gutenberg-' + pageWidth );
+		.removeClass( 'primer-gutenberg-default primer-gutenberg-wide primer-gutenberg-narrow' )
+		.addClass( 'primer-gutenberg-' + pageWidth );
 
 }

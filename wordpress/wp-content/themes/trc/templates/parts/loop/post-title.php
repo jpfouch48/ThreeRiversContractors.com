@@ -2,8 +2,8 @@
 /**
  * Template part for displaying the post title inside The Loop.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>
@@ -21,7 +21,7 @@
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'trc_before_post_title' );
+			do_action( 'primer_before_post_title' );
 
 			?>
 
@@ -42,7 +42,7 @@
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'trc_after_post_title' );
+			do_action( 'primer_after_post_title' );
 
 			?>
 

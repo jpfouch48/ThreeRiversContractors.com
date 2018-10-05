@@ -2,8 +2,8 @@
 /**
  * Template part for displaying the post thumbnail inside The Loop.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 if ( has_post_thumbnail() ) :
@@ -18,17 +18,17 @@ if ( has_post_thumbnail() ) :
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'trc_before_post_thumbnail' );
+	do_action( 'primer_before_post_thumbnail' );
 
 	?>
 
 	<?php if ( ! is_single() ) : ?>
 
-		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( trc_get_featured_image_size() ); ?></a>
+		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( primer_get_featured_image_size() ); ?></a>
 
 	<?php else : ?>
 
-		<?php the_post_thumbnail( trc_get_featured_image_size() ); ?>
+		<?php the_post_thumbnail( primer_get_featured_image_size() ); ?>
 
 	<?php endif; ?>
 
@@ -39,7 +39,7 @@ if ( has_post_thumbnail() ) :
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'trc_after_post_thumbnail' );
+	do_action( 'primer_after_post_thumbnail' );
 
 	?>
 

@@ -1,13 +1,13 @@
-.trc-layout p label {
+.primer-layout p label {
   float: left;
   margin-right: 12px; }
 
-.trc-layout p span.clear {
+.primer-layout p span.clear {
   content: '';
   clear: both;
   display: block; }
 
-.trc-layout-wrap ul {
+.primer-layout-wrap ul {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -15,59 +15,59 @@
   display: flex;
   margin: 0;
   list-style-type: none !important; }
-  .trc-layout-wrap ul li {
+  .primer-layout-wrap ul li {
     margin: 0.3em 0.3em;
     padding: 0; }
-    .trc-layout-wrap ul li.disabled {
+    .primer-layout-wrap ul li.disabled {
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
       filter: alpha(opacity=35);
       opacity: 0.35; }
-    .trc-layout-wrap ul li span {
+    .primer-layout-wrap ul li span {
       display: none; }
-    .trc-layout-wrap ul li img {
+    .primer-layout-wrap ul li img {
       width: 100%;
       height: auto;
       padding: 6px; }
-    .trc-layout-wrap ul li label {
+    .primer-layout-wrap ul li label {
       display: block;
       position: relative;
       margin-left: 0; }
-      .trc-layout-wrap ul li label > input {
+      .primer-layout-wrap ul li label > input {
         visibility: hidden;
         position: absolute; }
-        .trc-layout-wrap ul li label > input + img {
+        .primer-layout-wrap ul li label > input + img {
           border: 3px solid transparent; }
-    .trc-layout-wrap ul li.active label > input + img {
+    .primer-layout-wrap ul li.active label > input + img {
       cursor: pointer; }
-    .trc-layout-wrap ul li.active label > input:checked + img {
+    .primer-layout-wrap ul li.active label > input:checked + img {
       border-color: #1e8cbe; }
-    .trc-layout-wrap ul li.disabled label > input + img {
+    .primer-layout-wrap ul li.disabled label > input + img {
       cursor: default; }
 
-#side-sortables .trc-layout-wrap ul,
-#customize-control-layout .trc-layout-wrap ul {
+#side-sortables .primer-layout-wrap ul,
+#customize-control-layout .primer-layout-wrap ul {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
-  #side-sortables .trc-layout-wrap ul li,
-  #customize-control-layout .trc-layout-wrap ul li {
+  #side-sortables .primer-layout-wrap ul li,
+  #customize-control-layout .primer-layout-wrap ul li {
     -webkit-flex-basis: -webkit-calc(25% - 0.6em);
     -ms-flex-preferred-size: calc(25% - 0.6em);
     flex-basis: calc(25% - 0.6em); }
 
 @media only screen and (max-width: 850px) {
-  .trc-layout-wrap ul {
+  .primer-layout-wrap ul {
     display: inline-block; }
-    .trc-layout-wrap ul li {
+    .primer-layout-wrap ul li {
       float: none;
       width: 100%;
       padding: 0.5em 0 !important; }
-      .trc-layout-wrap ul li span {
+      .primer-layout-wrap ul li span {
         display: inline-block; }
-      .trc-layout-wrap ul li img {
+      .primer-layout-wrap ul li img {
         display: none; }
-      .trc-layout-wrap ul li label {
+      .primer-layout-wrap ul li label {
         margin-left: 24px; }
-        .trc-layout-wrap ul li label > input {
+        .primer-layout-wrap ul li label > input {
           visibility: visible;
           position: relative; } }

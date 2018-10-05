@@ -2,13 +2,13 @@
 /**
  * Customizer Colors functionality.
  *
- * @class    trc_Customizer_Colors
+ * @class    Primer_Customizer_Colors
  * @package  Classes/Customizer
  * @category Class
  * @author   GoDaddy
  * @since    1.0.0
  */
-class trc_Customizer_Colors {
+class Primer_Customizer_Colors {
 
 	/**
 	 * Array of customizable colors.
@@ -40,13 +40,13 @@ class trc_Customizer_Colors {
 		 *
 		 * @var array
 		 */
-		$this->colors = (array) apply_filters( 'trc_colors',
+		$this->colors = (array) apply_filters( 'primer_colors',
 			array(
 				/**
 				 * Text colors
 				 */
 				'header_textcolor' => array(
-					'label'           => esc_html__( 'Site Title Text', 'trc' ),
+					'label'           => esc_html__( 'Site Title Text', 'primer' ),
 					'default'         => '#ffffff',
 					'section'         => 'colors-header',
 					'active_callback' => 'display_header_text',
@@ -62,7 +62,7 @@ class trc_Customizer_Colors {
 					),
 				),
 				'tagline_text_color' => array(
-					'label'           => esc_html__( 'Tagline Text', 'trc' ),
+					'label'           => esc_html__( 'Tagline Text', 'primer' ),
 					'default'         => '#ffffff',
 					'section'         => 'colors-header',
 					'active_callback' => 'display_header_text',
@@ -73,7 +73,7 @@ class trc_Customizer_Colors {
 					),
 				),
 				'hero_text_color' => array(
-					'label'    => esc_html__( 'Hero Text', 'trc' ),
+					'label'    => esc_html__( 'Hero Text', 'primer' ),
 					'default'  => '#ffffff',
 					'section'  => 'colors-header',
 					'priority' => 20,
@@ -104,7 +104,7 @@ class trc_Customizer_Colors {
 					),
 				),
 				'menu_text_color' => array(
-					'label'   => esc_html__( 'Text', 'trc' ),
+					'label'   => esc_html__( 'Text', 'primer' ),
 					'default' => '#ffffff',
 					'section' => 'colors-menu',
 					'css'     => array(
@@ -127,8 +127,8 @@ class trc_Customizer_Colors {
 					),
 				),
 				'heading_text_color' => array(
-					'label'       => esc_html__( 'Heading Text', 'trc' ),
-					'description' => esc_html__( 'Post titles, widget titles, form labels, table headers and buttons.', 'trc' ),
+					'label'       => esc_html__( 'Heading Text', 'primer' ),
+					'description' => esc_html__( 'Post titles, widget titles, form labels, table headers and buttons.', 'primer' ),
 					'default'     => '#353535',
 					'section'     => 'colors-content',
 					'css'         => array(
@@ -149,8 +149,8 @@ class trc_Customizer_Colors {
 					),
 				),
 				'primary_text_color' => array(
-					'label'       => esc_html__( 'Primary Text', 'trc' ),
-					'description' => esc_html__( 'Paragraphs, lists, menu links, quotes and tables.', 'trc' ),
+					'label'       => esc_html__( 'Primary Text', 'primer' ),
+					'description' => esc_html__( 'Paragraphs, lists, menu links, quotes and tables.', 'primer' ),
 					'default'     => '#252525',
 					'section'     => 'colors-content',
 					'css'         => array(
@@ -196,8 +196,8 @@ class trc_Customizer_Colors {
 					),
 				),
 				'secondary_text_color' => array(
-					'label'       => esc_html__( 'Secondary Text', 'trc' ),
-					'description' => esc_html__( 'Post bylines, comment counts, post footers and quote footers.', 'trc' ),
+					'label'       => esc_html__( 'Secondary Text', 'primer' ),
+					'description' => esc_html__( 'Post bylines, comment counts, post footers and quote footers.', 'primer' ),
 					'default'     => '#686868',
 					'section'     => 'colors-content',
 					'css'         => array(
@@ -211,10 +211,10 @@ class trc_Customizer_Colors {
 					),
 				),
 				'footer_widget_heading_text_color' => array(
-					'label'           => esc_html__( 'Widget Heading Text', 'trc' ),
+					'label'           => esc_html__( 'Widget Heading Text', 'primer' ),
 					'default'         => '#353535',
 					'section'         => 'colors-footer',
-					'active_callback' => 'trc_has_active_footer_sidebars',
+					'active_callback' => 'primer_has_active_footer_sidebars',
 					'css'             => array(
 						'.site-footer .widget-title,
 						.site-footer h1,
@@ -228,10 +228,10 @@ class trc_Customizer_Colors {
 					),
 				),
 				'footer_widget_text_color' => array(
-					'label'           => esc_html__( 'Widget Text', 'trc' ),
+					'label'           => esc_html__( 'Widget Text', 'primer' ),
 					'default'         => '#252525',
 					'section'         => 'colors-footer',
-					'active_callback' => 'trc_has_active_footer_sidebars',
+					'active_callback' => 'primer_has_active_footer_sidebars',
 					'css'             => array(
 						'.site-footer .widget,
 						.site-footer .widget form label' => array(
@@ -240,11 +240,11 @@ class trc_Customizer_Colors {
 					),
 				),
 				'footer_menu_text_color' => array(
-					'label'           => esc_html__( 'Menu Text', 'trc' ),
+					'label'           => esc_html__( 'Menu Text', 'primer' ),
 					'default'         => '#686868',
 					'section'         => 'colors-footer',
 					'priority'        => 20,
-					'active_callback' => 'trc_has_footer_menu',
+					'active_callback' => 'primer_has_footer_menu',
 					'css'             => array(
 						'.footer-menu ul li a,
 						.footer-menu ul li a:visited' => array(
@@ -262,7 +262,7 @@ class trc_Customizer_Colors {
 					),
 				),
 				'footer_text_color' => array(
-					'label'    => esc_html__( 'Copyright Text', 'trc' ),
+					'label'    => esc_html__( 'Copyright Text', 'primer' ),
 					'default'  => '#686868',
 					'section'  => 'colors-footer',
 					'priority' => 30,
@@ -276,7 +276,7 @@ class trc_Customizer_Colors {
 				 * Link / Button colors
 				 */
 				'link_color' => array(
-					'label'   => esc_html__( 'Link Text', 'trc' ),
+					'label'   => esc_html__( 'Link Text', 'primer' ),
 					'default' => '#ff6663',
 					'section' => 'colors-content',
 					'css'     => array(
@@ -298,7 +298,7 @@ class trc_Customizer_Colors {
 					),
 				),
 				'button_color' => array(
-					'label'   => esc_html__( 'Background', 'trc' ),
+					'label'   => esc_html__( 'Background', 'primer' ),
 					'default' => '#ff6663',
 					'section' => 'colors-buttons',
 					'css'     => array(
@@ -324,7 +324,7 @@ class trc_Customizer_Colors {
 					),
 				),
 				'button_text_color' => array(
-					'label'   => esc_html__( 'Text', 'trc' ),
+					'label'   => esc_html__( 'Text', 'primer' ),
 					'default' => '#ffffff',
 					'section' => 'colors-buttons',
 					'css'     => array(
@@ -341,7 +341,7 @@ class trc_Customizer_Colors {
 				 * Background colors
 				 */
 				'background_color' => array(
-					'label'   => esc_html__( 'Page Background', 'trc' ),
+					'label'   => esc_html__( 'Page Background', 'primer' ),
 					'default' => '#f5f5f5',
 					'section' => 'colors-content',
 					'css'     => array(
@@ -354,7 +354,7 @@ class trc_Customizer_Colors {
 					),
 				),
 				'content_background_color' => array(
-					'label'   => esc_html__( 'Content Background', 'trc' ),
+					'label'   => esc_html__( 'Content Background', 'primer' ),
 					'default' => '#ffffff',
 					'section' => 'colors-content',
 					'css'     => array(
@@ -364,17 +364,17 @@ class trc_Customizer_Colors {
 					),
 				),
 				'hero_background_color' => array(
-					'label'    => esc_html__( 'Hero Background', 'trc' ),
+					'label'    => esc_html__( 'Hero Background', 'primer' ),
 					'default'  => '#0b3954',
 					'section'  => 'colors-header',
 					'priority' => 20,
 					'css'      => array(
-						trc_get_hero_image_selector() => array(
+						primer_get_hero_image_selector() => array(
 							'background-color' => '%1$s',
 						),
 					),
 					'rgba_css' => array(
-						trc_get_hero_image_selector() => array(
+						primer_get_hero_image_selector() => array(
 							'-webkit-box-shadow' => 'inset 0 0 0 9999em',
 							'-moz-box-shadow'    => 'inset 0 0 0 9999em',
 							'box-shadow'         => 'inset 0 0 0 9999em',
@@ -383,7 +383,7 @@ class trc_Customizer_Colors {
 					),
 				),
 				'menu_background_color' => array(
-					'label'   => esc_html__( 'Background', 'trc' ),
+					'label'   => esc_html__( 'Background', 'primer' ),
 					'default' => '#0b3954',
 					'section' => 'colors-menu',
 					'css'     => array(
@@ -393,10 +393,10 @@ class trc_Customizer_Colors {
 					),
 				),
 				'footer_widget_background_color' => array(
-					'label'           => esc_html__( 'Widgets Background', 'trc' ),
+					'label'           => esc_html__( 'Widgets Background', 'primer' ),
 					'default'         => '#0b3954',
 					'section'         => 'colors-footer',
-					'active_callback' => 'trc_has_active_footer_sidebars',
+					'active_callback' => 'primer_has_active_footer_sidebars',
 					'css'             => array(
 						'.site-footer' => array(
 							'background-color' => '%1$s',
@@ -404,10 +404,10 @@ class trc_Customizer_Colors {
 					),
 				),
 				'footer_widget_content_background_color' => array(
-					'label'           => esc_html__( 'Widget Content Background', 'trc' ),
+					'label'           => esc_html__( 'Widget Content Background', 'primer' ),
 					'default'         => '#ffffff',
 					'section'         => 'colors-footer',
-					'active_callback' => 'trc_has_active_footer_sidebars',
+					'active_callback' => 'primer_has_active_footer_sidebars',
 					'css'             => array(
 						'.site-footer .widget' => array(
 							'background-color' => '%1$s',
@@ -415,7 +415,7 @@ class trc_Customizer_Colors {
 					),
 				),
 				'footer_background_color' => array(
-					'label'    => esc_html__( 'Footer Background', 'trc' ),
+					'label'    => esc_html__( 'Footer Background', 'primer' ),
 					'default'  => '#f5f5f5',
 					'section'  => 'colors-footer',
 					'priority' => 30,
@@ -453,7 +453,7 @@ class trc_Customizer_Colors {
 		 */
 		$custom_scheme = array(
 			'_custom' => array(
-				'label' => sprintf( '- %s -' , esc_html__( 'Custom', 'trc' ) ),
+				'label' => sprintf( '- %s -' , esc_html__( 'Custom', 'primer' ) ),
 			),
 		);
 
@@ -462,7 +462,7 @@ class trc_Customizer_Colors {
 		 *
 		 * The `default` color scheme is required and not filterable.
 		 * If you want to customize values in this scheme, do so via
-		 * a `trc_colors` filter in your Child Theme.
+		 * a `primer_colors` filter in your Child Theme.
 		 *
 		 * @since 1.0.0
 		 *
@@ -470,7 +470,7 @@ class trc_Customizer_Colors {
 		 */
 		$default_scheme = array(
 			'default' => array(
-				'label'  => esc_html__( 'Default', 'trc' ),
+				'label'  => esc_html__( 'Default', 'primer' ),
 				'colors' => array_combine(
 					array_keys( $this->colors ),
 					wp_list_pluck( $this->colors, 'default' )
@@ -480,47 +480,47 @@ class trc_Customizer_Colors {
 
 		$color_schemes = array(
 			'blush' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Blush', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Blush', 'primer' ),
 				'base'  => '#cc494f',
 			),
 			'bronze' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Bronze', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Bronze', 'primer' ),
 				'base'  => '#b1a18b',
 			),
 			'canary' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Canary', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Canary', 'primer' ),
 				'base'  => '#e9c46a',
 			),
 			'cool' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Cool', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Cool', 'primer' ),
 				'base'  => '#78c3fb',
 			),
 			'dark' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Dark', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Dark', 'primer' ),
 				'base'  => '#222222',
 			),
 			'iguana' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Iguana', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Iguana', 'primer' ),
 				'base'  => '#62bf7c',
 			),
 			'muted' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Muted', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Muted', 'primer' ),
 				'base'  => '#3e4c75',
 			),
 			'plum' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Plum', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Plum', 'primer' ),
 				'base'  => '#5d5179',
 			),
 			'rose' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Rose', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Rose', 'primer' ),
 				'base'  => '#f49390',
 			),
 			'tangerine' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Tangerine', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Tangerine', 'primer' ),
 				'base'  => '#fc9e4f',
 			),
 			'turquoise' => array(
-				'label' => /* translators: color scheme name */ esc_html__( 'Turquoise', 'trc' ),
+				'label' => /* translators: color scheme name */ esc_html__( 'Turquoise', 'primer' ),
 				'base'  => '#48e5c2',
 			),
 		);
@@ -534,7 +534,7 @@ class trc_Customizer_Colors {
 
 		}
 
-		if ( is_custom_trc_child() ) {
+		if ( is_custom_primer_child() ) {
 
 			$overrides = array(
 				'blush' => array(
@@ -660,7 +660,7 @@ class trc_Customizer_Colors {
 				),
 			);
 
-			$color_schemes = trc_array_replace_recursive( $color_schemes, $overrides );
+			$color_schemes = primer_array_replace_recursive( $color_schemes, $overrides );
 
 		} // End if().
 
@@ -671,7 +671,7 @@ class trc_Customizer_Colors {
 		 *
 		 * @var array
 		 */
-		$color_schemes = (array) apply_filters( 'trc_color_schemes', $color_schemes );
+		$color_schemes = (array) apply_filters( 'primer_color_schemes', $color_schemes );
 
 		// Remove any invalid color schemes.
 		$color_schemes = array_filter(
@@ -712,7 +712,7 @@ class trc_Customizer_Colors {
 		$wp_customize->add_panel(
 			'colors',
 			array(
-				'title'       => esc_html__( 'Colors', 'trc' ),
+				'title'       => esc_html__( 'Colors', 'primer' ),
 				'description' => 'Get what you need.',
 				'priority'    => 40,
 			)
@@ -721,7 +721,7 @@ class trc_Customizer_Colors {
 		$wp_customize->add_section(
 			'colors-scheme',
 			array(
-				'title' => esc_html__( 'Color Schemes', 'trc' ),
+				'title' => esc_html__( 'Color Schemes', 'primer' ),
 				'panel' => 'colors',
 			)
 		);
@@ -729,7 +729,7 @@ class trc_Customizer_Colors {
 		$wp_customize->add_section(
 			'colors-header',
 			array(
-				'title' => esc_html__( 'Header', 'trc' ),
+				'title' => esc_html__( 'Header', 'primer' ),
 				'panel' => 'colors',
 			)
 		);
@@ -737,7 +737,7 @@ class trc_Customizer_Colors {
 		$wp_customize->add_section(
 			'colors-menu',
 			array(
-				'title' => esc_html__( 'Menu', 'trc' ),
+				'title' => esc_html__( 'Menu', 'primer' ),
 				'panel' => 'colors',
 			)
 		);
@@ -745,7 +745,7 @@ class trc_Customizer_Colors {
 		$wp_customize->add_section(
 			'colors-buttons',
 			array(
-				'title' => esc_html__( 'Buttons', 'trc' ),
+				'title' => esc_html__( 'Buttons', 'primer' ),
 				'panel' => 'colors',
 			)
 		);
@@ -753,7 +753,7 @@ class trc_Customizer_Colors {
 		$wp_customize->add_section(
 			'colors-content',
 			array(
-				'title' => esc_html__( 'Content', 'trc' ),
+				'title' => esc_html__( 'Content', 'primer' ),
 				'panel' => 'colors',
 			)
 		);
@@ -761,7 +761,7 @@ class trc_Customizer_Colors {
 		$wp_customize->add_section(
 			'colors-footer',
 			array(
-				'title' => esc_html__( 'Footer', 'trc' ),
+				'title' => esc_html__( 'Footer', 'primer' ),
 				'panel' => 'colors',
 			)
 		);
@@ -856,18 +856,18 @@ class trc_Customizer_Colors {
 
 		$default = $this->get_default_color( $name, 'default' );
 		$hex     = trim( get_theme_mod( $name, $default ), '#' );
-		$css     = sprintf( trc_Customizer::parse_css_rules( $args['css'] ), '#' . $hex );
+		$css     = sprintf( Primer_Customizer::parse_css_rules( $args['css'] ), '#' . $hex );
 
 		if ( ! empty( $args['rgba_css'] ) ) {
 
 			$css .= sprintf(
-				trc_Customizer::parse_css_rules( $args['rgba_css'] ),
-				implode( ', ', trc_hex2rgb( $hex ) )
+				Primer_Customizer::parse_css_rules( $args['rgba_css'] ),
+				implode( ', ', primer_hex2rgb( $hex ) )
 			);
 
 		}
 
-		wp_add_inline_style( trc_Customizer::$stylesheet, $css );
+		wp_add_inline_style( Primer_Customizer::$stylesheet, $css );
 
 	}
 
@@ -977,7 +977,7 @@ class trc_Customizer_Colors {
 		$wp_customize->add_control(
 			'color_scheme',
 			array(
-				'label'    => esc_html__( 'Base Color Scheme', 'trc' ),
+				'label'    => esc_html__( 'Base Color Scheme', 'primer' ),
 				'section'  => 'colors-scheme',
 				'type'     => 'select',
 				'choices'  => $choices,
@@ -997,9 +997,9 @@ class trc_Customizer_Colors {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'trc-colors-control', get_template_directory_uri() . "/assets/js/admin/colors-control{$suffix}.js", array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), trc_VERSION, true );
+		wp_enqueue_script( 'primer-colors-control', get_template_directory_uri() . "/assets/js/admin/colors-control{$suffix}.js", array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), PRIMER_VERSION, true );
 
-		wp_localize_script( 'trc-colors-control', 'colorSchemes', $this->color_schemes );
+		wp_localize_script( 'primer-colors-control', 'colorSchemes', $this->color_schemes );
 
 	}
 
@@ -1012,7 +1012,7 @@ class trc_Customizer_Colors {
 	public function colors_preview_css() {
 
 		?>
-		<script type="text/html" id="tmpl-trc-colors-css">
+		<script type="text/html" id="tmpl-primer-colors-css">
 		<?php
 
 		foreach ( $this->colors as $name => $args ) {
@@ -1024,7 +1024,7 @@ class trc_Customizer_Colors {
 			}
 
 			printf( // xss ok.
-				trc_Customizer::parse_css_rules( $args['css'] ),
+				Primer_Customizer::parse_css_rules( $args['css'] ),
 				sprintf( '{{ data.%s }}', $name )
 			);
 
@@ -1039,18 +1039,18 @@ class trc_Customizer_Colors {
 		if ( ! $rgba_colors ) {
 
 			// Required for themes without RGBA CSS rules.
-			echo '<script type="text/html" id="tmpl-trc-colors-css-rgba"></script>';
+			echo '<script type="text/html" id="tmpl-primer-colors-css-rgba"></script>';
 
 		}
 
 		?>
-		<script type="text/html" id="tmpl-trc-colors-css-rgba">
+		<script type="text/html" id="tmpl-primer-colors-css-rgba">
 		<?php
 
 		foreach ( $rgba_colors as $name => $css ) {
 
 			printf( // xss ok.
-				trc_Customizer::parse_css_rules( $css ),
+				Primer_Customizer::parse_css_rules( $css ),
 				sprintf( '{{ data.%s }}', $name )
 			);
 
@@ -1155,7 +1155,7 @@ class trc_Customizer_Colors {
 		 *
 		 * @var array
 		 */
-		$args = (array) apply_filters( 'trc_custom_header_args',
+		$args = (array) apply_filters( 'primer_custom_header_args',
 			array(
 				'default-text-color' => $this->get_default_color( 'header_textcolor', 'default' ),
 				'width'              => 2400,
@@ -1173,7 +1173,7 @@ class trc_Customizer_Colors {
 		 *
 		 * @var array
 		 */
-		$defaults = (array) apply_filters( 'trc_default_hero_images',
+		$defaults = (array) apply_filters( 'primer_default_hero_images',
 			array(
 				'default' => array(
 					'url'           => 'assets/images/hero.jpg',
@@ -1234,7 +1234,7 @@ class trc_Customizer_Colors {
 
 			printf( // xss ok.
 				"<style type='text/css'>\n%s\n</style>",
-				sprintf( trc_Customizer::parse_css_rules( $css ), $color )
+				sprintf( Primer_Customizer::parse_css_rules( $css ), $color )
 			);
 
 		}
@@ -1256,7 +1256,7 @@ class trc_Customizer_Colors {
 		 *
 		 * @var array
 		 */
-		$args = (array) apply_filters( 'trc_custom_background_args',
+		$args = (array) apply_filters( 'primer_custom_background_args',
 			array(
 				'default-color' => $this->get_default_color( 'background_color', 'default' ),
 			)
@@ -1290,11 +1290,11 @@ class trc_Customizer_Colors {
 		$wp_customize->add_control(
 			'hero_image_color_overlay',
 			array(
-				'label'           => esc_html__( 'Hero Background Overlay', 'trc' ),
-				'description'     => esc_html__( 'Control the color overlay transparency when using a custom Header Image.', 'trc' ),
+				'label'           => esc_html__( 'Hero Background Overlay', 'primer' ),
+				'description'     => esc_html__( 'Control the color overlay transparency when using a custom Header Image.', 'primer' ),
 				'section'         => 'colors-header',
 				'priority'        => 20,
-				'active_callback' => 'trc_has_hero_image',
+				'active_callback' => 'primer_has_hero_image',
 				'type'            => 'range',
 				'input_attrs'     => array(
 					'min'  => 0,
@@ -1322,7 +1322,7 @@ class trc_Customizer_Colors {
 		 *
 		 * @var int
 		 */
-		return (int) apply_filters( 'trc_hero_image_color_overlay_default', 50 );
+		return (int) apply_filters( 'primer_hero_image_color_overlay_default', 50 );
 
 	}
 
@@ -1348,7 +1348,7 @@ class trc_Customizer_Colors {
 	 *
 	 * @param  string $name Color key or color scheme slug name.
 	 *
-	 * @return string Return the specified property within the `trc_Customizer_Colors` class.
+	 * @return string Return the specified property within the `Primer_Customizer_Colors` class.
 	 */
 	public function __get( $name ) {
 
@@ -1364,4 +1364,4 @@ class trc_Customizer_Colors {
 
 }
 
-$GLOBALS['trc_customizer_colors'] = new trc_Customizer_Colors;
+$GLOBALS['primer_customizer_colors'] = new Primer_Customizer_Colors;

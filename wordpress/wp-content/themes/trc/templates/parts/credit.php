@@ -2,8 +2,8 @@
 /**
  * Displays site credit.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>
@@ -19,8 +19,9 @@
 	 *
 	 * @var string
 	 */
-	$copyright_text = (string) apply_filters( 'trc_copyright_text', get_theme_mod( 'copyright_text', sprintf(
-		'Copyright %1$s %2$d %3$s',
+	$copyright_text = (string) apply_filters( 'primer_copyright_text', get_theme_mod( 'copyright_text', sprintf(
+		/* translators: 1. copyright symbol, 2. year, 3. site title */
+		esc_html__( 'Copyright %1$s %2$d %3$s', 'primer' ),
 		'&copy;',
 		date( 'Y' ),
 		get_bloginfo( 'blogname' )
@@ -35,7 +36,7 @@
 	 *
 	 * @var bool
 	 */
-	if ( (bool) apply_filters( 'trc_author_credit', true ) ) {
+	if ( (bool) apply_filters( 'primer_author_credit', true ) ) {
 
 		if ( $copyright_text ) {
 
@@ -46,12 +47,13 @@
 		$theme = wp_get_theme();
 
 		printf(
-			'%1$s WordPress theme by %2$s',
-			$theme->get( 'Name' ),
+			/* translators: 1. theme name link, 2. theme author link */
+			esc_html__( '%1$s WordPress theme by %2$s', 'primer' ),
+			esc_html( $theme->get( 'Name' ) ),
 			sprintf(
 				'<a href="%s" rel="author nofollow">%s</a>',
-				$theme->get( 'AuthorURI' ),
-				$theme->get( 'Author' )
+				esc_url( $theme->get( 'AuthorURI' ) ),
+				esc_html( $theme->get( 'Author' ) )
 			)
 		);
 

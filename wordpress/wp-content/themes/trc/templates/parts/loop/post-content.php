@@ -2,8 +2,8 @@
 /**
  * Template part for displaying the post content inside The Loop.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>
@@ -12,11 +12,11 @@
 
 	<?php
 
-	the_content( 'Read More <span class="meta-nav">&rarr;</span>' );
+	the_content( __( 'Read More <span class="meta-nav">&rarr;</span>', 'primer' ) );
 
 	wp_link_pages(
 		array(
-			'before' => '<div class="page-links">' . 'Pages:',
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'primer' ),
 			'after'  => '</div>',
 		)
 	);

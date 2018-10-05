@@ -2,11 +2,11 @@
 /**
  * Displays the footer widget areas.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
-$sidebars = trc_get_active_footer_sidebars();
+$sidebars = primer_get_active_footer_sidebars();
 
 if ( $sidebars ) :
 

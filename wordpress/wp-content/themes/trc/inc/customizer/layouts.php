@@ -2,13 +2,13 @@
 /**
  * Customizer Layouts functionality.
  *
- * @class    trc_Customizer_Layouts
+ * @class    Primer_Customizer_Layouts
  * @package  Classes/Customizer
  * @category Class
  * @author   GoDaddy
  * @since    1.0.0
  */
-class trc_Customizer_Layouts {
+class Primer_Customizer_Layouts {
 
 	/**
 	 * Array of custom layouts.
@@ -50,15 +50,15 @@ class trc_Customizer_Layouts {
 		 *
 		 * @var array
 		 */
-		$this->layouts = (array) apply_filters( 'trc_layouts',
+		$this->layouts = (array) apply_filters( 'primer_layouts',
 			array(
-				'one-column-wide'       => esc_html__( 'One Column: Wide', 'trc' ),
-				'one-column-narrow'     => esc_html__( 'One Column: Narrow', 'trc' ),
-				'two-column-default'    => esc_html__( 'Two Columns: Content | Sidebar', 'trc' ),
-				'two-column-reversed'   => esc_html__( 'Two Columns: Sidebar | Content', 'trc' ),
-				'three-column-default'  => esc_html__( 'Three Columns: Content | Sidebar | Sidebar', 'trc' ),
-				'three-column-center'   => esc_html__( 'Three Columns: Sidebar | Content | Sidebar', 'trc' ),
-				'three-column-reversed' => esc_html__( 'Three Columns: Sidebar | Sidebar | Content', 'trc' ),
+				'one-column-wide'       => esc_html__( 'One Column: Wide', 'primer' ),
+				'one-column-narrow'     => esc_html__( 'One Column: Narrow', 'primer' ),
+				'two-column-default'    => esc_html__( 'Two Columns: Content | Sidebar', 'primer' ),
+				'two-column-reversed'   => esc_html__( 'Two Columns: Sidebar | Content', 'primer' ),
+				'three-column-default'  => esc_html__( 'Three Columns: Content | Sidebar | Sidebar', 'primer' ),
+				'three-column-center'   => esc_html__( 'Three Columns: Sidebar | Content | Sidebar', 'primer' ),
+				'three-column-reversed' => esc_html__( 'Three Columns: Sidebar | Sidebar | Content', 'primer' ),
 			)
 		);
 
@@ -75,7 +75,7 @@ class trc_Customizer_Layouts {
 		 *
 		 * @var string
 		 */
-		$default       = (string) apply_filters( 'trc_default_layout', $this->default );
+		$default       = (string) apply_filters( 'primer_default_layout', $this->default );
 		$this->default = $this->layout_exists( $default ) ? $default : ( $this->layout_exists( $this->default ) ? $this->default : key( $this->layouts ) );
 
 		/**
@@ -85,7 +85,7 @@ class trc_Customizer_Layouts {
 		 *
 		 * @var bool
 		 */
-		$this->meta_box = (bool) apply_filters( 'trc_layouts_meta_box_enabled', $this->meta_box );
+		$this->meta_box = (bool) apply_filters( 'primer_layouts_meta_box_enabled', $this->meta_box );
 
 		/**
 		 * Filter the registered page widths.
@@ -94,10 +94,10 @@ class trc_Customizer_Layouts {
 		 *
 		 * @var array
 		 */
-		$this->page_widths = (array) apply_filters( 'trc_page_widths',
+		$this->page_widths = (array) apply_filters( 'primer_page_widths',
 			array(
-				'fixed' => /* translators: fixed-width page layout */ esc_html__( 'Fixed', 'trc' ),
-				'fluid' => /* translators: fluid-width page layout */ esc_html__( 'Fluid', 'trc' ),
+				'fixed' => /* translators: fixed-width page layout */ esc_html__( 'Fixed', 'primer' ),
+				'fluid' => /* translators: fluid-width page layout */ esc_html__( 'Fluid', 'primer' ),
 			)
 		);
 
@@ -123,7 +123,7 @@ class trc_Customizer_Layouts {
 	 * Alter some registered layouts when in RTL mode.
 	 *
 	 * @action init
-	 * @uses   trc_layouts_rtl To filter the possible layouts.
+	 * @uses   primer_layouts_rtl To filter the possible layouts.
 	 *
 	 * @since  1.0.0
 	 */
@@ -142,12 +142,12 @@ class trc_Customizer_Layouts {
 		 *
 		 * @var array
 		 */
-		$rtl_layouts = (array) apply_filters( 'trc_layouts_rtl',
+		$rtl_layouts = (array) apply_filters( 'primer_layouts_rtl',
 			array(
-				'two-column-default'    => esc_html__( 'Two Columns: Sidebar | Content', 'trc' ),
-				'two-column-reversed'   => esc_html__( 'Two Columns: Content | Sidebar', 'trc' ),
-				'three-column-default'  => esc_html__( 'Three Columns: Sidebar | Sidebar | Content', 'trc' ),
-				'three-column-reversed' => esc_html__( 'Three Columns: Content | Sidebar | Sidebar', 'trc' ),
+				'two-column-default'    => esc_html__( 'Two Columns: Sidebar | Content', 'primer' ),
+				'two-column-reversed'   => esc_html__( 'Two Columns: Content | Sidebar', 'primer' ),
+				'three-column-default'  => esc_html__( 'Three Columns: Sidebar | Sidebar | Content', 'primer' ),
+				'three-column-reversed' => esc_html__( 'Three Columns: Content | Sidebar | Sidebar', 'primer' ),
 			)
 		);
 
@@ -172,11 +172,11 @@ class trc_Customizer_Layouts {
 		 *
 		 * @var array
 		 */
-		$post_types = (array) apply_filters( 'trc_layouts_post_types', get_post_types( array( 'public' => true ) ) );
+		$post_types = (array) apply_filters( 'primer_layouts_post_types', get_post_types( array( 'public' => true ) ) );
 
 		foreach ( $post_types as $post_type ) {
 
-			add_post_type_support( $post_type, 'trc-layouts' );
+			add_post_type_support( $post_type, 'primer-layouts' );
 
 		}
 
@@ -204,25 +204,25 @@ class trc_Customizer_Layouts {
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_script(
-			'trc-layouts',
+			'primer-layouts',
 			get_template_directory_uri() . "/assets/js/admin/layouts{$suffix}.js",
 			array( 'jquery' ),
-			trc_VERSION
+			PRIMER_VERSION
 		);
 
 		if ( isset( $post->ID ) ) {
 
-			wp_localize_script( 'trc-layouts', 'trcLayouts', array(
+			wp_localize_script( 'primer-layouts', 'primerLayouts', array(
 				'selected' => $this->get_post_layout( $post->ID ),
 			) );
 
 		}
 
 		wp_enqueue_style(
-			'trc-layouts',
+			'primer-layouts',
 			get_template_directory_uri() . "/assets/css/admin/layouts{$rtl}{$suffix}.css",
 			array(),
-			trc_VERSION
+			PRIMER_VERSION
 		);
 
 	}
@@ -255,7 +255,7 @@ class trc_Customizer_Layouts {
 	public function add_meta_box( $post_type, WP_Post $post ) {
 
 		if (
-			! post_type_supports( $post_type, 'trc-layouts' )
+			! post_type_supports( $post_type, 'primer-layouts' )
 			||
 			! current_user_can( 'edit_post_meta', $post->ID )
 			||
@@ -269,8 +269,8 @@ class trc_Customizer_Layouts {
 		}
 
 		add_meta_box(
-			'trc-layouts-meta-box',
-			esc_html__( 'Layout', 'trc' ),
+			'primer-layouts-meta-box',
+			esc_html__( 'Layout', 'primer' ),
 			array( $this, 'render_meta_box' ),
 			$post_type,
 			'side',
@@ -293,19 +293,19 @@ class trc_Customizer_Layouts {
 		$current_layout = $this->get_post_layout( $post->ID );
 		$has_custom = ! empty( $current_layout );
 
-		wp_nonce_field( basename( __FILE__ ), 'trc-layout-nonce' );
+		wp_nonce_field( basename( __FILE__ ), 'primer-layout-nonce' );
 
 		?>
-		<div class="trc-layout">
+		<div class="primer-layout">
 
 			<p>
-				<label for="trc-layout-use-default">
-					<input type="radio" name="trc-layout-override" id="trc-layout-use-default" value="0" autocomplete="off" <?php checked( ! $has_custom ); ?>>
-					<?php esc_html_e( 'Default', 'trc' ); ?>
+				<label for="primer-layout-use-default">
+					<input type="radio" name="primer-layout-override" id="primer-layout-use-default" value="0" autocomplete="off" <?php checked( ! $has_custom ); ?>>
+					<?php esc_html_e( 'Default', 'primer' ); ?>
 				</label>
-				<label for="trc-layout-use-custom">
-					<input type="radio" name="trc-layout-override" id="trc-layout-use-custom" value="1" autocomplete="off" <?php checked( $has_custom ); ?>>
-					<?php esc_html_e( 'Custom', 'trc' ); ?>
+				<label for="primer-layout-use-custom">
+					<input type="radio" name="primer-layout-override" id="primer-layout-use-custom" value="1" autocomplete="off" <?php checked( $has_custom ); ?>>
+					<?php esc_html_e( 'Custom', 'primer' ); ?>
 				</label>
 				<span class="clear"></span>
 			</p>
@@ -340,10 +340,10 @@ class trc_Customizer_Layouts {
 
 		}
 
-		$name = isset( $wp_customize ) ? '_customize-radio' : 'trc';
+		$name = isset( $wp_customize ) ? '_customize-radio' : 'primer';
 
 		?>
-		<div class="trc-layout-wrap">
+		<div class="primer-layout-wrap">
 
 			<ul>
 			<?php
@@ -355,8 +355,8 @@ class trc_Customizer_Layouts {
 
 				?>
 				<li class="<?php echo esc_attr( $class ); ?>">
-					<label for="trc-layout-<?php echo esc_attr( $layout ); ?>">
-						<input type="radio" name="<?php echo esc_attr( $name ); ?>-layout" data-customize-setting-link="layout" id="trc-layout-<?php echo esc_attr( $layout ); ?>" value="<?php echo esc_attr( $layout ); ?>" <?php checked( $current_layout, $layout ); ?> <?php disabled( 'disabled' === $class ); ?>>
+					<label for="primer-layout-<?php echo esc_attr( $layout ); ?>">
+						<input type="radio" name="<?php echo esc_attr( $name ); ?>-layout" data-customize-setting-link="layout" id="primer-layout-<?php echo esc_attr( $layout ); ?>" value="<?php echo esc_attr( $layout ); ?>" <?php checked( $current_layout, $layout ); ?> <?php disabled( 'disabled' === $class ); ?>>
 						<img src="<?php echo esc_url( sprintf( '%s/assets/images/layouts/%s%s.svg', get_template_directory_uri(), $layout, is_rtl() ? '-rtl' : '' ) ); ?>"
 							alt="<?php echo esc_attr( $label ); ?>"
 							title="<?php echo esc_attr( $label ); ?>">
@@ -386,27 +386,27 @@ class trc_Customizer_Layouts {
 	public function save_post( $post_id ) {
 
 		if (
-			empty( $_POST['trc-layout-nonce'] ) // input var ok.
+			empty( $_POST['primer-layout-nonce'] ) // input var ok.
 			||
-			! wp_verify_nonce( $_POST['trc-layout-nonce'], basename( __FILE__ ) ) // input var ok, sanitization ok.
+			! wp_verify_nonce( $_POST['primer-layout-nonce'], basename( __FILE__ ) ) // input var ok, sanitization ok.
 		) {
 
 			return;
 
 		}
 
-		$override = ! empty( $_POST['trc-layout-override'] ); // input var ok.
+		$override = ! empty( $_POST['primer-layout-override'] ); // input var ok.
 		$current  = $this->get_post_layout( $post_id );
 
 		if ( ! $override && $current ) {
 
-			delete_post_meta( $post_id, 'trc_layout' );
+			delete_post_meta( $post_id, 'primer_layout' );
 
 			return;
 
 		}
 
-		$layout = isset( $_POST['trc-layout'] ) ? sanitize_key( $_POST['trc-layout'] ) : null; // input var ok.
+		$layout = isset( $_POST['primer-layout'] ) ? sanitize_key( $_POST['primer-layout'] ) : null; // input var ok.
 
 		if ( ! $override || ! $this->layout_exists( $layout ) || $layout === $current ) {
 
@@ -414,7 +414,7 @@ class trc_Customizer_Layouts {
 
 		}
 
-		update_post_meta( $post_id, 'trc_layout', $layout );
+		update_post_meta( $post_id, 'primer_layout', $layout );
 
 	}
 
@@ -433,7 +433,7 @@ class trc_Customizer_Layouts {
 		$wp_customize->add_section(
 			'layout',
 			array(
-				'title'      => esc_html__( 'Layout', 'trc' ),
+				'title'      => esc_html__( 'Layout', 'primer' ),
 				'priority'   => 30,
 				'capability' => 'edit_theme_options',
 			)
@@ -459,8 +459,8 @@ class trc_Customizer_Layouts {
 		$wp_customize->add_control(
 			'page_width',
 			array(
-				'label'       => esc_html__( 'Page Width', 'trc' ),
-				'description' => esc_html__( 'Display your site differently on larger screens.', 'trc' ),
+				'label'       => esc_html__( 'Page Width', 'primer' ),
+				'description' => esc_html__( 'Display your site differently on larger screens.', 'primer' ),
 				'section'     => 'layout',
 				'settings'    => 'page_width',
 				'type'        => 'radio',
@@ -483,7 +483,7 @@ class trc_Customizer_Layouts {
 	public function body_class( array $classes ) {
 
 		$classes[] = sanitize_html_class( sprintf( 'layout-%s', $this->get_current_layout() ) );
-		$classes[] = trc_is_fluid_width() ? 'no-max-width' : null;
+		$classes[] = primer_is_fluid_width() ? 'no-max-width' : null;
 
 		return array_filter( $classes );
 
@@ -526,7 +526,7 @@ class trc_Customizer_Layouts {
 	 */
 	protected function get_post_layout( $post = null ) {
 
-		return get_post_meta( $this->get_post_id( $post ), 'trc_layout', true );
+		return get_post_meta( $this->get_post_id( $post ), 'primer_layout', true );
 
 	}
 
@@ -568,7 +568,7 @@ class trc_Customizer_Layouts {
 		 *
 		 * @var string
 		 */
-		$layout = (string) apply_filters( 'trc_current_layout', $layout, $post );
+		$layout = (string) apply_filters( 'primer_current_layout', $layout, $post );
 
 		return $this->layout_exists( $layout ) ? $layout : $this->default;
 
@@ -581,7 +581,7 @@ class trc_Customizer_Layouts {
 	 *
 	 * @param  string $name Name of private property to retreive.
 	 *
-	 * @return string Return the specified property within the `trc_Customizer_Layouts` class.
+	 * @return string Return the specified property within the `Primer_Customizer_Layouts` class.
 	 */
 	public function __get( $name ) {
 
@@ -593,4 +593,4 @@ class trc_Customizer_Layouts {
 
 }
 
-$GLOBALS['trc_customizer_layouts'] = new trc_Customizer_Layouts;
+$GLOBALS['primer_customizer_layouts'] = new Primer_Customizer_Layouts;

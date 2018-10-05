@@ -2,8 +2,8 @@
 /**
  * Displays the primary navigation.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>
@@ -15,11 +15,11 @@
 	/**
 	 * Fires inside the `<div class="main-navigation-container">` element.
 	 *
-	 * @hooked trc_add_mobile_menu - 10
+	 * @hooked primer_add_mobile_menu - 10
 	 *
-	 * @since 0.0.0
+	 * @since 1.0.0
 	 */
-	do_action( 'trc_before_site_navigation' );
+	do_action( 'primer_before_site_navigation' );
 
 	?>
 
@@ -30,11 +30,11 @@
 		/**
 		 * Fires inside the `<nav id="site-navigation" class="main-navigation">` element.
 		 *
-		 * @hooked trc_add_primary_menu - 10
+		 * @hooked primer_add_primary_menu - 10
 		 *
-		 * @since 0.0.0
+		 * @since 1.0.0
 		 */
-		do_action( 'trc_site_navigation' );
+		do_action( 'primer_site_navigation' );
 
 		?>
 
@@ -45,9 +45,9 @@
 	/**
 	 * Fires after the `<nav id="site-navigation" class="main-navigation">` element.
 	 *
-	 * @since 0.0.0
+	 * @since 1.0.0
 	 */
-	do_action( 'trc_after_site_navigation' );
+	do_action( 'primer_after_site_navigation' );
 
 	?>
 

@@ -19,12 +19,12 @@
  *
  * @since  1.0.0
  */
-function trc_wc_setup() {
+function primer_wc_setup() {
 
 	add_theme_support( 'woocommerce' );
 
 }
-add_action( 'after_setup_theme', 'trc_wc_setup' );
+add_action( 'after_setup_theme', 'primer_wc_setup' );
 
 /**
  * Add body class to indicate when WooCommerce is localized.
@@ -37,20 +37,20 @@ add_action( 'after_setup_theme', 'trc_wc_setup' );
  *
  * @return array
  */
-function trc_wc_l10n_body_class( array $classes ) {
+function primer_wc_l10n_body_class( array $classes ) {
 
 	global $l10n;
 
 	if ( ! empty( $l10n['woocommerce'] ) ) {
 
-		$classes[] = 'trc-woocommerce-l10n';
+		$classes[] = 'primer-woocommerce-l10n';
 
 	}
 
 	return $classes;
 
 }
-add_filter( 'body_class', 'trc_wc_l10n_body_class' );
+add_filter( 'body_class', 'primer_wc_l10n_body_class' );
 
 /**
  * Remove the default WooCommerce page wrapper.
@@ -69,18 +69,18 @@ remove_action( 'woocommerce_after_main_content',  'woocommerce_output_content_wr
  *
  * @return mixed Returns the opening WooCommerce content wrappers.
  */
-function trc_wc_wrapper_start() {
+function primer_wc_wrapper_start() {
 
 	?>
 	<div id="primary" class="content-area">
 
 		<main id="main" class="site-main" role="main">
 
-			<article class="trc-woocommerce hentry">
+			<article class="primer-woocommerce hentry">
 	<?php
 
 }
-add_action( 'woocommerce_before_main_content', 'trc_wc_wrapper_start' );
+add_action( 'woocommerce_before_main_content', 'primer_wc_wrapper_start' );
 
 /**
  * Markup for page wrapper end.
@@ -91,14 +91,14 @@ add_action( 'woocommerce_before_main_content', 'trc_wc_wrapper_start' );
  *
  * @return mixed Returns the closing WooCommerce content wrappers.
  */
-function trc_wc_wrapper_end() {
+function primer_wc_wrapper_end() {
 
 	?>
 	</article></main></div>
 	<?php
 
 }
-add_action( 'woocommerce_after_main_content', 'trc_wc_wrapper_end' );
+add_action( 'woocommerce_after_main_content', 'primer_wc_wrapper_end' );
 
 /**
  * Add tertiary sidebar to WooCommerce templates.
@@ -108,25 +108,25 @@ add_action( 'woocommerce_after_main_content', 'trc_wc_wrapper_end' );
  *
  * @since  1.0.0
  */
-function trc_wc_sidebar() {
+function primer_wc_sidebar() {
 
 	get_sidebar( 'tertiary' );
 
 }
-add_action( 'woocommerce_sidebar', 'trc_wc_sidebar' );
+add_action( 'woocommerce_sidebar', 'primer_wc_sidebar' );
 
 /**
  * Display WooCommerce messages above post and page content.
  *
- * @action trc_before_post_content
- * @action trc_before_page_content
+ * @action primer_before_post_content
+ * @action primer_before_page_content
  * @uses   [is_checkout](https://docs.woocommerce.com/wc-apidocs/function-is_checkout.html) To confirm user is not on the checkout page.
  *
  * @since  1.0.0
  *
  * @return mixed Returns `[woocommerce_message]` shortcode if not on the checkout page.
  */
-function trc_wc_shop_messages() {
+function primer_wc_shop_messages() {
 
 	if ( function_exists( 'is_checkout' ) && ! is_checkout() ) {
 
@@ -135,14 +135,14 @@ function trc_wc_shop_messages() {
 	}
 
 }
-add_action( 'trc_before_post_content', 'trc_wc_shop_messages' );
-add_action( 'trc_before_page_content', 'trc_wc_shop_messages' );
+add_action( 'primer_before_post_content', 'primer_wc_shop_messages' );
+add_action( 'primer_before_page_content', 'primer_wc_shop_messages' );
 
 /**
  * Filter the layout for the WooCommerce shop page.
  *
- * @filter trc_current_layout
- * @uses   trc_get_layout To retreive the page layout.
+ * @filter primer_current_layout
+ * @uses   primer_get_layout To retreive the page layout.
  *
  * @since  1.0.0
  *
@@ -150,25 +150,25 @@ add_action( 'trc_before_page_content', 'trc_wc_shop_messages' );
  *
  * @return mixed  string  Returns the shop page layout.
  */
-function trc_wc_shop_layout( $layout ) {
+function primer_wc_shop_layout( $layout ) {
 
 	if ( is_shop() ) {
 
-		remove_filter( 'trc_current_layout', __FUNCTION__ ); // Prevent infinite loop.
+		remove_filter( 'primer_current_layout', __FUNCTION__ ); // Prevent infinite loop.
 
-		$layout = trc_get_layout( wc_get_page_id( 'shop' ) );
+		$layout = primer_get_layout( wc_get_page_id( 'shop' ) );
 
 	}
 
 	return $layout;
 
 }
-add_filter( 'trc_current_layout', 'trc_wc_shop_layout' );
+add_filter( 'primer_current_layout', 'primer_wc_shop_layout' );
 
 /**
  * Filter the WooCommerce shop page title.
  *
- * @filter trc_the_page_title
+ * @filter primer_the_page_title
  * @uses   [get_the_title](https://developer.wordpress.org/reference/functions/get_the_title/) To retreive the shop page title.
  *
  * @since  1.0.0
@@ -177,7 +177,7 @@ add_filter( 'trc_current_layout', 'trc_wc_shop_layout' );
  *
  * @return string Returns the shop page title.
  */
-function trc_wc_shop_title( $title ) {
+function primer_wc_shop_title( $title ) {
 
 	if ( is_shop() ) {
 
@@ -198,12 +198,12 @@ function trc_wc_shop_title( $title ) {
 	return $title;
 
 }
-add_filter( 'trc_the_page_title', 'trc_wc_shop_title' );
+add_filter( 'primer_the_page_title', 'primer_wc_shop_title' );
 
 /**
  * Filter the WooCommerce shop page title element.
  *
- * @filter trc_the_page_title_args
+ * @filter primer_the_page_title_args
  *
  * @since  1.8.0
  *
@@ -211,7 +211,7 @@ add_filter( 'trc_the_page_title', 'trc_wc_shop_title' );
  *
  * @return array
  */
-function trc_wc_product_page_title_wrapper( $args ) {
+function primer_wc_product_page_title_wrapper( $args ) {
 
 	if ( is_product() ) {
 
@@ -222,10 +222,10 @@ function trc_wc_product_page_title_wrapper( $args ) {
 	return $args;
 
 }
-add_filter( 'trc_the_page_title_args', 'trc_wc_product_page_title_wrapper' );
+add_filter( 'primer_the_page_title_args', 'primer_wc_product_page_title_wrapper' );
 
 /**
- * Change the number of shop columns based on the trc layout.
+ * Change the number of shop columns based on the Primer layout.
  *
  * @filter loop_shop_columns
  * @filter woocommerce_related_products_columns
@@ -235,7 +235,7 @@ add_filter( 'trc_the_page_title_args', 'trc_wc_product_page_title_wrapper' );
  *
  * @uses   [is_shop](https://docs.woocommerce.com/wc-apidocs/function-is_shop.html) To check the if on the WooCommerce shop page.
  * @uses   [wc_get_page_id](https://docs.woocommerce.com/wc-apidocs/function-wc_get_page_id.html) To retreive the WooCommerce page id.
- * @uses   trc_get_layout To check if the current page is three columns.
+ * @uses   primer_get_layout To check if the current page is three columns.
  *
  * @since  1.0.0
  *
@@ -243,11 +243,11 @@ add_filter( 'trc_the_page_title_args', 'trc_wc_product_page_title_wrapper' );
  *
  * @return int The number of columns to use.
  */
-function trc_wc_shop_columns( $columns ) {
+function primer_wc_shop_columns( $columns ) {
 
-	if ( 0 === strpos( trc_get_layout( absint( wc_get_page_id( 'shop' ) ) ), 'three-column-' ) ) {
+	if ( 0 === strpos( primer_get_layout( absint( wc_get_page_id( 'shop' ) ) ), 'three-column-' ) ) {
 
-		add_filter( 'post_class', 'trc_wc_product_classes' );
+		add_filter( 'post_class', 'primer_wc_product_classes' );
 
 		$columns = 2;
 
@@ -256,12 +256,12 @@ function trc_wc_shop_columns( $columns ) {
 	return $columns;
 
 }
-add_filter( 'loop_shop_columns',                    'trc_wc_shop_columns' );
-add_filter( 'woocommerce_related_products_columns', 'trc_wc_shop_columns' );
-add_filter( 'woocommerce_upsells_products_columns', 'trc_wc_shop_columns' );
+add_filter( 'loop_shop_columns',                    'primer_wc_shop_columns' );
+add_filter( 'woocommerce_related_products_columns', 'primer_wc_shop_columns' );
+add_filter( 'woocommerce_upsells_products_columns', 'primer_wc_shop_columns' );
 
 /**
- * Add post class to support 2-column product layouts in trc.
+ * Add post class to support 2-column product layouts in Primer.
  *
  * @filter post_class
  *
@@ -274,7 +274,7 @@ add_filter( 'woocommerce_upsells_products_columns', 'trc_wc_shop_columns' );
  *
  * @return array Returns the array of body classes.
  */
-function trc_wc_product_classes( $classes ) {
+function primer_wc_product_classes( $classes ) {
 
 	global $post, $woocommerce_loop;
 
@@ -294,7 +294,7 @@ function trc_wc_product_classes( $classes ) {
 
 	if ( $is_product || $is_upsell_or_related ) {
 
-		$classes[] = 'trc-2-column-product';
+		$classes[] = 'primer-2-column-product';
 
 	}
 
@@ -305,16 +305,16 @@ function trc_wc_product_classes( $classes ) {
 /**
  * Add color scheme targets for WooCommerce elements.
  *
- * @filter trc_colors
- * @uses   trc_array_replace_recursive To replace items in the colors array with new values.
+ * @filter primer_colors
+ * @uses   primer_array_replace_recursive To replace items in the colors array with new values.
  *
  * @since  1.0.0
  *
- * @param  array $colors Original trc_Customizer_Colors color array.
+ * @param  array $colors Original Primer_Customizer_Colors color array.
  *
  * @return array Returns the CSS replacements for WooCommerce elements.
  */
-function trc_wc_colors( $colors ) {
+function primer_wc_colors( $colors ) {
 
 	$wc_colors = array(
 		'primary_text_color' => array(
@@ -346,8 +346,8 @@ function trc_wc_colors( $colors ) {
 				.woocommerce button.button.alt.disabled:hover,
 				.woocommerce #respond input#submit,
 				.woocommerce .product span.onsale,
-				.trc-wc-cart-menu .widget_shopping_cart p.buttons a,
-				.trc-wc-cart-menu .widget_shopping_cart p.buttons a:visited,
+				.primer-wc-cart-menu .widget_shopping_cart p.buttons a,
+				.primer-wc-cart-menu .widget_shopping_cart p.buttons a:visited,
 				ul.products a.button,
 				ul.products a.button:visited' => array(
 					'background-color' => '%1$s',
@@ -360,7 +360,7 @@ function trc_wc_colors( $colors ) {
 				.woocommerce a.button:hover, .woocommerce a.button:active, .woocommerce a.button:focus,
 				.woocommerce a.button.alt:hover, .woocommerce a.button.alt:active, .woocommerce a.button.alt:focus,
 				.woocommerce #respond input#submit:hover,
-				.trc-wc-cart-menu .widget_shopping_cart p.buttons a:hover,
+				.primer-wc-cart-menu .widget_shopping_cart p.buttons a:hover,
 				a.button:hover,
 				ul.products .button:hover, ul.products .button:active, ul.products .button:focus' => array(
 					'background-color' => 'rgba(%1$s, 0.8)',
@@ -382,31 +382,31 @@ function trc_wc_colors( $colors ) {
 		),
 		'background_color' => array(
 			'css' => array(
-				'li.trc-wc-cart-menu .trc-wc-cart-sub-menu' => array(
+				'li.primer-wc-cart-menu .primer-wc-cart-sub-menu' => array(
 					'background-color' => '%1$s',
 				),
 			),
 		),
 	);
 
-	return trc_array_replace_recursive( $colors, $wc_colors );
+	return primer_array_replace_recursive( $colors, $wc_colors );
 
 }
-add_filter( 'trc_colors', 'trc_wc_colors' );
+add_filter( 'primer_colors', 'primer_wc_colors' );
 
 /**
  * Add font type targets for WooCommerce elements.
  *
- * @filter trc_font_types
- * @uses   trc_array_replace_recursive To replace items in the font types array with new values.
+ * @filter primer_font_types
+ * @uses   primer_array_replace_recursive To replace items in the font types array with new values.
  *
  * @since  1.0.0
  *
- * @param  array $font_types Original trc_Customizer_Fonts font type array.
+ * @param  array $font_types Original Primer_Customizer_Fonts font type array.
  *
  * @return array Returns an array of font alterations for WooCommerce elements.
  */
-function trc_wc_font_types( $font_types ) {
+function primer_wc_font_types( $font_types ) {
 
 	$wc_font_types = array(
 		'navigation_font' => array(
@@ -420,10 +420,10 @@ function trc_wc_font_types( $font_types ) {
 		),
 	);
 
-	return trc_array_replace_recursive( $font_types, $wc_font_types );
+	return primer_array_replace_recursive( $font_types, $wc_font_types );
 
 }
-add_filter( 'trc_font_types', 'trc_wc_font_types' );
+add_filter( 'primer_font_types', 'primer_wc_font_types' );
 
 /**
  * Change the theme overrides path for WooCommerce templates.
@@ -434,12 +434,12 @@ add_filter( 'trc_font_types', 'trc_wc_font_types' );
  *
  * @return string
  */
-function trc_wc_template_path() {
+function primer_wc_template_path() {
 
 	return 'templates/woocommerce/';
 
 }
-add_filter( 'woocommerce_template_path', 'trc_wc_template_path' );
+add_filter( 'woocommerce_template_path', 'primer_wc_template_path' );
 
 /**
  * Load a custom template for WooCommerce 404 pages.
@@ -452,12 +452,12 @@ add_filter( 'woocommerce_template_path', 'trc_wc_template_path' );
  *
  * @return string
  */
-function trc_wc_404_template( $template ) {
+function primer_wc_404_template( $template ) {
 
 	return ( is_404() && locate_template( 'templates/woocommerce/404.php' ) ) ? get_template_part( 'templates/woocommerce/404' ) : $template;
 
 }
-add_filter( 'template_include', 'trc_wc_404_template' );
+add_filter( 'template_include', 'primer_wc_404_template' );
 
 /**
  * Add a custom "Cart" menu item when WooCommerce is active.
@@ -471,9 +471,9 @@ add_filter( 'template_include', 'trc_wc_404_template' );
  *
  * @return array
  */
-function trc_wc_generate_cart_menu_item( $items, $menu ) {
+function primer_wc_generate_cart_menu_item( $items, $menu ) {
 
-	if ( ! trc_child_compat( 'wc__cart_menu_item', true ) ) {
+	if ( ! primer_child_compat( 'wc__cart_menu_item', true ) ) {
 
 		return $items;
 
@@ -495,12 +495,12 @@ function trc_wc_generate_cart_menu_item( $items, $menu ) {
 
 	}
 
-	add_filter( "wp_nav_menu_{$nav_obj->slug}_items", 'trc_wc_cart_menu', 10, 2 );
+	add_filter( "wp_nav_menu_{$nav_obj->slug}_items", 'primer_wc_cart_menu', 10, 2 );
 
 	return $items;
 
 }
-add_filter( 'wp_get_nav_menu_items', 'trc_wc_generate_cart_menu_item', 20, 2 );
+add_filter( 'wp_get_nav_menu_items', 'primer_wc_generate_cart_menu_item', 20, 2 );
 
 /**
  * Append a WooCommerce cart item to a navigation menu.
@@ -516,7 +516,7 @@ add_filter( 'wp_get_nav_menu_items', 'trc_wc_generate_cart_menu_item', 20, 2 );
  *
  * @return string
  */
-function trc_wc_cart_menu( $items, $args ) {
+function primer_wc_cart_menu( $items, $args ) {
 
 	/**
 	 * Filter whether to display the WooCommerce cart menu item.
@@ -527,7 +527,7 @@ function trc_wc_cart_menu( $items, $args ) {
 	 *
 	 * @var bool
 	*/
-	if ( ! (bool) apply_filters( 'trc_wc_show_cart_menu', true ) ) {
+	if ( ! (bool) apply_filters( 'primer_wc_show_cart_menu', true ) ) {
 
 		return $items;
 
@@ -537,7 +537,7 @@ function trc_wc_cart_menu( $items, $args ) {
 
 		add_filter( 'woocommerce_cart_contents_count', '__return_zero' );
 
-		add_filter( 'woocommerce_cart_contents_total', 'trc_wc_customize_preview_cart_contents_total' );
+		add_filter( 'woocommerce_cart_contents_total', 'primer_wc_customize_preview_cart_contents_total' );
 
 	}
 
@@ -549,10 +549,10 @@ function trc_wc_cart_menu( $items, $args ) {
 	if ( $woocommerce->cart->get_cart_contents_count() ) {
 
 		$sub_menu = sprintf(
-			'<ul class="sub-menu trc-wc-cart-sub-menu">
-				<li class="trc-wc-cart-sub-menu-item">%s</li>
+			'<ul class="sub-menu primer-wc-cart-sub-menu">
+				<li class="primer-wc-cart-sub-menu-item">%s</li>
 			</ul>',
-			trc_get_the_widget( 'WC_Widget_Cart' )
+			primer_get_the_widget( 'WC_Widget_Cart' )
 		);
 
 		$classes[] = 'menu-item-has-children';
@@ -560,7 +560,7 @@ function trc_wc_cart_menu( $items, $args ) {
 	}
 
 	$cart_menu_item = sprintf(
-		'<li class="trc-wc-cart-menu trc-wc-cart-menu-item %s">
+		'<li class="primer-wc-cart-menu primer-wc-cart-menu-item %s">
 			<a>
 				<span class="cart-preview-total">
 					<span class="woocommerce-price-amount amount">%s</span>
@@ -574,7 +574,7 @@ function trc_wc_cart_menu( $items, $args ) {
 		$woocommerce->cart->get_cart_total(),
 		esc_html( sprintf(
 			/* translators: WooCommerce shopping cart item count. */
-			_n( '%d item', '%d items', $woocommerce->cart->get_cart_contents_count(), 'trc' ),
+			_n( '%d item', '%d items', $woocommerce->cart->get_cart_contents_count(), 'primer' ),
 			$woocommerce->cart->get_cart_contents_count()
 		) ),
 		$woocommerce->cart->get_cart_contents_count() ? '<a class="expand" href="#"></a>' : '',
@@ -595,13 +595,13 @@ function trc_wc_cart_menu( $items, $args ) {
  *
  * @return string
  */
-function trc_wc_customize_preview_cart_contents_total() {
+function primer_wc_customize_preview_cart_contents_total() {
 
 	return wc_price( 0 );
 
 }
 
-if ( ! function_exists( 'trc_wc_promoted_products' ) ) {
+if ( ! function_exists( 'primer_wc_promoted_products' ) ) {
 
 	/**
 	 * Display promoted products.
@@ -619,7 +619,7 @@ if ( ! function_exists( 'trc_wc_promoted_products' ) ) {
 	 * @param int  $columns         (optional) Number of columns to display promoted products in. Defaults to `4`.
 	 * @param bool $recent_fallback (optional) Whether to display recent products as a fallback when there are no featured or on-sale products. Defaults to `true`.
 	 */
-	function trc_wc_promoted_products( $per_page = 4, $columns = 4, $recent_fallback = true ) {
+	function primer_wc_promoted_products( $per_page = 4, $columns = 4, $recent_fallback = true ) {
 
 		/**
 		 * Filter the total number of promoted products to display.
@@ -630,7 +630,7 @@ if ( ! function_exists( 'trc_wc_promoted_products' ) ) {
 		 *
 		 * @var int
 		 */
-		$per_page = (int) apply_filters( 'trc_wc_promoted_products_per_page', $per_page ); // Can be negative.
+		$per_page = (int) apply_filters( 'primer_wc_promoted_products_per_page', $per_page ); // Can be negative.
 
 		/**
 		 * Filter the number of columns to display promoted products in.
@@ -641,11 +641,11 @@ if ( ! function_exists( 'trc_wc_promoted_products' ) ) {
 		 *
 		 * @var int
 		 */
-		$columns = absint( apply_filters( 'trc_wc_promoted_products_columns', $columns ) );
+		$columns = absint( apply_filters( 'primer_wc_promoted_products_columns', $columns ) );
 
 		if ( wc_get_featured_product_ids() ) {
 
-			echo '<h2>' . esc_html__( 'Featured Products', 'trc' ) . '</h2>';
+			echo '<h2>' . esc_html__( 'Featured Products', 'primer' ) . '</h2>';
 
 			echo do_shortcode( "[featured_products per_page='{$per_page}' columns='{$columns}']" );
 
@@ -655,7 +655,7 @@ if ( ! function_exists( 'trc_wc_promoted_products' ) ) {
 
 		if ( wc_get_product_ids_on_sale() ) {
 
-			echo '<h2>' . esc_html__( 'On Sale Now', 'trc' ) . '</h2>';
+			echo '<h2>' . esc_html__( 'On Sale Now', 'primer' ) . '</h2>';
 
 			echo do_shortcode( "[sale_products per_page='{$per_page}' columns='{$columns}']" );
 
@@ -669,7 +669,7 @@ if ( ! function_exists( 'trc_wc_promoted_products' ) ) {
 
 		}
 
-		echo '<h2>' . esc_html__( 'New In Store', 'trc' ) . '</h2>';
+		echo '<h2>' . esc_html__( 'New In Store', 'primer' ) . '</h2>';
 
 		echo do_shortcode( "[recent_products per_page='{$per_page}' columns='{$columns}']" );
 
@@ -677,7 +677,7 @@ if ( ! function_exists( 'trc_wc_promoted_products' ) ) {
 
 } // End if().
 
-if ( ! function_exists( 'trc_wc_best_selling_products' ) ) {
+if ( ! function_exists( 'primer_wc_best_selling_products' ) ) {
 
 	/**
 	 * Display best-selling products.
@@ -687,7 +687,7 @@ if ( ! function_exists( 'trc_wc_best_selling_products' ) ) {
 	 * @param int $per_page (optional) Total number of best-selling products to display. Defaults to `4`.
 	 * @param int $columns  (optional) Number of columns to display best-selling products in. Defaults to `4`.
 	 */
-	function trc_wc_best_selling_products( $per_page = 4, $columns = 4 ) {
+	function primer_wc_best_selling_products( $per_page = 4, $columns = 4 ) {
 
 		/**
 		 * Filter the total number of best-selling products to display.
@@ -698,7 +698,7 @@ if ( ! function_exists( 'trc_wc_best_selling_products' ) ) {
 		 *
 		 * @var int
 		 */
-		$per_page = (int) apply_filters( 'trc_wc_best_selling_products_per_page', $per_page ); // Can be negative.
+		$per_page = (int) apply_filters( 'primer_wc_best_selling_products_per_page', $per_page ); // Can be negative.
 
 		/**
 		 * Filter the number of columns to display best-selling products in.
@@ -709,7 +709,7 @@ if ( ! function_exists( 'trc_wc_best_selling_products' ) ) {
 		 *
 		 * @var int
 		 */
-		$columns = absint( apply_filters( 'trc_wc_best_selling_products_columns', $columns ) );
+		$columns = absint( apply_filters( 'primer_wc_best_selling_products_columns', $columns ) );
 
 		echo do_shortcode( "[best_selling_products per_page='{$per_page}' columns='{$columns}']" );
 
@@ -724,14 +724,14 @@ if ( ! function_exists( 'trc_wc_best_selling_products' ) ) {
  *
  * @since 1.7.0
  */
-function trc_wc_product_header_image() {
+function primer_wc_product_header_image() {
 
 	/**
 	 * Filter whether the WooCommerce product should be used as the header image
 	 *
 	 * @since 1.7.0
 	 */
-	return apply_filters( 'trc_wc_product_header_image', ! is_product() );
+	return apply_filters( 'primer_wc_product_header_image', ! is_product() );
 
 }
-add_filter( 'trc_use_featured_hero_image', 'trc_wc_product_header_image' );
+add_filter( 'primer_use_featured_hero_image', 'primer_wc_product_header_image' );

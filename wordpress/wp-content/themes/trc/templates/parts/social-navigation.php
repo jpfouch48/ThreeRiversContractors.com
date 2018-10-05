@@ -2,8 +2,8 @@
 /**
  * Displays the social navigation.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>

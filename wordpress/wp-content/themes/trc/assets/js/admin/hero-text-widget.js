@@ -1,4 +1,4 @@
-/* global jQuery, trc_hero_text_widget */
+/* global jQuery, primer_hero_text_widget */
 
 ( function( $ ) {
 
@@ -44,7 +44,7 @@
 							action: 'wp-link-ajax',
 							page: 1,
 							search: request.term,
-							_ajax_linking_nonce: trc_hero_text_widget._ajax_linking_nonce
+							_ajax_linking_nonce: primer_hero_text_widget._ajax_linking_nonce
 						},
 						function( data ) {
 
@@ -98,7 +98,7 @@
 
 			} ).autocomplete( 'instance' )._renderItem = function( ul, item ) {
 
-				return $( '<li role="option" id="trc-hero-autocomplete-' + item.ID + '">' )
+				return $( '<li role="option" id="primer-hero-autocomplete-' + item.ID + '">' )
 				       .append( '<span>' + item.title + '</span>&nbsp;<span style="float:right">' + item.info + '</span>' )
 				       .appendTo( ul );
 
@@ -155,7 +155,7 @@
 
 	function addAutocomplete() {
 
-		$( '.trc-hero-text-widget input.link' ).each( function() {
+		$( '.primer-hero-text-widget input.link' ).each( function() {
 
 			link.init( this );
 
@@ -164,6 +164,6 @@
 	}
 
 	$( document ).ready( addAutocomplete );
-	$( document ).on( 'trc.widgets.change', addAutocomplete );
+	$( document ).on( 'primer.widgets.change', addAutocomplete );
 
 } )( jQuery );

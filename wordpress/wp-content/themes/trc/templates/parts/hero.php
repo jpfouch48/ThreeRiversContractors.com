@@ -2,8 +2,8 @@
 /**
  * Displays the site header.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>
@@ -15,9 +15,9 @@
 	/**
 	 * Fires inside the `.hero` element but before the `.hero-inner` element.
 	 *
-	 * @since 0.0.0
+	 * @since 1.7.0
 	 */
-	do_action( 'trc_pre_hero' );
+	do_action( 'primer_pre_hero' );
 
 	?>
 
@@ -28,11 +28,11 @@
 		/**
 		 * Fires inside the `.hero` element.
 		 *
-		 * @hooked trc_add_hero_content - 10
+		 * @hooked primer_add_hero_content - 10
 		 *
-		 * @since 0.0.0
+		 * @since 1.0.0
 		 */
-		do_action( 'trc_hero' );
+		do_action( 'primer_hero' );
 
 		?>
 

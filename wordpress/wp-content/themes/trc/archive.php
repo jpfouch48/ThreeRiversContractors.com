@@ -11,8 +11,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 get_header(); ?>
@@ -29,7 +29,7 @@ get_header(); ?>
 
 		<?php endwhile; ?>
 
-		<?php trc_pagination(); ?>
+		<?php primer_pagination(); ?>
 
 	<?php else : ?>
 

@@ -6,8 +6,8 @@
  *
  * @link https://developer.wordpress.org/themes/template-files-section/partial-and-miscellaneous-template-files/#footer-php
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>
@@ -21,7 +21,7 @@
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'trc_before_footer' );
+		do_action( 'primer_before_footer' );
 
 		?>
 
@@ -34,11 +34,11 @@
 				/**
 				 * Fires inside the `<footer>` element.
 				 *
-				 * @hooked trc_add_footer_widgets - 10
+				 * @hooked primer_add_footer_widgets - 10
 				 *
 				 * @since 1.0.0
 				 */
-				do_action( 'trc_footer' );
+				do_action( 'primer_footer' );
 
 				?>
 
@@ -51,11 +51,11 @@
 		/**
 		 * Fires after the `<footer>` element.
 		 *
-		 * @hooked trc_add_site_info - 10
+		 * @hooked primer_add_site_info - 10
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'trc_after_footer' );
+		do_action( 'primer_after_footer' );
 
 		?>
 

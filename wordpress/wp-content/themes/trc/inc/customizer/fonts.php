@@ -2,13 +2,13 @@
 /**
  * Customizer Fonts functionality.
  *
- * @class    trc_Customizer_Fonts
+ * @class    Primer_Customizer_Fonts
  * @package  Classes/Customizer
  * @category Class
  * @author   GoDaddy
  * @since    1.0.0
  */
-class trc_Customizer_Fonts {
+class Primer_Customizer_Fonts {
 
 	/**
 	 * Array of available fonts.
@@ -40,7 +40,7 @@ class trc_Customizer_Fonts {
 		 *
 		 * @var array
 		 */
-		$this->fonts = (array) apply_filters( 'trc_fonts',
+		$this->fonts = (array) apply_filters( 'primer_fonts',
 			array(
 				'Architects Daughter',
 				'Asap',
@@ -83,11 +83,11 @@ class trc_Customizer_Fonts {
 		 *
 		 * @var array
 		 */
-		$this->font_types = (array) apply_filters( 'trc_font_types',
+		$this->font_types = (array) apply_filters( 'primer_font_types',
 			array(
 				'site_title_font' => array(
-					'label'       => esc_html__( 'Site Title', 'trc' ),
-					'description' => esc_html__( 'Site title text in the header.', 'trc' ),
+					'label'       => esc_html__( 'Site Title', 'primer' ),
+					'description' => esc_html__( 'Site title text in the header.', 'primer' ),
 					'default'     => 'Open Sans',
 					'css'         => array(
 						'.site-title' => array(
@@ -96,8 +96,8 @@ class trc_Customizer_Fonts {
 					),
 				),
 				'navigation_font' => array(
-					'label'       => esc_html__( 'Navigation', 'trc' ),
-					'description' => esc_html__( 'Primary menu links and button links.', 'trc' ),
+					'label'       => esc_html__( 'Navigation', 'primer' ),
+					'description' => esc_html__( 'Primary menu links and button links.', 'primer' ),
 					'default'     => 'Open Sans',
 					'css'         => array(
 						'.main-navigation ul li a, .main-navigation ul li a:visited,
@@ -107,8 +107,8 @@ class trc_Customizer_Fonts {
 					),
 				),
 				'heading_font' => array(
-					'label'       => esc_html__( 'Headings', 'trc' ),
-					'description' => esc_html__( 'Post titles, widget titles, form labels, and table headers.', 'trc' ),
+					'label'       => esc_html__( 'Headings', 'primer' ),
+					'description' => esc_html__( 'Post titles, widget titles, form labels, and table headers.', 'primer' ),
 					'default'     => 'Open Sans',
 					'css'         => array(
 						'h1, h2, h3, h4, h5, h6,
@@ -123,8 +123,8 @@ class trc_Customizer_Fonts {
 					),
 				),
 				'primary_font' => array(
-					'label'       => esc_html__( 'Primary', 'trc' ),
-					'description' => esc_html__( 'Paragraphs, lists, links, quotes, and tables.', 'trc' ),
+					'label'       => esc_html__( 'Primary', 'primer' ),
+					'description' => esc_html__( 'Paragraphs, lists, links, quotes, and tables.', 'primer' ),
 					'default'     => 'Open Sans',
 					'css'         => array(
 						'body,
@@ -138,8 +138,8 @@ class trc_Customizer_Fonts {
 					),
 				),
 				'secondary_font' => array(
-					'label'       => esc_html__( 'Secondary', 'trc' ),
-					'description' => esc_html__( 'Bylines, comment counts, reply links, post footers, and quote footers.', 'trc' ),
+					'label'       => esc_html__( 'Secondary', 'primer' ),
+					'description' => esc_html__( 'Bylines, comment counts, reply links, post footers, and quote footers.', 'primer' ),
 					'default'     => 'Open Sans',
 					'css'         => array(
 						'blockquote,
@@ -191,7 +191,7 @@ class trc_Customizer_Fonts {
 		$wp_customize->add_section(
 			'fonts',
 			array(
-				'title'    => esc_html__( 'Fonts', 'trc' ),
+				'title'    => esc_html__( 'Fonts', 'primer' ),
 				'priority' => 40,
 			)
 		);
@@ -216,7 +216,7 @@ class trc_Customizer_Fonts {
 
 			$fonts             = array_combine( $this->fonts, $this->fonts );
 			$default           = $this->get_default_font( $name );
-			$fonts[ $default ] = sprintf( /* translators: font name */ esc_html__( '%s (Default)', 'trc' ), $default );
+			$fonts[ $default ] = sprintf( /* translators: font name */ esc_html__( '%s (Default)', 'primer' ), $default );
 
 			$wp_customize->add_control(
 				$name,
@@ -310,7 +310,7 @@ class trc_Customizer_Fonts {
 		 *
 		 * @var array
 		 */
-		$weights = (array) apply_filters( 'trc_font_weights', array( 300, 400, 700 ), $font, $font_type );
+		$weights = (array) apply_filters( 'primer_font_weights', array( 300, 400, 700 ), $font, $font_type );
 		$weights = array_filter( array_map( 'absint', $weights ) );
 
 		sort( $weights );
@@ -360,14 +360,14 @@ class trc_Customizer_Fonts {
 		 *
 		 * @var array
 		 */
-		$query_args = (array) apply_filters( 'trc_google_fonts_query_args',
+		$query_args = (array) apply_filters( 'primer_google_fonts_query_args',
 			array(
 				'family' => $font_families,
 				'subset' => 'latin',
 			)
 		);
 
-		wp_enqueue_style( trc_Customizer::$stylesheet . '-fonts', add_query_arg( $query_args, '//fonts.googleapis.com/css' ), false );
+		wp_enqueue_style( Primer_Customizer::$stylesheet . '-fonts', add_query_arg( $query_args, '//fonts.googleapis.com/css' ), false );
 
 	}
 
@@ -388,11 +388,11 @@ class trc_Customizer_Fonts {
 			}
 
 			$css = sprintf(
-				trc_Customizer::parse_css_rules( $args['css'] ),
+				Primer_Customizer::parse_css_rules( $args['css'] ),
 				$this->get_font( $name )
 			);
 
-			wp_add_inline_style( trc_Customizer::$stylesheet . '-fonts', $css );
+			wp_add_inline_style( Primer_Customizer::$stylesheet . '-fonts', $css );
 
 		}
 
@@ -408,11 +408,11 @@ class trc_Customizer_Fonts {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( 'trc-customizer-fonts', get_template_directory_uri() . "/assets/css/admin/customizer-fonts{$suffix}.css", array(), trc_VERSION, 'all' );
-		wp_enqueue_script( 'trc-customizer-fonts', get_template_directory_uri() . "/assets/js/admin/customizer-fonts{$suffix}.js", array( 'jquery' ), trc_VERSION, true );
+		wp_enqueue_style( 'primer-customizer-fonts', get_template_directory_uri() . "/assets/css/admin/customizer-fonts{$suffix}.css", array(), PRIMER_VERSION, 'all' );
+		wp_enqueue_script( 'primer-customizer-fonts', get_template_directory_uri() . "/assets/js/admin/customizer-fonts{$suffix}.js", array( 'jquery' ), PRIMER_VERSION, true );
 
 	}
 
 }
 
-new trc_Customizer_Fonts;
+new Primer_Customizer_Fonts;

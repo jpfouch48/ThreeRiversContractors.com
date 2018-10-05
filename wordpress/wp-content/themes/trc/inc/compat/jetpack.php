@@ -20,7 +20,7 @@
  *
  * @since  1.0.0
  */
-function trc_jetpack_setup() {
+function primer_jetpack_setup() {
 
 	add_theme_support(
 		'infinite-scroll',
@@ -31,4 +31,4 @@ function trc_jetpack_setup() {
 	);
 
 }
-add_action( 'after_setup_theme', 'trc_jetpack_setup' );
+add_action( 'after_setup_theme', 'primer_jetpack_setup' );

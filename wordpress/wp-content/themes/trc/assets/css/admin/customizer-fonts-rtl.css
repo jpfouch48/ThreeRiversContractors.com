@@ -1,13 +1,13 @@
-.trc-font-options {
+.primer-font-options {
   display: none;
   background: #eee;
   height: 280px;
   overflow: auto; }
 
-.trc-filter-text {
+.primer-filter-text {
   position: relative; }
 
-.trc-filter-text:before {
+.primer-filter-text:before {
   content: '';
   width: 0;
   height: 0;
@@ -19,15 +19,15 @@
   left: 15px;
   z-index: 1; }
 
-.trc-font-options,
-.trc-filter-text {
+.primer-font-options,
+.primer-filter-text {
   background: #fff;
   border: 1px solid #dfdfdf;
   -webkit-border-radius: 3px;
   border-radius: 3px; }
 
-.trc-filter-text,
-.trc-font-options li {
+.primer-filter-text,
+.primer-font-options li {
   display: block;
   padding: 5px 10px;
   text-indent: -9999px;
@@ -39,70 +39,70 @@
   background-image: url(../../images/fonts/sprite-sheet.png);
   margin-bottom: 0; }
 
-.trc-font-active,
-.trc-font-options li:hover {
+.primer-font-active,
+.primer-font-options li:hover {
   background-color: #effbff; }
 
-.trc-font-architects-daughter {
+.primer-font-architects-daughter {
   background-position: -5px -5px; }
 
-.trc-font-asap {
+.primer-font-asap {
   background-position: -5px -55px; }
 
-.trc-font-cabin {
+.primer-font-cabin {
   background-position: -5px -105px; }
 
-.trc-font-droid-sans {
+.primer-font-droid-sans {
   background-position: -5px -155px; }
 
-.trc-font-droid-serif {
+.primer-font-droid-serif {
   background-position: -5px -205px; }
 
-.trc-font-josefin-sans {
+.primer-font-josefin-sans {
   background-position: -5px -255px; }
 
-.trc-font-lato {
+.primer-font-lato {
   background-position: -5px -305px; }
 
-.trc-font-merriweather {
+.primer-font-merriweather {
   background-position: -5px -355px; }
 
-.trc-font-merriweather-sans {
+.primer-font-merriweather-sans {
   background-position: -5px -405px; }
 
-.trc-font-montserrat {
+.primer-font-montserrat {
   background-position: -5px -455px; }
 
-.trc-font-open-sans,
-.trc-font-open-sans-\(default\) {
+.primer-font-open-sans,
+.primer-font-open-sans-\(default\) {
   background-position: -5px -505px; }
 
-.trc-font-oswald {
+.primer-font-oswald {
   background-position: -5px -555px; }
 
-.trc-font-playfair-display {
+.primer-font-playfair-display {
   background-position: -5px -605px; }
 
-.trc-font-pt-sans {
+.primer-font-pt-sans {
   background-position: -5px -655px; }
 
-.trc-font-pt-serif {
+.primer-font-pt-serif {
   background-position: -5px -705px; }
 
-.trc-font-raleway {
+.primer-font-raleway {
   background-position: -5px -755px; }
 
-.trc-font-roboto {
+.primer-font-roboto {
   background-position: -5px -805px; }
 
-.trc-font-roboto-slab {
+.primer-font-roboto-slab {
   background-position: -5px -855px; }
 
-.trc-font-source-sans-pro {
+.primer-font-source-sans-pro {
   background-position: -5px -905px; }
 
-.trc-font-source-serif-pro {
+.primer-font-source-serif-pro {
   background-position: -5px -955px; }
 
-.trc-font-ubuntu {
+.primer-font-ubuntu {
   background-position: -5px -1005px; }

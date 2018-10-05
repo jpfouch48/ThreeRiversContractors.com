@@ -2,8 +2,8 @@
 /**
  * Displays page titles.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>
@@ -17,18 +17,18 @@
 		/**
 		 * Fires before the page title element.
 		 *
-		 * @since 0.0.0
+		 * @since 1.0.0
 		 */
-		do_action( 'trc_before_page_title' );
+		do_action( 'primer_before_page_title' );
 
-		trc_the_page_title();
+		primer_the_page_title();
 
 		/**
 		 * Fires after the page title element.
 		 *
-		 * @since 0.0.0
+		 * @since 1.0.0
 		 */
-		do_action( 'trc_after_page_title' );
+		do_action( 'primer_after_page_title' );
 
 		?>
 

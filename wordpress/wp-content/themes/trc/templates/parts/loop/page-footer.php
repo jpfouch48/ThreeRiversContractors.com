@@ -2,8 +2,8 @@
 /**
  * Template part for displaying the page footer inside The Loop.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
-edit_post_link( 'Edit', '<span class="edit-link">', '</span>' );
+edit_post_link( esc_html__( 'Edit', 'primer' ), '<span class="edit-link">', '</span>' );

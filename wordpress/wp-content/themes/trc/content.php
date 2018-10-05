@@ -4,8 +4,8 @@
  *
  * @link https://developer.wordpress.org/themes/template-files-section/partial-and-miscellaneous-template-files/#content-slug-php
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?>
@@ -17,15 +17,15 @@
 	/**
 	 * Fires inside the `article` element, before the content.
 	 *
-	 * @hooked trc_wc_shop_messages - 10
+	 * @hooked primer_wc_shop_messages - 10
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'trc_before_post_content' );
+	do_action( 'primer_before_post_content' );
 
 	?>
 
-	<?php if ( ! is_single() || ! trc_use_featured_hero_image() ) : ?>
+	<?php if ( ! is_single() || ! primer_use_featured_hero_image() ) : ?>
 
 		<?php get_template_part( 'templates/parts/loop/post', 'thumbnail' ); ?>
 
@@ -38,11 +38,11 @@
 	/**
 	 * Fires after templates/parts/loop/post template
 	 *
-	 * @hooked trc_add_post_meta - 10
+	 * @hooked primer_add_post_meta - 10
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'trc_after_post_title_template' );
+	do_action( 'primer_after_post_title_template' );
 
 	?>
 
@@ -65,7 +65,7 @@
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'trc_after_post_content' );
+	do_action( 'primer_after_post_content' );
 
 	?>
 

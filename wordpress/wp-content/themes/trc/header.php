@@ -4,8 +4,8 @@
  *
  * Displays all of the head element and everything up until the "site-content" div.
  *
- * @package TRC
- * @since   0.0.0
+ * @package Primer
+ * @since   1.0.0
  */
 
 ?><!DOCTYPE html>
@@ -33,24 +33,24 @@
 	/**
 	 * Fires inside the `<body>` element.
 	 *
-	 * @since 0.0.0
+	 * @since 1.0.0
 	 */
-	do_action( 'trc_body' );
+	do_action( 'primer_body' );
 
 	?>
 
 	<div id="page" class="hfeed site">
 
-		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'primer' ); ?></a>
 
 		<?php
 
 		/**
 		 * Fires before the `<header>` element.
 		 *
-		 * @since 0.0.0
+		 * @since 1.0.0
 		 */
-		do_action( 'trc_before_header' );
+		do_action( 'primer_before_header' );
 
 		?>
 
@@ -61,11 +61,11 @@
 			/**
 			 * Render the video header element
 			 *
-			 * @hooked trc_video_header - 5
+			 * @hooked primer_video_header - 5
 			 *
-			 * @since 0.7.0
+			 * @since 1.7.0
 			 */
-			do_action( 'trc_before_header_wrapper' );
+			do_action( 'primer_before_header_wrapper' );
 
 			?>
 
@@ -76,12 +76,12 @@
 				/**
 				 * Fires inside the `<header>` element.
 				 *
-				 * @hooked trc_add_site_title - 5
-				 * @hooked trc_add_hero - 7
+				 * @hooked primer_add_site_title - 5
+				 * @hooked primer_add_hero - 7
 				 *
-				 * @since 0.0.0
+				 * @since 1.0.0
 				 */
-				do_action( 'trc_header' );
+				do_action( 'primer_header' );
 
 				?>
 
@@ -92,9 +92,9 @@
 			/**
 			 * Fires inside the `<div class="site-header-wrapper">` element.
 			 *
-			 * @since 0.0.0
+			 * @since 1.0.0
 			 */
-			do_action( 'trc_after_site_header_wrapper' );
+			do_action( 'primer_after_site_header_wrapper' );
 
 			?>
 
@@ -105,12 +105,12 @@
 		/**
 		 * Fires after the `<header>` element.
 		 *
-		 * @hooked trc_add_primary_navigation - 11
-		 * @hooked trc_add_page_title - 12
+		 * @hooked primer_add_primary_navigation - 11
+		 * @hooked primer_add_page_title - 12
 		 *
-		 * @since 0.0.0
+		 * @since 1.0.0
 		 */
-		do_action( 'trc_after_header' );
+		do_action( 'primer_after_header' );
 
 		?>
 
