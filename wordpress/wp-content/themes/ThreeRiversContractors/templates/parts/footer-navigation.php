@@ -2,7 +2,7 @@
 /**
  * Displays the footer navigation.
  *
- * @package Primer
+ * @package trc
  * @since   1.0.0
  */
 

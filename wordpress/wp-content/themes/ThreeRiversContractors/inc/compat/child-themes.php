@@ -10,23 +10,23 @@
  */
 
 /**
- * Compare against the current Primer child theme version.
+ * Compare against the current trc child theme version.
  *
  * This function accepts the same `$version` and `$operator` formats as
  * the native `version_compare()` function in PHP and will always return
- * `false` if the `PRIMER_CHILD_VERSION` constant is empty.
+ * `false` if the `trc_CHILD_VERSION` constant is empty.
  *
  * @link  https://secure.php.net/manual/en/function.version-compare.php
  * @since 1.5.0
  *
- * @param  string $version  Version number to compare against the Primer child version.
+ * @param  string $version  Version number to compare against the trc child version.
  * @param  string $operator Test for a particular relationship. The possible operators are: `<`, `lt`, `<=`, `le`, `>`, `gt`, `>=`, `ge`, `==`, `=`, `eq`, `!=`, `<>`, `ne` respectively.
  *
- * @return bool Returns `true` if the provided version's relationship to the Primer child version is the one specified by the operator, otherwise `false`.
+ * @return bool Returns `true` if the provided version's relationship to the trc child version is the one specified by the operator, otherwise `false`.
  */
-function primer_child_version_compare( $version, $operator ) {
+function trc_child_version_compare( $version, $operator ) {
 
-	return ( is_child_theme() && PRIMER_CHILD_VERSION && version_compare( PRIMER_CHILD_VERSION, $version, $operator ) );
+	return ( is_child_theme() && trc_CHILD_VERSION && version_compare( trc_CHILD_VERSION, $version, $operator ) );
 
 }
 
@@ -35,14 +35,14 @@ function primer_child_version_compare( $version, $operator ) {
  *
  * Note: This function's access is marked private. This means it is not
  * intended to be used by plugin or theme developers, and should only be
- * used by other Primer functions. This function could be changed or even
+ * used by other trc functions. This function could be changed or even
  * removed in the future without concern for backward compatiblity and is
  * only documented here for completeness.
  *
- * This function helps to preserve backward compatiblity when the Primer
+ * This function helps to preserve backward compatiblity when the trc
  * parent theme is updated, but the child theme is not. It is especially
  * useful for preserving child theme overrides on hooks where a priority
- * in Primer needed to change.
+ * in trc needed to change.
  *
  * It works by checking the current child theme version and compatibility
  * key against a special compatibility array. If the current version is
@@ -60,9 +60,9 @@ function primer_child_version_compare( $version, $operator ) {
  *
  * @return mixed
  */
-function primer_child_compat( $key, $value ) {
+function trc_child_compat( $key, $value ) {
 
-	if ( ! is_child_theme() || ! PRIMER_CHILD_VERSION ) {
+	if ( ! is_child_theme() || ! trc_CHILD_VERSION ) {
 
 		return $value;
 
@@ -159,9 +159,9 @@ function primer_child_compat( $key, $value ) {
 	 *
 	 * @var array
 	 */
-	$compat = (array) apply_filters( 'primer_child_compat', $compat );
+	$compat = (array) apply_filters( 'trc_child_compat', $compat );
 
-	$theme = get_option( 'stylesheet', 'primer' );
+	$theme = get_option( 'stylesheet', 'trc' );
 
 	if ( empty( $compat[ $theme ] ) || ! is_array( $compat[ $theme ] ) ) {
 
@@ -171,7 +171,7 @@ function primer_child_compat( $key, $value ) {
 
 	foreach ( $compat[ $theme ] as $version => $keys ) {
 
-		if ( primer_child_version_compare( $version, '<' ) && array_key_exists( $key, $keys ) ) {
+		if ( trc_child_version_compare( $version, '<' ) && array_key_exists( $key, $keys ) ) {
 
 			return $keys[ $key ];
 

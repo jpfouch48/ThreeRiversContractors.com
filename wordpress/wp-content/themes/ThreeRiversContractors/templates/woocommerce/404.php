@@ -5,7 +5,7 @@
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  * @link https://developer.wordpress.org/themes/template-files-section/partial-and-miscellaneous-template-files/#404-php
  *
- * @package Primer
+ * @package trc
  * @since   1.0.0
  */
 
@@ -19,31 +19,31 @@ get_header(); ?>
 
 			<header class="page-header">
 
-				<h1 class="page-title"><?php esc_html_e( "Oops! That page can't be found.", 'primer' ); ?></h1>
+				<h1 class="page-title"><?php esc_html_e( "Oops! That page can't be found.", 'trc' ); ?></h1>
 
 			</header><!-- .page-header -->
 
 			<div class="page-content">
 
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Please try searching below:', 'primer' ); ?></p>
+				<p><?php esc_html_e( 'It looks like nothing was found at this location. Please try searching below:', 'trc' ); ?></p>
 
-				<section aria-label="<?php esc_html__( 'Search', 'primer' ); ?>">
+				<section aria-label="<?php esc_html__( 'Search', 'trc' ); ?>">
 
 					<?php the_widget( 'WC_Widget_Product_Search' ); ?>
 
 				</section>
 
-				<section aria-label="<?php esc_html__( 'Promoted Products', 'primer' ); ?>">
+				<section aria-label="<?php esc_html__( 'Promoted Products', 'trc' ); ?>">
 
-					<?php primer_wc_promoted_products(); ?>
+					<?php trc_wc_promoted_products(); ?>
 
 				</section>
 
-				<section aria-label="<?php esc_html__( 'Popular Products', 'primer' ); ?>">
+				<section aria-label="<?php esc_html__( 'Popular Products', 'trc' ); ?>">
 
-					<h2><?php esc_html_e( 'Popular Products', 'primer' ); ?></h2>
+					<h2><?php esc_html_e( 'Popular Products', 'trc' ); ?></h2>
 
-					<?php primer_wc_best_selling_products(); ?>
+					<?php trc_wc_best_selling_products(); ?>
 
 				</section>
 

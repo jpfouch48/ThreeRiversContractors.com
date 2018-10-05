@@ -15,7 +15,7 @@
  *
  * @return string Returns the current page title.
  */
-function primer_get_the_page_title() {
+function trc_get_the_page_title() {
 
 	$title = '';
 	$post  = get_queried_object();
@@ -44,7 +44,7 @@ function primer_get_the_page_title() {
 
 			$title = sprintf(
 				/* translators: search term */
-				esc_html__( 'Search Results for: %s', 'primer' ),
+				esc_html__( 'Search Results for: %s', 'trc' ),
 				get_search_query()
 			);
 
@@ -52,7 +52,7 @@ function primer_get_the_page_title() {
 
 		case is_404() :
 
-			$title = esc_html__( '404 Page Not Found', 'primer' );
+			$title = esc_html__( '404 Page Not Found', 'trc' );
 
 			break;
 
@@ -90,7 +90,7 @@ function primer_get_the_page_title() {
 	 *
 	 * @var string
 	 */
-	return (string) apply_filters( 'primer_the_page_title', $title );
+	return (string) apply_filters( 'trc_the_page_title', $title );
 
 }
 
@@ -101,7 +101,7 @@ function primer_get_the_page_title() {
  *
  * @return string Returns the current `page_width` theme mod.
  */
-function primer_get_page_width() {
+function trc_get_page_width() {
 
 	return get_theme_mod( 'page_width', 'fixed' );
 
@@ -112,11 +112,11 @@ function primer_get_page_width() {
  *
  * @since 1.0.0
  *
- * @return bool Returns true when `primer_get_page_width()` is set to fluid, otherwise returns false.
+ * @return bool Returns true when `trc_get_page_width()` is set to fluid, otherwise returns false.
  */
-function primer_is_fluid_width() {
+function trc_is_fluid_width() {
 
-	return ( 'fluid' === primer_get_page_width() );
+	return ( 'fluid' === trc_get_page_width() );
 
 }
 
@@ -125,51 +125,51 @@ function primer_is_fluid_width() {
  *
  * @since 1.0.0
  *
- * @return bool Returns true when `primer_get_page_width()` is set to 'fixed', otherwise returns false.
+ * @return bool Returns true when `trc_get_page_width()` is set to 'fixed', otherwise returns false.
  */
-function primer_is_fixed_width() {
+function trc_is_fixed_width() {
 
-	return ( 'fixed' === primer_get_page_width() );
+	return ( 'fixed' === trc_get_page_width() );
 
 }
 
 /**
  * Return the current layout.
  *
- * @global $primer_customizer_layouts
+ * @global $trc_customizer_layouts
  * @since  1.0.0
  *
  * @uses   get_current_layout
  *
  * @param  int $post_id (optional) Post ID. Defaults to the current queried object.
  *
- * @return string Returns the current Primer theme layout.
+ * @return string Returns the current trc theme layout.
  */
-function primer_get_layout( $post_id = null ) {
+function trc_get_layout( $post_id = null ) {
 
-	global $primer_customizer_layouts;
+	global $trc_customizer_layouts;
 
 	$post_id = ( $post_id ) ? $post_id : get_queried_object_id();
 
-	return $primer_customizer_layouts->get_current_layout( $post_id );
+	return $trc_customizer_layouts->get_current_layout( $post_id );
 
 }
 
 /**
  * Return the global layout.
  *
- * @global Primer_Customizer_Layouts $primer_customizer_layouts
+ * @global trc_Customizer_Layouts $trc_customizer_layouts
  * @since  1.0.0
  *
  * @uses   get_global_layout
  *
  * @return string Returns the global layout.
  */
-function primer_get_global_layout() {
+function trc_get_global_layout() {
 
-	global $primer_customizer_layouts;
+	global $trc_customizer_layouts;
 
-	return $primer_customizer_layouts->get_global_layout();
+	return $trc_customizer_layouts->get_global_layout();
 
 }
 
@@ -182,9 +182,9 @@ function primer_get_global_layout() {
  *
  * @return bool Returns true when a sidebar is set on the given layout, otherwise returns false.
  */
-function primer_layout_has_sidebar( $layout = null ) {
+function trc_layout_has_sidebar( $layout = null ) {
 
-	$layout      = ( $layout ) ? $layout : primer_get_layout();
+	$layout      = ( $layout ) ? $layout : trc_get_layout();
 	$has_sidebar = ! in_array( $layout, array( 'one-column-wide', 'one-column-narrow' ), true );
 
 	/**
@@ -196,7 +196,7 @@ function primer_layout_has_sidebar( $layout = null ) {
 	 *
 	 * @var bool
 	 */
-	return (bool) apply_filters( 'primer_layout_has_sidebar', $has_sidebar, $layout );
+	return (bool) apply_filters( 'trc_layout_has_sidebar', $has_sidebar, $layout );
 
 }
 
@@ -207,9 +207,9 @@ function primer_layout_has_sidebar( $layout = null ) {
  *
  * @uses   has_custom_logo
  *
- * @return bool Returns true when a Primer logo is set.
+ * @return bool Returns true when a trc logo is set.
  */
-function primer_has_custom_logo() {
+function trc_has_custom_logo() {
 
 	/**
 	 * For backwards compatibility prior to WordPress 4.5.
@@ -226,7 +226,7 @@ function primer_has_custom_logo() {
 	 *
 	 * @var bool
 	 */
-	return (bool) apply_filters( 'primer_has_custom_logo', $enabled );
+	return (bool) apply_filters( 'trc_has_custom_logo', $enabled );
 
 }
 
@@ -237,7 +237,7 @@ function primer_has_custom_logo() {
  *
  * @return string Returns the hero image selector.
  */
-function primer_get_hero_image_selector() {
+function trc_get_hero_image_selector() {
 
 	/**
 	 * Filter the hero image element selector.
@@ -246,7 +246,7 @@ function primer_get_hero_image_selector() {
 	 *
 	 * @var string
 	 */
-	$selector = (string) apply_filters( 'primer_hero_image_selector', '.site-header' );
+	$selector = (string) apply_filters( 'trc_hero_image_selector', '.site-header' );
 
 	return wp_strip_all_tags( $selector );
 
@@ -259,7 +259,7 @@ function primer_get_hero_image_selector() {
  *
  * @return bool Returns true when the `use_featured_hero_image` theme mod is set, otherwise returns false.
  */
-function primer_use_featured_hero_image() {
+function trc_use_featured_hero_image() {
 
 	$enabled = (bool) get_theme_mod( 'use_featured_hero_image', 1 );
 
@@ -270,7 +270,7 @@ function primer_use_featured_hero_image() {
 	 *
 	 * @var bool
 	 */
-	return (bool) apply_filters( 'primer_use_featured_hero_image', $enabled );
+	return (bool) apply_filters( 'trc_use_featured_hero_image', $enabled );
 
 }
 
@@ -280,15 +280,15 @@ function primer_use_featured_hero_image() {
  * @since 1.0.0
  *
  * @uses   has_header_image
- * @uses   primer_use_featured_hero_image
+ * @uses   trc_use_featured_hero_image
  * @uses   [has_post_thumbnail](https://developer.wordpress.org/reference/functions/has_post_thumbnail/)
  * @uses   [get_queried_object](https://codex.wordpress.org/Function_Reference/get_queried_object)
  *
  * @return bool Returns true when a header image is set, or when the featured hero image setting is true and a featured image is set, otherwise return false.
  */
-function primer_has_hero_image() {
+function trc_has_hero_image() {
 
-	return ( has_header_image() || ( primer_use_featured_hero_image() && has_post_thumbnail( get_queried_object() ) ) );
+	return ( has_header_image() || ( trc_use_featured_hero_image() && has_post_thumbnail( get_queried_object() ) ) );
 
 }
 
@@ -297,7 +297,7 @@ function primer_has_hero_image() {
  *
  * @since 1.0.0
  *
- * @uses  primer_use_featured_hero_image
+ * @uses  trc_use_featured_hero_image
  * @uses  [get_queried_object](https://codex.wordpress.org/Function_Reference/get_queried_object)
  * @uses  [has_post_thumbnail](https://developer.wordpress.org/reference/functions/has_post_thumbnail/)
  * @uses  [wp_get_attachment_image_src](https://developer.wordpress.org/reference/functions/wp_get_attachment_image_src/)
@@ -305,7 +305,7 @@ function primer_has_hero_image() {
  *
  * @return string|null Returns the featured image if one is set, otherwise null.
  */
-function primer_get_hero_image() {
+function trc_get_hero_image() {
 
 	/**
 	 * Filter the hero image size.
@@ -314,14 +314,14 @@ function primer_get_hero_image() {
 	 *
 	 * @var string
 	 */
-	$size = (string) apply_filters( 'primer_hero_image_size', 'primer-hero' );
+	$size = (string) apply_filters( 'trc_hero_image_size', 'trc-hero' );
 
 	$post = get_queried_object();
 
 	/**
 	 * Featured Image (if enabled)
 	 */
-	if ( primer_use_featured_hero_image() && has_post_thumbnail( $post ) ) {
+	if ( trc_use_featured_hero_image() && has_post_thumbnail( $post ) ) {
 
 		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post ), $size );
 
@@ -365,14 +365,14 @@ function primer_get_hero_image() {
  *
  * @return string Returns the feature image size.
  */
-function primer_get_featured_image_size() {
+function trc_get_featured_image_size() {
 
 	/**
 	 * Filter the size to use for featured images.
 	 *
 	 * @var string
 	 */
-	return (string) apply_filters( 'primer_featured_image_size', 'primer-featured' );
+	return (string) apply_filters( 'trc_featured_image_size', 'trc-featured' );
 
 }
 
@@ -389,7 +389,7 @@ function primer_get_featured_image_size() {
  *
  * @return string Return the post page URL.
  */
-function primer_get_posts_url() {
+function trc_get_posts_url() {
 
 	$url = ( 'page' === get_option( 'show_on_front' ) ) ? get_permalink( (int) get_option( 'page_for_posts' ) ) : null;
 
@@ -400,7 +400,7 @@ function primer_get_posts_url() {
 	 *
 	 * @var string
 	 */
-	return (string) apply_filters( 'primer_posts_url', $url );
+	return (string) apply_filters( 'trc_posts_url', $url );
 
 }
 
@@ -410,9 +410,9 @@ function primer_get_posts_url() {
  * @global array $wp_registered_sidebars
  * @since  1.0.0
  *
- * @return array Returns the Primer theme sidebars array.
+ * @return array Returns the trc theme sidebars array.
  */
-function primer_get_footer_sidebars() {
+function trc_get_footer_sidebars() {
 
 	global $wp_registered_sidebars;
 
@@ -425,7 +425,7 @@ function primer_get_footer_sidebars() {
 	 *
 	 * @var array
 	 */
-	return (array) apply_filters( 'primer_footer_sidebars', $sidebars );
+	return (array) apply_filters( 'trc_footer_sidebars', $sidebars );
 
 }
 
@@ -436,9 +436,9 @@ function primer_get_footer_sidebars() {
  *
  * @return array Returns an array of active footer widget areas.
  */
-function primer_get_active_footer_sidebars() {
+function trc_get_active_footer_sidebars() {
 
-	return array_filter( primer_get_footer_sidebars(), 'is_active_sidebar' );
+	return array_filter( trc_get_footer_sidebars(), 'is_active_sidebar' );
 
 }
 
@@ -447,13 +447,13 @@ function primer_get_active_footer_sidebars() {
  *
  * @since 1.0.0
  *
- * @uses   primer_get_active_footer_sidebars
+ * @uses   trc_get_active_footer_sidebars
  *
  * @return bool Returns true when footer sidebars are set, otherwise returns false.
  */
-function primer_has_active_footer_sidebars() {
+function trc_has_active_footer_sidebars() {
 
-	return (bool) primer_get_active_footer_sidebars();
+	return (bool) trc_get_active_footer_sidebars();
 
 }
 
@@ -466,7 +466,7 @@ function primer_has_active_footer_sidebars() {
  *
  * @return bool Returns true when the 'footer' or 'social' navigation menu is set.
  */
-function primer_has_footer_menu() {
+function trc_has_footer_menu() {
 
 	return ( has_nav_menu( 'footer' ) || has_nav_menu( 'social' ) );
 
@@ -478,7 +478,7 @@ function primer_has_footer_menu() {
  * We will store the result in a transient so this function
  * can be called frequently without any performance concern.
  *
- * @see   primer_has_active_categories_reset()
+ * @see   trc_has_active_categories_reset()
  *
  * @since 1.0.0
  *
@@ -488,9 +488,9 @@ function primer_has_footer_menu() {
  *
  * @return bool Returns true when categories are found, otherwise returns false.
  */
-function primer_has_active_categories() {
+function trc_has_active_categories() {
 
-	$has_active_categories = get_transient( 'primer_has_active_categories' );
+	$has_active_categories = get_transient( 'trc_has_active_categories' );
 
 	if ( WP_DEBUG || false === $has_active_categories ) {
 
@@ -504,7 +504,7 @@ function primer_has_active_categories() {
 
 		$has_active_categories = ( count( $categories ) > 1 );
 
-		set_transient( 'primer_has_active_categories', $has_active_categories );
+		set_transient( 'trc_has_active_categories', $has_active_categories );
 
 	}
 
@@ -515,7 +515,7 @@ function primer_has_active_categories() {
 	 *
 	 * @var bool
 	 */
-	return (bool) apply_filters( 'primer_has_active_categories', ! empty( $has_active_categories ) );
+	return (bool) apply_filters( 'trc_has_active_categories', ! empty( $has_active_categories ) );
 
 }
 
@@ -528,7 +528,7 @@ function primer_has_active_categories() {
  *
  * @return array Returns an array of Red, Green and Blue values to use in CSS styles.
  */
-function primer_hex2rgb( $color ) {
+function trc_hex2rgb( $color ) {
 
 	$color = trim( $color, '#' );
 
@@ -574,7 +574,7 @@ function primer_hex2rgb( $color ) {
  *
  * @return array Returns an array with recursively replaced elements.
  */
-function primer_array_replace_recursive( array $array1, array $array2 ) {
+function trc_array_replace_recursive( array $array1, array $array2 ) {
 
 	if ( function_exists( 'array_replace_recursive' ) ) {
 
@@ -634,7 +634,7 @@ function primer_array_replace_recursive( array $array1, array $array2 ) {
  *
  * @return string
  */
-function primer_get_the_widget( $widget, $instance = array(), $args = array() ) {
+function trc_get_the_widget( $widget, $instance = array(), $args = array() ) {
 
 	ob_start();
 
@@ -645,15 +645,15 @@ function primer_get_the_widget( $widget, $instance = array(), $args = array() ) 
 }
 
 /**
- * Check if the current theme is Primer or direct Primer child theme
+ * Check if the current theme is trc or direct trc child theme
  *
  * @since 1.7.0
  *
  * @uses  [wp_get_theme](https://developer.wordpress.org/reference/functions/wp_get_theme/) To retreive the current theme data.
  *
- * @return boolean True if Primer or custom Primer child theme, otherwise false
+ * @return boolean True if trc or custom trc child theme, otherwise false
  */
-function is_custom_primer_child() {
+function is_custom_trc_child() {
 
 	$theme = wp_get_theme();
 

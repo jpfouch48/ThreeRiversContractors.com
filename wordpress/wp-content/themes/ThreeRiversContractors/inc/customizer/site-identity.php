@@ -2,13 +2,13 @@
 /**
  * Additional site identity customizer options.
  *
- * @class    Primer_Site_Identity_Options
+ * @class    trc_Site_Identity_Options
  * @package  Classes/Customizer
  * @category Class
  * @author   GoDaddy
  * @since    1.5.0
  */
-class Primer_Site_Identity_Options {
+class trc_Site_Identity_Options {
 
 	/**
 	 * Class constructor.
@@ -22,15 +22,15 @@ class Primer_Site_Identity_Options {
 		 *
 		 * @var bool
 		 */
-		if ( ! (bool) apply_filters( 'primer_show_site_identity_settings', true ) ) {
+		if ( ! (bool) apply_filters( 'trc_show_site_identity_settings', true ) ) {
 
 			return;
 
 		}
 
-		add_filter( 'primer_privacy_policy_link', array( $this, 'toggle_primer_privacy_link' ) );
+		add_filter( 'trc_privacy_policy_link', array( $this, 'toggle_trc_privacy_link' ) );
 
-		add_filter( 'primer_author_credit', array( $this, 'toggle_primer_author_credit' ) );
+		add_filter( 'trc_author_credit', array( $this, 'toggle_trc_author_credit' ) );
 
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
 
@@ -39,12 +39,12 @@ class Primer_Site_Identity_Options {
 	/**
 	 * Toggle the visibility of the site credits in the footer.
 	 *
-	 * @filter primer_author_credit
+	 * @filter trc_author_credit
 	 * @since  1.5.0
 	 *
 	 * @return bool Returns true when `show_author_credit` theme mod is set.
 	 */
-	public function toggle_primer_author_credit() {
+	public function toggle_trc_author_credit() {
 
 		$show_author_credit = get_theme_mod( 'show_author_credit', true );
 
@@ -55,12 +55,12 @@ class Primer_Site_Identity_Options {
 	/**
 	 * Toggle the visibility of the privacy policy link in the footer.
 	 *
-	 * @filter primer_privacy_policy_link
+	 * @filter trc_privacy_policy_link
 	 * @since  1.8.3
 	 *
 	 * @return bool Returns true when `show_privacy_policy` theme mod is set.
 	 */
-	public function toggle_primer_privacy_link() {
+	public function toggle_trc_privacy_link() {
 
 		$show_privacy_policy = get_theme_mod( 'show_privacy_policy', true );
 
@@ -87,7 +87,7 @@ class Primer_Site_Identity_Options {
 				'sanitize_js_callback' => 'wp_kses_post',
 				'default'              => sprintf(
 					/* translators: 1. copyright symbol, 2. year, 3. site title */
-					esc_html__( 'Copyright %1$s %2$d %3$s', 'primer' ),
+					esc_html__( 'Copyright %1$s %2$d %3$s', 'trc' ),
 					'&copy;',
 					date( 'Y' ),
 					get_bloginfo( 'blogname' )
@@ -98,7 +98,7 @@ class Primer_Site_Identity_Options {
 		$wp_customize->add_control(
 			'copyright_text',
 			array(
-				'label'    => esc_html__( 'Footer Copyright Text', 'primer' ),
+				'label'    => esc_html__( 'Footer Copyright Text', 'trc' ),
 				'section'  => 'title_tagline',
 				'settings' => 'copyright_text',
 				'type'     => 'text',
@@ -117,7 +117,7 @@ class Primer_Site_Identity_Options {
 		$wp_customize->add_control(
 			'show_author_credit',
 			array(
-				'label'    => esc_html__( 'Display theme author credit', 'primer' ),
+				'label'    => esc_html__( 'Display theme author credit', 'trc' ),
 				'section'  => 'title_tagline',
 				'settings' => 'show_author_credit',
 				'type'     => 'checkbox',
@@ -136,7 +136,7 @@ class Primer_Site_Identity_Options {
 		$wp_customize->add_control(
 			'show_privacy_policy',
 			array(
-				'label'    => esc_html__( 'Display privacy policy link', 'primer' ),
+				'label'    => esc_html__( 'Display privacy policy link', 'trc' ),
 				'section'  => 'title_tagline',
 				'settings' => 'show_privacy_policy',
 				'type'     => 'checkbox',
@@ -148,4 +148,4 @@ class Primer_Site_Identity_Options {
 
 }
 
-$GLOBALS['primer_site_identity_options'] = new Primer_Site_Identity_Options;
+$GLOBALS['trc_site_identity_options'] = new trc_Site_Identity_Options;

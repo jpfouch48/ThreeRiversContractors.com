@@ -9,12 +9,12 @@
  */
 
 /**
- * Display some elements conditionally (Primer only).
+ * Display some elements conditionally (trc only).
  *
  * @action template_redirect
  * @since  1.0.0
  */
-function primer_elements() {
+function trc_elements() {
 
 	if ( is_child_theme() ) {
 
@@ -24,20 +24,20 @@ function primer_elements() {
 
 	if ( is_home() ) {
 
-		remove_action( 'primer_after_header', 'primer_add_page_title', 12 );
+		remove_action( 'trc_after_header', 'trc_add_page_title', 12 );
 
 	}
 
 }
-add_action( 'template_redirect', 'primer_elements' );
+add_action( 'template_redirect', 'trc_elements' );
 
 /**
  * Display the video header.
  *
- * @action primer_before_header_wrapper
+ * @action trc_before_header_wrapper
  * @since  1.7.0
  */
-function primer_video_header() {
+function trc_video_header() {
 
 	if ( ! is_front_page() || ! function_exists( 'has_header_video' ) || ! has_header_video() ) {
 
@@ -48,28 +48,28 @@ function primer_video_header() {
 	the_custom_header_markup();
 
 }
-add_action( 'primer_before_header_wrapper', 'primer_video_header', 5 );
+add_action( 'trc_before_header_wrapper', 'trc_video_header', 5 );
 
 /**
  * Display site title in the header.
  *
- * @action primer_header
+ * @action trc_header
  * @since  1.0.0
  */
-function primer_add_site_title() {
+function trc_add_site_title() {
 
 	get_template_part( 'templates/parts/site-title' );
 
 }
-add_action( 'primer_header', 'primer_add_site_title', primer_child_compat( 'header__add_site_title', 5 ) );
+add_action( 'trc_header', 'trc_add_site_title', trc_child_compat( 'header__add_site_title', 5 ) );
 
 /**
  * Display hero element in the header.
  *
- * @action primer_header
+ * @action trc_header
  * @since  1.0.0
  */
-function primer_add_hero() {
+function trc_add_hero() {
 
 	if ( ! is_404() ) {
 
@@ -78,15 +78,15 @@ function primer_add_hero() {
 	}
 
 }
-add_action( 'primer_header', 'primer_add_hero', primer_child_compat( 'header__add_hero', 7 ) );
+add_action( 'trc_header', 'trc_add_hero', trc_child_compat( 'header__add_hero', 7 ) );
 
 /**
  * Display content in the hero element.
  *
- * @action primer_hero
+ * @action trc_hero
  * @since  1.0.0
  */
-function primer_add_hero_content() {
+function trc_add_hero_content() {
 
 	if ( is_front_page() && is_active_sidebar( 'hero' ) ) {
 
@@ -95,28 +95,28 @@ function primer_add_hero_content() {
 	}
 
 }
-add_action( 'primer_hero', 'primer_add_hero_content' );
+add_action( 'trc_hero', 'trc_add_hero_content' );
 
 /**
  * Display mobile menu html.
  *
- * @action primer_before_site_navigation
+ * @action trc_before_site_navigation
  * @since  1.0.0
  */
-function primer_add_mobile_menu() {
+function trc_add_mobile_menu() {
 
 	get_template_part( 'templates/parts/mobile-menu' );
 
 }
-add_action( 'primer_before_site_navigation', 'primer_add_mobile_menu' );
+add_action( 'trc_before_site_navigation', 'trc_add_mobile_menu' );
 
 /**
  * Add primary menu.
  *
- * @action primer_site_navigation
+ * @action trc_site_navigation
  * @since 1.0.0
  */
-function primer_add_primary_menu() {
+function trc_add_primary_menu() {
 
 	if ( ! has_nav_menu( 'primary' ) ) {
 
@@ -134,89 +134,89 @@ function primer_add_primary_menu() {
 	wp_nav_menu(
 		array(
 			'theme_location' => 'primary',
-			'walker'         => new Primer_Walker_Nav_Menu,
+			'walker'         => new trc_Walker_Nav_Menu,
 		)
 	);
 
 }
-add_action( 'primer_site_navigation', 'primer_add_primary_menu' );
+add_action( 'trc_site_navigation', 'trc_add_primary_menu' );
 
 /**
  * Display primary navigation menu after the header.
  *
- * @action primer_after_header
+ * @action trc_after_header
  * @since  1.0.0
  */
-function primer_add_primary_navigation() {
+function trc_add_primary_navigation() {
 
 	get_template_part( 'templates/parts/primary-navigation' );
 
 }
-add_action( 'primer_after_header', 'primer_add_primary_navigation', primer_child_compat( 'after_header__add_primary_navigation', 11 ) );
+add_action( 'trc_after_header', 'trc_add_primary_navigation', trc_child_compat( 'after_header__add_primary_navigation', 11 ) );
 
 /**
  * Display page titles after the header.
  *
- * @action primer_after_header
+ * @action trc_after_header
  * @since  1.0.0
  */
-function primer_add_page_title() {
+function trc_add_page_title() {
 
-	if ( primer_get_the_page_title() ) {
+	if ( trc_get_the_page_title() ) {
 
 		get_template_part( 'templates/parts/page-title' );
 
 	}
 
 }
-add_action( 'primer_after_header', 'primer_add_page_title', primer_child_compat( 'after_header__add_page_title', 12 ) );
+add_action( 'trc_after_header', 'trc_add_page_title', trc_child_compat( 'after_header__add_page_title', 12 ) );
 
 /**
  * Display post meta template.
  *
- * @action primer_after_post_title_template
+ * @action trc_after_post_title_template
  * @since 1.0.0
  */
-function primer_add_post_meta() {
+function trc_add_post_meta() {
 
 	get_template_part( 'templates/parts/loop/post', 'meta' );
 
 }
-add_action( 'primer_after_post_title_template', 'primer_add_post_meta' );
+add_action( 'trc_after_post_title_template', 'trc_add_post_meta' );
 
 /**
  * Display widget areas in the footer.
  *
- * @action primer_footer
+ * @action trc_footer
  * @since  1.0.0
  */
-function primer_add_footer_widgets() {
+function trc_add_footer_widgets() {
 
 	get_template_part( 'templates/parts/footer-widgets' );
 
 }
-add_action( 'primer_footer', 'primer_add_footer_widgets' );
+add_action( 'trc_footer', 'trc_add_footer_widgets' );
 
 /**
  * Display site info after the footer.
  *
- * @action primer_after_footer
+ * @action trc_after_footer
  * @since  1.0.0
  */
-function primer_add_site_info() {
+function trc_add_site_info() {
 
 	get_template_part( 'templates/parts/site-info' );
 
 }
-add_action( 'primer_after_footer', 'primer_add_site_info' );
+add_action( 'trc_after_footer', 'trc_add_site_info' );
 
 /**
  * Display footer navigation menu in the footer.
  *
- * @action primer_site_info
+ * @action trc_site_info
  * @since  1.0.0
  */
-function primer_add_footer_navigation() {
+function trc_add_footer_navigation() {
 
 	if ( has_nav_menu( 'footer' ) ) {
 
@@ -225,15 +225,15 @@ function primer_add_footer_navigation() {
 	}
 
 }
-add_action( 'primer_site_info', 'primer_add_footer_navigation', 5 );
+add_action( 'trc_site_info', 'trc_add_footer_navigation', 5 );
 
 /**
  * Display social navigation menu in the footer.
  *
- * @action primer_site_info
+ * @action trc_site_info
  * @since  1.0.0
  */
-function primer_add_social_navigation() {
+function trc_add_social_navigation() {
 
 	if ( has_nav_menu( 'social' ) ) {
 
@@ -242,20 +242,20 @@ function primer_add_social_navigation() {
 	}
 
 }
-add_action( 'primer_site_info', 'primer_add_social_navigation', 7 );
+add_action( 'trc_site_info', 'trc_add_social_navigation', 7 );
 
 /**
  * Display credit in the footer.
  *
- * @action primer_site_info
+ * @action trc_site_info
  * @since  1.0.0
  */
-function primer_add_credit() {
+function trc_add_credit() {
 
 	get_template_part( 'templates/parts/credit' );
 
 }
-add_action( 'primer_site_info', 'primer_add_credit' );
+add_action( 'trc_site_info', 'trc_add_credit' );
 
 /**
  * Display privacy policy link
@@ -263,7 +263,7 @@ add_action( 'primer_site_info', 'primer_add_credit' );
  * @action the_privacy_policy_link
  * @since  1.8.3
  */
-function primer_privacy_policy_link() {
+function trc_privacy_policy_link() {
 
 	if ( function_exists( 'the_privacy_policy_link' ) ) {
 
@@ -274,7 +274,7 @@ function primer_privacy_policy_link() {
 		 *
 		 * @var bool
 		 */
-		if ( ! (bool) apply_filters( 'primer_privacy_policy_link', true ) ) {
+		if ( ! (bool) apply_filters( 'trc_privacy_policy_link', true ) ) {
 
 			return;
 
@@ -285,7 +285,7 @@ function primer_privacy_policy_link() {
 	}
 
 }
-add_action( 'primer_site_info', 'primer_privacy_policy_link', 7 );
+add_action( 'trc_site_info', 'trc_privacy_policy_link', 7 );
 
 /**
  * Set the post excerpt length to 20 words.
@@ -294,7 +294,7 @@ add_action( 'primer_site_info', 'primer_privacy_policy_link', 7 );
  * your own function tied to the `excerpt_length` filter hook:
  *
  * ```
- * remove_filter( 'excerpt_length', 'primer_excerpt_length' );
+ * remove_filter( 'excerpt_length', 'trc_excerpt_length' );
  * add_filter( 'excerpt_length', function() { return 30; } );
  * ```
  *
@@ -306,12 +306,12 @@ add_action( 'primer_site_info', 'primer_privacy_policy_link', 7 );
  *
  * @return int Return the maximum number of words to use for excerpts.
  */
-function primer_excerpt_length( $number ) {
+function trc_excerpt_length( $number ) {
 
 	return 20;
 
 }
-add_filter( 'excerpt_length', 'primer_excerpt_length' );
+add_filter( 'excerpt_length', 'trc_excerpt_length' );
 
 /**
  * Replace "[...]" with an ellipsis.
@@ -320,7 +320,7 @@ add_filter( 'excerpt_length', 'primer_excerpt_length' );
  * your own function tied to the `excerpt_more` filter hook:
  *
  * ```
- * remove_filter( 'excerpt_more', 'primer_excerpt_more' );
+ * remove_filter( 'excerpt_more', 'trc_excerpt_more' );
  * add_filter( 'excerpt_more', function() { return '...and more'; } );
  * ```
  *
@@ -332,12 +332,12 @@ add_filter( 'excerpt_length', 'primer_excerpt_length' );
  *
  * @return string Returns the string in the “more” link displayed after a trimmed excerpt.
  */
-function primer_excerpt_more( $more_string ) {
+function trc_excerpt_more( $more_string ) {
 
 	return ! is_admin() ? '&hellip;' : $more_string;
 
 }
-add_filter( 'excerpt_more', 'primer_excerpt_more' );
+add_filter( 'excerpt_more', 'trc_excerpt_more' );
 
 /**
  * Wrap the jQuery script tag in a conditional comment.
@@ -347,7 +347,7 @@ add_filter( 'excerpt_more', 'primer_excerpt_more' );
  *
  * To override this behavior in a child theme, remove the filter:
  *
- * remove_filter( 'script_loader_tag', 'primer_conditional_jquery_tag', 10, 2 );
+ * remove_filter( 'script_loader_tag', 'trc_conditional_jquery_tag', 10, 2 );
  *
  * @filter script_loader_tag
  * @link   https://developer.wordpress.org/reference/hooks/script_loader_tag/
@@ -358,12 +358,12 @@ add_filter( 'excerpt_more', 'primer_excerpt_more' );
  *
  * @return string Returns the HTML script tag of an enqueued script.
  */
-function primer_conditional_jquery_tag( $tag, $handle ) {
+function trc_conditional_jquery_tag( $tag, $handle ) {
 
 	return ( 'jquery' === $handle ) ? "<!--[if (gte IE 9) | (!IE)]><!-->$tag<!--<![endif]-->" : $tag;
 
 }
-add_filter( 'script_loader_tag', 'primer_conditional_jquery_tag', 10, 2 );
+add_filter( 'script_loader_tag', 'trc_conditional_jquery_tag', 10, 2 );
 
 /**
  * Add custom body classes.
@@ -375,7 +375,7 @@ add_filter( 'script_loader_tag', 'primer_conditional_jquery_tag', 10, 2 );
  *
  * @return array Returns an array of body classes.
  */
-function primer_body_class( array $classes ) {
+function trc_body_class( array $classes ) {
 
 	if ( is_multi_author() ) {
 
@@ -392,7 +392,7 @@ function primer_body_class( array $classes ) {
 	return $classes;
 
 }
-add_filter( 'body_class', 'primer_body_class' );
+add_filter( 'body_class', 'trc_body_class' );
 
 /**
  * Alter the `<title>` tag based on what is being viewed.
@@ -407,7 +407,7 @@ add_filter( 'body_class', 'primer_body_class' );
  *
  * @return string Return the page title.
  */
-function primer_wp_title( $title, $sep ) {
+function trc_wp_title( $title, $sep ) {
 
 	if ( is_feed() ) {
 
@@ -441,7 +441,7 @@ function primer_wp_title( $title, $sep ) {
 			$sep,
 			sprintf(
 				/* translators: page number */
-				esc_html__( 'Page %d', 'primer' ),
+				esc_html__( 'Page %d', 'trc' ),
 				max( $paged, $page )
 			)
 		);
@@ -451,19 +451,19 @@ function primer_wp_title( $title, $sep ) {
 	return $title;
 
 }
-add_filter( 'wp_title', 'primer_wp_title', 10, 2 );
+add_filter( 'wp_title', 'trc_wp_title', 10, 2 );
 
 /**
  * Filter the site title HTML wrapper.
  *
- * @filter primer_the_site_title_args
+ * @filter trc_the_site_title_args
  * @since  1.8.0
  *
  * @param  array $args The site title args.
  *
  * @return array
  */
-function primer_the_site_title_wrapper( $args ) {
+function trc_the_site_title_wrapper( $args ) {
 
 	if ( is_home() ) {
 
@@ -474,19 +474,19 @@ function primer_the_site_title_wrapper( $args ) {
 	return $args;
 
 }
-add_filter( 'primer_the_site_title_args', 'primer_the_site_title_wrapper' );
+add_filter( 'trc_the_site_title_args', 'trc_the_site_title_wrapper' );
 
 /**
  * Filter the page title HTML wrapper.
  *
- * @filter primer_the_page_title_args
+ * @filter trc_the_page_title_args
  * @since  1.8.0
  *
  * @param  array $args The page title args.
  *
  * @return array
  */
-function primer_the_page_title_wrapper( $args ) {
+function trc_the_page_title_wrapper( $args ) {
 
 	if ( is_single() ) {
 
@@ -497,7 +497,7 @@ function primer_the_page_title_wrapper( $args ) {
 	return $args;
 
 }
-add_filter( 'primer_the_page_title_args', 'primer_the_page_title_wrapper' );
+add_filter( 'trc_the_page_title_args', 'trc_the_page_title_wrapper' );
 
 /**
  * Customize the default pagination links template.
@@ -510,7 +510,7 @@ add_filter( 'primer_the_page_title_args', 'primer_the_page_title_wrapper' );
  *
  * @return string
  */
-function primer_pagination_template( $template, $class ) {
+function trc_pagination_template( $template, $class ) {
 
 	if ( 'pagination' !== $class ) {
 
@@ -525,7 +525,7 @@ function primer_pagination_template( $template, $class ) {
 		'<div class="paging-nav-text">%s</div>%s',
 		sprintf(
 			/* translators: 1. current page number, 2. total number of pages */
-			esc_html__( 'Page %1$d of %2$d', 'primer' ),
+			esc_html__( 'Page %1$d of %2$d', 'trc' ),
 			max( 1, get_query_var( 'paged' ) ),
 			absint( $wp_query->max_num_pages )
 		),
@@ -535,4 +535,4 @@ function primer_pagination_template( $template, $class ) {
 	return str_replace( $search, $replace, $template );
 
 }
-add_filter( 'navigation_markup_template', 'primer_pagination_template', 10, 2 );
+add_filter( 'navigation_markup_template', 'trc_pagination_template', 10, 2 );

@@ -15,7 +15,7 @@
  *
  * Note: This function's access is marked private. This means it is not
  * intended to be used by plugin or theme developers, and should only be
- * used by other Primer functions. This function could be changed or even
+ * used by other trc functions. This function could be changed or even
  * removed in the future without concern for backward compatiblity and is
  * only documented here for completeness.
  *
@@ -25,10 +25,10 @@
  * @param string $name        The item that was called.
  * @param string $version     The theme version that deprecated the item.
  * @param string $replacement (optional) The item that should be called instead. Default is `null`.
- * @param string $theme       (optional) The theme that deprecated the item. Default is `null` which defaults to 'Primer'.
+ * @param string $theme       (optional) The theme that deprecated the item. Default is `null` which defaults to 'trc'.
  * @param string $message     (optional) A message regarding the change. Default is `null`.
  */
-function primer_deprecated( $name, $version, $replacement = null, $theme = null, $message = null ) {
+function trc_deprecated( $name, $version, $replacement = null, $theme = null, $message = null ) {
 
 	if ( ! WP_DEBUG ) {
 
@@ -37,11 +37,11 @@ function primer_deprecated( $name, $version, $replacement = null, $theme = null,
 	}
 
 	// Note: Translation text must be a string or the themecheck will flag it.
-	$with_replacement    = function_exists( '__' ) ? /* translators: 1. PHP function name, 2. theme name, 3. version number, 4. alternative function name */ __( '%1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.', 'primer' ) : '%1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.';
-	$without_replacement = function_exists( '__' ) ? /* translators: 1. PHP function name, 2. theme name, 3. version number */ __( '%1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.', 'primer' ) : '%1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.';
+	$with_replacement    = function_exists( '__' ) ? /* translators: 1. PHP function name, 2. theme name, 3. version number, 4. alternative function name */ __( '%1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.', 'trc' ) : '%1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.';
+	$without_replacement = function_exists( '__' ) ? /* translators: 1. PHP function name, 2. theme name, 3. version number */ __( '%1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.', 'trc' ) : '%1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.';
 
 	$string  = ( $replacement ) ? $with_replacement : $without_replacement;
-	$theme   = ! empty( $theme ) ? $theme : esc_html__( 'Primer', 'primer' );
+	$theme   = ! empty( $theme ) ? $theme : esc_html__( 'trc', 'trc' );
 	$message = ! empty( $message ) ? ' ' . $message : null;
 
 	// @codingStandardsIgnoreStart
@@ -53,11 +53,11 @@ function primer_deprecated( $name, $version, $replacement = null, $theme = null,
 /**
  * Mark a function as deprecated.
  *
- * This function is to be used in every Primer function that is deprecated.
+ * This function is to be used in every trc function that is deprecated.
  *
  * Note: This function's access is marked private. This means it is not
  * intended to be used by plugin or theme developers, and should only be
- * used by other Primer functions. This function could be changed or even
+ * used by other trc functions. This function could be changed or even
  * removed in the future without concern for backward compatiblity and is
  * only documented here for completeness.
  *
@@ -68,14 +68,14 @@ function primer_deprecated( $name, $version, $replacement = null, $theme = null,
  * @param string $function    The function that was called.
  * @param string $version     The theme version that deprecated the function.
  * @param string $replacement (optional) The function that should be called instead. Default is `null`.
- * @param string $theme       (optional) The theme that deprecated the function. Default is `null` which defaults to 'Primer'.
+ * @param string $theme       (optional) The theme that deprecated the function. Default is `null` which defaults to 'trc'.
  * @param string $message     (optional) A message regarding the change. Default is `null`.
  */
-function primer_deprecated_function( $function, $version, $replacement = null, $theme = null, $message = null ) {
+function trc_deprecated_function( $function, $version, $replacement = null, $theme = null, $message = null ) {
 
 	if ( (bool) apply_filters( 'deprecated_function_trigger_error', true ) ) {
 
-		primer_deprecated( $function, $version, $replacement, $theme, $message );
+		trc_deprecated( $function, $version, $replacement, $theme, $message );
 
 	}
 
@@ -85,11 +85,11 @@ function primer_deprecated_function( $function, $version, $replacement = null, $
  * Mark a filter hook as deprecated.
  *
  * This function is a replacement for `apply_filters()` that is used to
- * deprecate Primer filter hooks.
+ * deprecate trc filter hooks.
  *
  * Note: This function's access is marked private. This means it is not
  * intended to be used by plugin or theme developers, and should only be
- * used by other Primer functions. This function could be changed or even
+ * used by other trc functions. This function could be changed or even
  * removed in the future without concern for backward compatiblity and is
  * only documented here for completeness.
  *
@@ -101,12 +101,12 @@ function primer_deprecated_function( $function, $version, $replacement = null, $
  * @param array  $args        Array of additional function arguments to be passed to `apply_filters()`.
  * @param string $version     The theme version that deprecated the hook.
  * @param string $replacement (optional) The hook that should be called instead. Default is `null`.
- * @param string $theme       (optional) The theme that deprecated the hook. Default is `null` which defaults to 'Primer'.
+ * @param string $theme       (optional) The theme that deprecated the hook. Default is `null` which defaults to 'trc'.
  * @param string $message     (optional) A message regarding the change. Default is `null`.
  *
  * @return mixed
  */
-function primer_apply_filters_deprecated( $tag, $args, $version, $replacement = null, $theme = null, $message = null ) {
+function trc_apply_filters_deprecated( $tag, $args, $version, $replacement = null, $theme = null, $message = null ) {
 
 	if ( ! has_filter( $tag ) ) {
 
@@ -116,7 +116,7 @@ function primer_apply_filters_deprecated( $tag, $args, $version, $replacement = 
 
 	if ( (bool) apply_filters( 'deprecated_hook_trigger_error', true ) ) {
 
-		primer_deprecated( $tag, $version, $replacement, $theme, $message );
+		trc_deprecated( $tag, $version, $replacement, $theme, $message );
 
 	}
 
@@ -128,11 +128,11 @@ function primer_apply_filters_deprecated( $tag, $args, $version, $replacement = 
  * Mark an action hook as deprecated.
  *
  * This function is a replacement for `do_action()` that is used to
- * deprecate Primer action hooks.
+ * deprecate trc action hooks.
  *
  * Note: This function's access is marked private. This means it is not
  * intended to be used by plugin or theme developers, and should only be
- * used by other Primer functions. This function could be changed or even
+ * used by other trc functions. This function could be changed or even
  * removed in the future without concern for backward compatiblity and is
  * only documented here for completeness.
  *
@@ -144,10 +144,10 @@ function primer_apply_filters_deprecated( $tag, $args, $version, $replacement = 
  * @param array  $args        Array of additional function arguments to be passed to `do_action()`.
  * @param string $version     The theme version that deprecated the hook.
  * @param string $replacement (optional) The hook that should be called instead. Default is `null`.
- * @param string $theme       (optional) The theme that deprecated the hook. Default is `null` which defaults to 'Primer'.
+ * @param string $theme       (optional) The theme that deprecated the hook. Default is `null` which defaults to 'trc'.
  * @param string $message     (optional) A message regarding the change. Default is `null`.
  */
-function primer_do_action_deprecated( $tag, $args, $version, $replacement = null, $theme = null, $message = null ) {
+function trc_do_action_deprecated( $tag, $args, $version, $replacement = null, $theme = null, $message = null ) {
 
 	if ( ! has_action( $tag ) ) {
 
@@ -157,7 +157,7 @@ function primer_do_action_deprecated( $tag, $args, $version, $replacement = null
 
 	if ( (bool) apply_filters( 'deprecated_hook_trigger_error', true ) ) {
 
-		primer_deprecated( $tag, $version, $replacement, $theme, $message );
+		trc_deprecated( $tag, $version, $replacement, $theme, $message );
 
 	}
 
@@ -168,13 +168,13 @@ function primer_do_action_deprecated( $tag, $args, $version, $replacement = null
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
- * @deprecated 1.6.0 No longer supported as the pagination function. Use `primer_pagination()` instead.
+ * @deprecated 1.6.0 No longer supported as the pagination function. Use `trc_pagination()` instead.
  * @global     WP_Query $wp_query
  * @since      1.0.0
  */
-function primer_paging_nav() {
+function trc_paging_nav() {
 
-	primer_deprecated_function( __FUNCTION__ . '()', '1.6.0', 'primer_pagination()' );
+	trc_deprecated_function( __FUNCTION__ . '()', '1.6.0', 'trc_pagination()' );
 
 	global $wp_query;
 
@@ -187,19 +187,19 @@ function primer_paging_nav() {
 	?>
 	<nav class="navigation paging-navigation">
 
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'primer' ); ?></h2>
+		<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'trc' ); ?></h2>
 
 		<div class="nav-links">
 
 		<?php if ( get_next_posts_link() ) : ?>
 
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'primer' ) ); ?></div>
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'trc' ) ); ?></div>
 
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
 
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'primer' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'trc' ) ); ?></div>
 
 		<?php endif; ?>
 

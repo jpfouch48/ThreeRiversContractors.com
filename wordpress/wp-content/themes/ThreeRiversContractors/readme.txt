@@ -1,4 +1,4 @@
-=== Primer ===
+=== trc ===
 Contributors:      godaddy, fjarrett, jonathanbardo, eherman24
 Tags:              custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, left-sidebar, one-column, right-sidebar, rtl-language-support, sticky-post, threaded-comments, three-columns, translation-ready, two-columns
 Requires at least: 4.4
@@ -7,7 +7,7 @@ Stable tag:        1.8.6
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Primer is a powerful theme that brings clarity to your content in a fresh design. This is the parent for all themes in the GoDaddy Primer theme family.
+trc is a powerful theme that brings clarity to your content in a fresh design. This is the parent for all themes in the GoDaddy trc theme family.
 
 == Description ==
 
@@ -27,20 +27,20 @@ Primer is a powerful theme that brings clarity to your content in a fresh design
 
 **Contributing**
 
-You can fork and contribute back to Primer by visiting [our public repo on GitHub](https://github.com/godaddy/wp-primer-theme).
+You can fork and contribute back to trc by visiting [our public repo on GitHub](https://github.com/godaddy/wp-trc-theme).
 
 == Installation ==
 
 1. In your admin panel, nagivate to **Appearance > Themes** and click the **Add New** button.
-2. Type **Primer** in the search form and press the **Enter** key on your keyboard.
-3. Click the **Activate** button to begin using Primer on your website.
+2. Type **trc** in the search form and press the **Enter** key on your keyboard.
+3. Click the **Activate** button to begin using trc on your website.
 4. In your admin panel, navigate to **Appearance > Customize**.
 5. Put the finishing touches on your website by adding a logo, header image, and custom colors.
 
 == Copyright ==
 
-Primer WordPress theme, Copyright 2017 GoDaddy Operating Company, LLC.
-Primer is distributed under the terms of the GNU GPL.
+trc WordPress theme, Copyright 2017 GoDaddy Operating Company, LLC.
+trc is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -52,7 +52,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
-Primer bundles the following third-party resources:
+trc bundles the following third-party resources:
 
 Genericons icon font, Copyright 2013 Automattic, Inc.
 License: GPL-2.0 (or later)
@@ -77,10 +77,10 @@ Source: https://unsplash.com/photos/v4ZUGlrdVAA
 
 = 1.8.3 =
 * New: Introduce a privacy policy link in the footer, when set. @props [evanherman](https://github.com/EvanHerman)
-* New: Introduce `primer_privacy_policy_link` filter to enable/disable the privacy policy link in footer. @props [evanherman](https://github.com/EvanHerman)
+* New: Introduce `trc_privacy_policy_link` filter to enable/disable the privacy policy link in footer. @props [evanherman](https://github.com/EvanHerman)
 * New: Add styles for privacy policy link and cookie comment checkbox & label. @props [evanherman](https://github.com/EvanHerman)
 * New: Add font previews to the customizer when selecting a font. @props [evanherman](https://github.com/EvanHerman)
-* Tweak: Update `primer_wc_shop_columns()` to reference the shop page ID. @props [evanherman](https://github.com/EvanHerman)
+* Tweak: Update `trc_wc_shop_columns()` to reference the shop page ID. @props [evanherman](https://github.com/EvanHerman)
 
 = 1.8.2 =
 * Fix: Comment counts showing an extra character. @props [evanherman](https://github.com/EvanHerman)
@@ -104,20 +104,20 @@ Source: https://unsplash.com/photos/v4ZUGlrdVAA
 
 = 1.7.0 =
 * New: Enabled video headers and introduced styles to accommodate full width video headers. @props [evanherman](https://github.com/EvanHerman)
-* New: Introduced new `primer_pre_hero` action. @props [evanherman](https://github.com/EvanHerman)
+* New: Introduced new `trc_pre_hero` action. @props [evanherman](https://github.com/EvanHerman)
 * New: Added aria labels on the 'Continue Reading' links for `a11y` improvements. @props [evanherman](https://github.com/EvanHerman)
-* New: Introduced `primer_wc_product_header_image` filter. @props [evanherman](https://github.com/EvanHerman)
+* New: Introduced `trc_wc_product_header_image` filter. @props [evanherman](https://github.com/EvanHerman)
 * Tweak: Improved WooCommerce styles. @props [evanherman](https://github.com/EvanHerman)
 * Tweak: Tweak i18n functions, added translator comments. @props [evanherman](https://github.com/EvanHerman)
 * Tweak: Introduced Ninja Form response message styles. @props [evanherman](https://github.com/EvanHerman)
-* Fix: Ensure color schemes work with custom Primer child themes. @props [evanherman](https://github.com/EvanHerman)
+* Fix: Ensure color schemes work with custom trc child themes. @props [evanherman](https://github.com/EvanHerman)
 * Fix: Tweaked the WooCommerce product template title. @props [evanherman](https://github.com/EvanHerman)
 * Fix: Prevent WooCommerce single product images from hijacking the header image. @props [evanherman](https://github.com/EvanHerman)
 
 = 1.6.0 =
 * New: Hero Text widget designed for your site's front page @props [jonathanbardo](https://github.com/jonathanbardo), [fjarrett](https://github.com/fjarrett)
 * Tweak: Improved posts pagination design based on core pagination @props [fjarrett](https://github.com/fjarrett), [evanherman](https://github.com/EvanHerman)
-* Tweak: The `primer_paging_nav()` function has been deprecated in favor of `primer_pagination()` @props [fjarrett](https://github.com/fjarrett), [evanherman](https://github.com/EvanHerman)
+* Tweak: The `trc_paging_nav()` function has been deprecated in favor of `trc_pagination()` @props [fjarrett](https://github.com/fjarrett), [evanherman](https://github.com/EvanHerman)
 * Tweak: The WooCommerce template overrides directory has been moved to `templates/woocommerce/` @props [fjarrett](https://github.com/fjarrett)
 * Fix: Text overlap on WooCommerce Add to Cart buttons in certain languages @props [fjarrett](https://github.com/fjarrett), [evanherman](https://github.com/EvanHerman)
 * Fix: WooCommerce menu item appearing on older child themes without styles to support it @props [fjarrett](https://github.com/fjarrett)
@@ -130,7 +130,7 @@ Source: https://unsplash.com/photos/v4ZUGlrdVAA
 * New: Add Front Page Title setting to the Static Front Page section of the Customizer @props [evanherman](https://github.com/EvanHerman)
 * New: Added Footer Copyright Text setting to the Site Identity section of the Customizer @props [evanherman](https://github.com/EvanHerman)
 * New: Added Author Credit toggle to the Site Identity section of the Customizer @props [evanherman](https://github.com/EvanHerman)
-* New: [Developer documentation!](https://godaddy.github.io/wp-primer-theme/) @props [evanherman](https://github.com/EvanHerman)
+* New: [Developer documentation!](https://godaddy.github.io/wp-trc-theme/) @props [evanherman](https://github.com/EvanHerman)
 * Tweak: Added `nofollow` attribute to theme author link in the footer @props [evanherman](https://github.com/EvanHerman)
 * Tweak: Use core post navigation function @props [evanherman](https://github.com/EvanHerman)
 * Fix: Display glitch when last main menu item is a submenu @props [evanherman](https://github.com/EvanHerman)

@@ -2,7 +2,7 @@
 /**
  * Template part for displaying the post excerpt inside The Loop.
  *
- * @package Primer
+ * @package trc
  * @since   1.0.0
  */
 
@@ -12,6 +12,6 @@
 
 	<?php the_excerpt(); ?>
 
-	<p><a class="button" href="<?php the_permalink(); ?>" aria-label="<?php printf( /* translators: post title */ esc_attr__( 'Continue reading %s', 'primer' ), get_the_title() ); ?>"><?php printf( /* translators: right arrow (LTR) / left arrow (RTL) */ esc_html__( 'Continue Reading %s', 'primer' ), is_rtl() ? '&larr;' : '&rarr;' ); ?></a></p>
+	<p><a class="button" href="<?php the_permalink(); ?>" aria-label="<?php printf( /* translators: post title */ esc_attr__( 'Continue reading %s', 'trc' ), get_the_title() ); ?>"><?php printf( /* translators: right arrow (LTR) / left arrow (RTL) */ esc_html__( 'Continue Reading %s', 'trc' ), is_rtl() ? '&larr;' : '&rarr;' ); ?></a></p>
 
 </div><!-- .entry-summary -->

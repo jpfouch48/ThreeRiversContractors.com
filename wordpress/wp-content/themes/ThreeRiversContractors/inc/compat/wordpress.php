@@ -2,7 +2,7 @@
 /**
  * WordPress backwards compatibility.
  *
- * Prevents Primer from running on older WordPress versions since
+ * Prevents trc from running on older WordPress versions since
  * this theme is not meant to be backward compatible beyond two
  * major versions and relies on many newer functions and markup.
  *
@@ -22,16 +22,16 @@
  *
  * @since  1.0.0
  */
-function primer_switch_theme() {
+function trc_switch_theme() {
 
 	switch_theme( WP_DEFAULT_THEME, WP_DEFAULT_THEME );
 
 	unset( $_GET['activated'] ); // input var ok.
 
-	add_action( 'admin_notices', 'primer_upgrade_notice' );
+	add_action( 'admin_notices', 'trc_upgrade_notice' );
 
 }
-add_action( 'after_setup_theme', 'primer_switch_theme', 1 );
+add_action( 'after_setup_theme', 'trc_switch_theme', 1 );
 
 /**
  * Return the required WordPress version upgrade message.
@@ -41,7 +41,7 @@ add_action( 'after_setup_theme', 'primer_switch_theme', 1 );
  *
  * @since  1.0.0
  */
-function primer_get_wp_upgrade_message() {
+function trc_get_wp_upgrade_message() {
 
 	/**
 	 * Filter the required WordPress version upgrade message.
@@ -50,11 +50,11 @@ function primer_get_wp_upgrade_message() {
 	 *
 	 * @var string
 	 */
-	return (string) apply_filters( 'primer_required_wp_version_message',
+	return (string) apply_filters( 'trc_required_wp_version_message',
 		sprintf(
-			/* translators: 1. Primer minimum WordPress version. 2. Current WordPress version. */
-			esc_html__( 'Primer requires at least WordPress version %1$s. You are running version %2$s. Please upgrade and try again.', 'primer' ),
-			PRIMER_MIN_WP_VERSION,
+			/* translators: 1. trc minimum WordPress version. 2. Current WordPress version. */
+			esc_html__( 'trc requires at least WordPress version %1$s. You are running version %2$s. Please upgrade and try again.', 'trc' ),
+			trc_MIN_WP_VERSION,
 			get_bloginfo( 'version' )
 		)
 	);
@@ -65,13 +65,13 @@ function primer_get_wp_upgrade_message() {
  * Adds a message for unsuccessful theme switch.
  *
  * Prints an update nag after an unsuccessful attempt to
- * activate Primer on older WordPress versions.
+ * activate trc on older WordPress versions.
  *
  * @since 1.0.0
  */
-function primer_upgrade_notice() {
+function trc_upgrade_notice() {
 
-	printf( '<div class="error"><p>%s</p></div>', esc_html( primer_get_wp_upgrade_message() ) );
+	printf( '<div class="error"><p>%s</p></div>', esc_html( trc_get_wp_upgrade_message() ) );
 
 }
 
@@ -81,12 +81,12 @@ function primer_upgrade_notice() {
  * @action load-customize.php
  * @since  1.0.0
  */
-function primer_customize() {
+function trc_customize() {
 
-	wp_die( esc_html( primer_get_wp_upgrade_message() ), '', array( 'back_link' => true ) );
+	wp_die( esc_html( trc_get_wp_upgrade_message() ), '', array( 'back_link' => true ) );
 
 }
-add_action( 'load-customize.php', 'primer_customize' );
+add_action( 'load-customize.php', 'trc_customize' );
 
 /**
  * Prevents the Theme Preview from being loaded on older WordPress versions.
@@ -94,13 +94,13 @@ add_action( 'load-customize.php', 'primer_customize' );
  * @action template_redirect
  * @since  1.0.0
  */
-function primer_preview() {
+function trc_preview() {
 
 	if ( isset( $_GET['preview'] ) ) { // @codingStandardsIgnoreLine
 
-		wp_die( esc_html( primer_get_wp_upgrade_message() ) );
+		wp_die( esc_html( trc_get_wp_upgrade_message() ) );
 
 	}
 
 }
-add_action( 'template_redirect', 'primer_preview' );
+add_action( 'template_redirect', 'trc_preview' );

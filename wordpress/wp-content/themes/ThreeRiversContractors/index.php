@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Primer
+ * @package trc
  * @since   1.0.0
  */
 
@@ -27,7 +27,7 @@ get_header(); ?>
 
 		<?php endwhile; ?>
 
-		<?php primer_pagination(); ?>
+		<?php trc_pagination(); ?>
 
 	<?php else : ?>
 

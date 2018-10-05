@@ -2,7 +2,7 @@
 /**
  * Display the mobile menu
  *
- * @package Primer
+ * @package trc
  * @since   1.0.0
  */
 
