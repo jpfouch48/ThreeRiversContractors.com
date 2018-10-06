@@ -465,11 +465,11 @@ add_filter( 'wp_title', 'primer_wp_title', 10, 2 );
  */
 function primer_the_site_title_wrapper( $args ) {
 
-	if ( is_home() ) {
-
-		$args['wrapper'] = 'h1';
-
-	}
+//	if ( is_home() ) {
+//
+//		$args['wrapper'] = 'h1';
+//
+//	}
 
 	return $args;
 

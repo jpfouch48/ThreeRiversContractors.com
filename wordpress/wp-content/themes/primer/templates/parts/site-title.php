@@ -12,8 +12,9 @@
 
 	<?php primer_the_custom_logo(); ?>
 
-	<?php primer_the_site_title(); ?>
-
-	<?php primer_the_site_description(); ?>
+	<div class="site-text-wrapper">
+	   <?php primer_the_site_title(); ?>
+	   <?php primer_the_site_description(); ?>
+    </div>
 
 </div><!-- .site-title-wrapper -->
